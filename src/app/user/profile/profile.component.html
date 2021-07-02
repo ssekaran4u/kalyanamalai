@@ -1,0 +1,1156 @@
+<section class="dashboard-area padding-bottom-90px">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12 padd0 padd_10">
+                <div class="progress-status" [ngClass]="{hide: isProfileCompleteness===true}">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p>Profile Status</p>
+                        </div>
+                        <div class="col-lg-6">
+                            <p class="text-right"><a routerLink="../../profile-complete">How to get 100%</a></p>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width:{{myprofile.ProfileCompleteness}}%">{{myprofile.ProfileCompleteness}}%</div>
+                    </div>
+                </div>
+                <div class="justify-content-between align-items-center mb-4">
+                    <div [ngClass]="isLoading==true ? 'show' : 'hide'">
+                            <div class="row">
+                                <!-- Loader Start -->
+                                <div class="col-lg-12 padd_r_0">
+                                    <div class="sidebar section-bg">
+                                        <div class ="sticky-sidebar">
+                                            <div class="sidebar-widget">
+                                                <div class="author-bio">
+                                                    <div class="d-flex align-items-center row">
+                                                        <div class="col-3 text-center">
+                                                            <div class="img-loader skeleton width100">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-9">
+                                                            <div class="author-inner-bio">
+                                                                <h4 class="skeleton width60"></h4>
+                                                                <p class="skeleton width20"></p>
+                                                            </div>
+                                                            <div class="d-flex align-items-center row">
+                                                                <div class="col-xs-12 col-md-6">
+                                                                    <p class="skeleton width80"></p>
+                                                                    <p class="skeleton width80"></p>
+                                                                    <p class="skeleton width80"></p>
+                                                                </div>
+                                                                <div class="col-xs-12 col-md-6">
+                                                                    <p class="skeleton width80"></p>
+                                                                    <p class="skeleton width80"></p>
+                                                                    <p class="skeleton width80"></p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="buttons skeleton width30 mg-tp-10"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="single-listing-wrap">
+                                        <div class="feature-listing _strip">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <h2 class="widget-title skeleton width30"></h2>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-xs-12 col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                            <p style="width:40%" class="skeleton"></p>
+                                                        </div>
+                                                        <div class="col-7">
+                                                            <p style="width:90%" class="skeleton"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                            <p style="width:60%" class="skeleton"></p>
+                                                        </div>
+                                                        <div class="col-7">
+                                                            <p style="width:100%" class="skeleton"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                            <p style="width:30%" class="skeleton"></p>
+                                                        </div>
+                                                        <div class="col-7">
+                                                            <p style="width:70%" class="skeleton"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                            <p style="width:64%" class="skeleton"></p>
+                                                        </div>
+                                                        <div class="col-7">
+                                                            <p style="width:80%" class="skeleton"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                           <p style="width:30%" class="skeleton"></p>
+                                                        </div>
+                                                        <div class="col-7">
+                                                            <p style="width:80%" class="skeleton"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                            <p style="width:50%" class="skeleton"></p>
+                                                        </div>
+                                                        <div class="col-7">
+                                                            <p style="width:70%" class="skeleton"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                            <p style="width:40%" class="skeleton"></p>
+                                                        </div>
+                                                        <div class="col-7">
+                                                            <p style="width:90%" class="skeleton"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                            <p style="width:50%" class="skeleton"></p>
+                                                        </div>
+                                                        <div class="col-7">
+                                                            <p style="width:60%" class="skeleton"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="single-listing-wrap">
+                                        <div class="feature-listing _strip">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <h2 class="widget-title skeleton width30"></h2>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-xs-12 col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                            <p style="width:40%" class="skeleton"></p>
+                                                        </div>
+                                                        <div class="col-7">
+                                                            <p style="width:90%" class="skeleton"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                            <p style="width:60%" class="skeleton"></p>
+                                                        </div>
+                                                        <div class="col-7">
+                                                            <p style="width:100%" class="skeleton"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                            <p style="width:30%" class="skeleton"></p>
+                                                        </div>
+                                                        <div class="col-7">
+                                                            <p style="width:70%" class="skeleton"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                            <p style="width:64%" class="skeleton"></p>
+                                                        </div>
+                                                        <div class="col-7">
+                                                            <p style="width:80%" class="skeleton"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                           <p style="width:30%" class="skeleton"></p>
+                                                        </div>
+                                                        <div class="col-7">
+                                                            <p style="width:80%" class="skeleton"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                            <p style="width:50%" class="skeleton"></p>
+                                                        </div>
+                                                        <div class="col-7">
+                                                            <p style="width:70%" class="skeleton"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                            <p style="width:40%" class="skeleton"></p>
+                                                        </div>
+                                                        <div class="col-7">
+                                                            <p style="width:90%" class="skeleton"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                            <p style="width:50%" class="skeleton"></p>
+                                                        </div>
+                                                        <div class="col-7">
+                                                            <p style="width:60%" class="skeleton"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 feature-listing _strip text-center">
+                                    <div class="img-loader skeleton width100">
+                                    </div>
+                                </div>
+                                <!-- Loader End -->
+                            </div>
+                        </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="sidebar section-bg">
+                                <div class ="sticky-sidebar">
+                                    
+                                    <div class="sidebar-widget">
+                                        <!-- <div class="author-bio margin-bottom-30px"> -->
+                                        <div class="author-bio">
+                                            <div class="d-flex align-items-center row">
+                                                <div class="col-3 text-center">
+
+                                                    <div class="card-image-wrap">
+                                                        <img [defaultImage]="defaultImage" [lazyLoad]="myprofile.profilepicture" class="card__img" alt="">
+                                                    </div>
+                                                
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="author-inner-bio">
+                                                        <h4 class="author__title font-weight-bold pb-0 mb-1">{{myprofile.name}} [{{myprofile.id}}]</h4>
+                                                        <p class="author__meta">Profile created By {{myprofile.ProfileCreatedBy}}</p>
+                                                        <span class="badge badge-success" *ngIf="myprofile.Profiletype==1">
+                                                            <i class="las la-check-circle"></i> Verified
+                                                        </span>
+                                                        <span class="badge badge-danger" *ngIf="myprofile.Profiletype==0">
+                                                            <i class="las la-times-circle"></i> Not Verified
+                                                        </span>
+                                                        &nbsp;<span class="badge badge-warning">{{myprofile.PaymentStatus}}</span> 
+                                                    </div>
+                                                    <div class="d-flex align-items-center row">
+                                                        <div class="col-xs-12 col-md-6">
+                                                            <p>Age: <span> {{myprofile.age+' Years'}} {{myprofile.Height ? ' / '+myprofile.Height : '' }}  </span></p>
+                                                            <p>Religion: <span> {{myprofile.Religion}}  </span></p>
+                                                            <p>Caste: <span> {{myprofile.Caste}} </span></p>
+                                                        </div>
+                                                        <div class="col-xs-12 col-md-6">
+                                                            <p>Location: <span> {{myprofile.CommunicationCity}} </span></p>
+                                                            <p>Eduction: <span>  {{myprofile.Education}}  </span></p>
+                                                            <p>Profession: <span>{{myprofile.Profession}}</span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      
+                                        <!-- <div class="info-list _stripInfo margin-top-10">
+                                            
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="single-listing-wrap">
+                                <div class="feature-listing _strip">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h2 class="widget-title">Personal Information</h2>
+                                            <div class="title-shape"></div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="btn-edit text-right">
+                                                 <a class="btn btn-c1" routerLink="../../edit/edit-personal-details">
+                                                    Edit Profile  
+                                                </a>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="cfa-spinner text-center" [ngClass]="isProfileLoading==true ? 'show' : 'hide'">
+                                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="hide" [ngClass]="{'show': isProfileData==true}">
+                                        <div class="row mt-3">
+                                            <div class="col-xs-12 col-md-6">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Name</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.name=='' ? '---' : myprofile.name }}</p>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                      <p class="details_header">Marital Status</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.MaritalStatus=='' ? '---' : myprofile.MaritalStatus }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Email</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>
+                                                            {{myprofile.EmailId=='' ? '---' : myprofile.EmailId }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-md-6">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Age</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.age=='' ? '---' : myprofile.age }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Mother Tongue</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.MotherTongue=='' ? '---' : myprofile.MotherTongue }}</p>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="row">
+                                                    <div class="col-6">
+                                                        <p>Diet</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.Diet=='' ? '---' : myprofile.Diet }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p>Special Category</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>
+                                                            {{myprofile.SpecialCategory=='' ? 'None' : myprofile.SpecialCategory }}
+                                                            {{myprofile.SpecialCategoryOther=='' ? '' : myprofile.SpecialCategoryOther }}
+                                                        </p>
+                                                    </div>
+                                                </div> -->
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Address</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>
+                                                            {{myprofile.CommunicationCountry=='' ? '' : myprofile.CommunicationCountry }}
+                                                            {{myprofile.CommunicationState=='' ? '' : ','+myprofile.CommunicationState }}
+                                                            {{myprofile.CommunicationCity=='' ? '' : ','+myprofile.CommunicationCity }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h2 class="widget-title">Community Information</h2>
+                                            <div class="title-shape"></div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="btn-edit text-right">
+                                               <!--  <button class="btn btn-c1"><i class="las la-edit"></i> Edit</button> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="cfa-spinner text-center" [ngClass]="isProfileLoading==true ? 'show' : 'hide'">
+                                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <div class="hide" [ngClass]="{'show': isProfileData==true}">
+                                        <div class="row mt-3">
+                                            <div class="col-xs-12 col-md-6">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Community</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.Community=='' ? '---' : myprofile.Community }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Religion</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.Religion=='' ? '---' : myprofile.Religion }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Caste</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.Caste=='' ? '---' : myprofile.Caste }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Subsect</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.Subsect=='' ? '---' : myprofile.Subsect }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-md-6">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Gothram</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.Gothram=='' ? '---' : myprofile.Gothram }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Star</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.Star=='' ? '---' : myprofile.Star }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Padam</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.Padam=='' ? '---' : myprofile.Padam }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Dosham</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.Dosham=='' ? '---' : myprofile.Dosham }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="feature-listing _strip">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h2 class="widget-title">Communication Information</h2>
+                                            <div class="title-shape"></div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="btn-edit text-right">
+                                                <a class="btn btn-c1" routerLink="../../edit/edit-communication-address">
+                                                    Edit Profile  
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="cfa-spinner text-center" [ngClass]="isProfileLoading==true ? 'show' : 'hide'">
+                                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hide" [ngClass]="{'show': isProfileData==true}">
+                                        <div class="row mt-3">
+                                            <div class="col-xs-12 col-md-6">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Street</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.CommunicationStreet=='' ? '---' : myprofile.CommunicationStreet }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Area</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.CommunicationArea=='' ? '---' : myprofile.CommunicationArea }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Residing Status</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.ResidingStatus=='' ? '---' : myprofile.ResidingStatus }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Nationality</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.Nationality=='' ? '---' : myprofile.Nationality }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Mobile</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.CommunicationMobile=='' ? '---' : myprofile.CommunicationMobile }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-md-6">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Country</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.CommunicationCountry=='' ? '---' : myprofile.CommunicationCountry }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">State</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.CommunicationState=='' ? '---' : myprofile.CommunicationState }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">City</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.CommunicationCity=='' ? '---' : myprofile.CommunicationCity }} </p>
+                                                    </div>
+                                                </div>
+                                                 <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Pincode</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.CommunicationPincode=='' ? '---' : myprofile.CommunicationPincode }} </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="feature-listing _strip">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h2 class="widget-title">Education / Profession details</h2>
+                                            <div class="title-shape"></div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="btn-edit text-right">
+                                                <a class="btn btn-c1" routerLink="../../edit/edit-education-and-career-details">
+                                                    Edit Profile  
+                                                </a>
+                                            </div>
+                                            <!-- <div class="btn-edit text-right">
+                                                <button class="btn btn-c1"><i class="las la-edit"></i> Edit</button>
+                                            </div> -->
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="cfa-spinner text-center" [ngClass]="isProfileLoading==true ? 'show' : 'hide'">
+                                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hide" [ngClass]="{'show': isProfileData==true}">
+                                        <div class="row mt-3">
+                                            <div class="col-xs-12 col-md-12">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Education</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.Education=='' ? '---' : myprofile.Education }} </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Education in Detail</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.EducationInDetails=='' ? '---' : myprofile.EducationInDetails }} </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Profession</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.Profession=='' ? '---' : myprofile.Profession }} </p>
+                                                    </div>
+                                                </div>
+
+                                                 <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Profession Details</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.ProfessionInDetails=='' ? '---' : myprofile.ProfessionInDetails }} </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Employed in</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.EmployedIn=='' ? '---' : myprofile.EmployedIn }}</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Income</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.IncomeCurrency}} {{myprofile.Income}} {{myprofile.IncomeType}}</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row" *ngIf="myprofile.AdditionalIncome">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Additional Income</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.AdditionalIncomeCurrency}} {{myprofile.AdditionalIncome}} {{myprofile.AdditionalIncomeType}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+
+                                <div class="feature-listing _strip">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h2 class="widget-title">Family Details</h2>
+                                            <div class="title-shape"></div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="btn-edit text-right">
+                                                <a class="btn btn-c1" routerLink="../../edit/edit-family-information">
+                                                    Edit Profile  
+                                                </a>
+                                            </div>
+                                           <!--  <div class="btn-edit text-right">
+                                                <button class="btn btn-c1"><i class="las la-edit"></i> Edit</button>
+                                            </div> -->
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="cfa-spinner text-center" [ngClass]="isProfileLoading==true ? 'show' : 'hide'">
+                                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hide" [ngClass]="{'show': isProfileData==true}">
+                                        <div class="row mt-3">
+                                            <div class="col-xs-12 col-md-6">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Father Name</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.FatherName=='' ? '---' : myprofile.FatherName }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Mother Name</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.MotherName=='' ? '---' : myprofile.MotherName }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Family Value</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>{{myprofile.FamilyValue=='' ? '---' : myprofile.FamilyValue }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="details_header">Brothers</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>
+                                                            <span class="Married">Married: <span>{{myprofile.BrothersMarried=='' ? '---' : myprofile.BrothersMarried }} </span></span><br>
+                                                            <span class="UnMarried">UnMarried: <span>{{myprofile.BrothersUnmarried=='' ? '---' : myprofile.BrothersUnmarried }}</span></span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-md-6">
+                                                <div class="row">
+                                                    <div class="col-5">
+                                                        <p class="details_header">Profession</p>
+                                                    </div>
+                                                    <div class="col-7">
+                                                        <p>{{myprofile.FatherProfession=='' ? '---' : myprofile.FatherProfession }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-5">
+                                                        <p class="details_header">Profession Details</p>
+                                                    </div>
+                                                    <div class="col-7">
+                                                        <p>{{myprofile.MotherProfession=='' ? '---' : myprofile.MotherProfession }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-5">
+                                                        <p class="details_header">Family Status</p>
+                                                    </div>
+                                                    <div class="col-7">
+                                                        <p>{{myprofile.FamilyStatus=='' ? '---' : myprofile.FamilyStatus }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-5">
+                                                        <p class="details_header">Sisters</p>
+                                                    </div>
+                                                    <div class="col-7">
+                                                        <p>
+                                                            <span class="Married">Married: <span>{{myprofile.SistersMarried=='' ? '---' : myprofile.SistersMarried }} </span></span><br>
+                                                            <span class="UnMarried">UnMarried: <span>{{myprofile.SistersUnmarried=='' ? '---' : myprofile.SistersUnmarried }}</span></span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="listing-description _strip">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h2 class="widget-title">About Myself</h2>
+                                            <div class="title-shape"></div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="btn-edit text-right">
+                                                <a class="btn btn-c1" routerLink="../../edit/edit-describe-yourself">
+                                                    Edit Profile  
+                                                </a>
+                                            </div>
+                                            <!-- <div class="btn-edit text-right">
+                                                <button class="btn btn-c1"><i class="las la-edit"></i> Edit</button>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="section-heading mt-3">
+                                        <div class="cfa-spinner text-center" [ngClass]="isProfileLoading==true ? 'show' : 'hide'">
+                                            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                        </div>
+                                        <div class="hide" [ngClass]="{show: isProfileData==true}">
+                                            <p class="sec__desc font-size-16">{{myprofile.AboutMyself=='' ? '---' : myprofile.AboutMyself }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="feature-listing _strip">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h2 class="widget-title">My Expectation</h2>
+                                            <div class="title-shape"></div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="btn-edit text-right">
+                                                <a class="btn btn-c1" routerLink="../../edit/edit-my-expectation">
+                                                    Edit Profile  
+                                                </a>
+                                            </div>
+                                           <!--  <div class="btn-edit text-right">
+                                                <button class="btn btn-c1"><i class="las la-edit"></i> Edit</button>
+                                            </div> -->
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="cfa-spinner text-center" [ngClass]="isProfileLoading==true ? 'show' : 'hide'">
+                                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="hide" [ngClass]="{'show': isProfileData==true}">
+                                        <div class="row mt-3">
+                                            <div class="col-xs-12 col-md-12">
+                                                <div class="row" *ngIf="myprofile.ExpectationAboutLifePartner">
+                                                    <div class="col-12">
+                                                        <p class="margin-bottom-10px">{{myprofile.ExpectationAboutLifePartner=='' ? '---' : myprofile.ExpectationAboutLifePartner }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-3">
+                                                        <p class="details_header">Expectation Age</p>
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <p>{{myprofile.ExpectedAgeMin}} to {{myprofile.ExpectedAgeMax}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-3">
+                                                        <p class="details_header">Marital Status</p>
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <p>{{myprofile.ExpectedMaritalStatus=='' ? '---' : myprofile.ExpectedMaritalStatus }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-3">
+                                                        <p class="details_header">Community</p>
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <p>{{myprofile.ExpectedCommunity=='' ? '---' : myprofile.ExpectedCommunity }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-3">
+                                                        <p class="details_header">Diet</p>
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <p>{{myprofile.ExpectedDiet=='' ? '---' : myprofile.ExpectedDiet }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-3">
+                                                        <p class="details_header">Education</p>
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <p>{{myprofile.ExpectedEducation=='' ? '---' : myprofile.ExpectedEducation }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-3">
+                                                        <p class="details_header">Profession</p>
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <p>{{myprofile.ExpectedProfession=='' ? '---' : myprofile.ExpectedProfession }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-3">
+                                                        <p class="details_header">Height</p>
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <p>{{myprofile.ExpectedHeightMin}} to {{myprofile.ExpectedHeightMax}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-3">
+                                                        <p class="details_header">Star</p>
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <p>{{myprofile.ExpectedStar=='' ? '---' : myprofile.ExpectedStar }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-3">
+                                                        <p class="details_header">Special Category</p>
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <p>{{myprofile.ExpectedSpecialCategory=='' ? '---' : myprofile.ExpectedSpecialCategory }}  {{myprofile.ExpectedSpecialCategoryOther}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-3">
+                                                        <p class="details_header">Country Living in</p>
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <p>{{myprofile.ExpectedResidingCountry=='' ? '---' : myprofile.ExpectedResidingCountry }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-3">
+                                                        <p class="details_header">Residing State in</p>
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <p>{{myprofile.ExpectedResidingState=='' ? '---' : myprofile.ExpectedResidingState }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-3">
+                                                        <p class="details_header">Residing City</p>
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <p>{{myprofile.ExpectedResidingCity=='' ? '---' : myprofile.ExpectedResidingCity }} </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="feature-listing _strip">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h2 class="widget-title">My Habits / Physical Attributes</h2>
+                                            <div class="title-shape"></div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="btn-edit text-right">
+                                                <a class="btn btn-c1" routerLink="../../edit/edit-life-style-information">
+                                                    Edit Profile  
+                                                </a>
+                                            </div>
+                                            <!-- <div class="btn-edit text-right">
+                                                <button class="btn btn-c1"><i class="las la-edit"></i> Edit</button>
+                                            </div> -->
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="cfa-spinner text-center" [ngClass]="isProfileLoading==true ? 'show' : 'hide'">
+                                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hide" [ngClass]="{'show': isProfileData==true}">
+                                        <div class="row mt-3">
+                                            <div class="col-xs-12 col-md-6">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Diet</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.Diet=='' ? '---' : myprofile.Diet }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Smoking</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.Smoking=='' ? '---' : myprofile.Smoking }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Blood Group</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.BloodGroup=='' ? '---' : myprofile.BloodGroup }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Complexion</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.Complexion=='' ? '---' : myprofile.Complexion }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Weight</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.Weight=='' ? '---' : myprofile.Weight }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-md-6">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Drinking</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.Drinking=='' ? '---' : myprofile.Drinking }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Height</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.Height=='' ? '---' : myprofile.Height }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Physique</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.Physique=='' ? '---' : myprofile.Physique }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Special Category</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>
+                                                            {{myprofile.SpecialCategory=='' ? 'None' : myprofile.SpecialCategory }}
+                                                            {{myprofile.SpecialCategoryOther=='' ? '' : myprofile.SpecialCategoryOther }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="feature-listing _strip">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h2 class="widget-title">Hobbies / Interests</h2>
+                                            <div class="title-shape"></div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="btn-edit text-right">
+                                                <a class="btn btn-c1" routerLink="../../edit/edit-hobbies-details">
+                                                    Edit Profile  
+                                                </a>
+                                            </div>
+                                            <!-- <div class="btn-edit text-right">
+                                                <button class="btn btn-c1"><i class="las la-edit"></i> Edit</button>
+                                            </div> -->
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="cfa-spinner text-center" [ngClass]="isProfileLoading==true ? 'show' : 'hide'">
+                                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hide" [ngClass]="{'show': isProfileData==true}">
+                                        <div class="row mt-3">
+                                            <div class="col-xs-12 col-md-12">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Hobbies</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.Hobbies=='' ? '---' : myprofile.Hobbies }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Interests</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.Interests=='' ? '---' : myprofile.Interests }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Languages Known</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.SpokenLanguages=='' ? '---' : myprofile.SpokenLanguages }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Favourite Music</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.FavoriteMusic=='' ? '---' : myprofile.FavoriteMusic }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Sports</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.SportsActivities=='' ? '---' : myprofile.SportsActivities }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Favourite Cuisine</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.FavouriteCuisine=='' ? '---' : myprofile.FavouriteCuisine }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Favourite Reads</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.FavouriteReads=='' ? '---' : myprofile.FavouriteReads }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Preferred Movies</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.PreferredMovies=='' ? '---' : myprofile.PreferredMovies }} </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="details_header">Preferred Dress Style</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p>{{myprofile.PreferredDressStyle=='' ? '---' : myprofile.PreferredDressStyle }} </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 displaynone">
+                            <div class="feature-listing _strip text-center">
+                                <ul class="ads-dyna">
+                                    <li><img src="https://via.placeholder.com/250"></li>
+                                    <li><img src="https://via.placeholder.com/250"></li>
+                                    <li><img src="https://via.placeholder.com/250"></li>
+                                    <li><img src="https://via.placeholder.com/250"></li>
+                                    <li><img src="https://via.placeholder.com/250"></li>
+                                    <li><img src="https://via.placeholder.com/250"></li>
+                                    <li><img src="https://via.placeholder.com/250"></li>
+                                    <li><img src="https://via.placeholder.com/250"></li>
+                                    <li><img src="https://via.placeholder.com/250"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>

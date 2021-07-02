@@ -1,0 +1,628 @@
+<section class="dashboard-area padding-top-40px padding-bottom-90px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="justify-content-between align-items-center mb-4">
+                    <div class="row">
+                        <div class="col-lg-12 padd_10">
+                            <nav>
+                                <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link theme-btn pt-0 pb-0 mr-1 active" id="navTab1" data-toggle="tab" href="#navTabListing1" role="tab" aria-controls="navTabListing1" aria-selected="true">
+                                        <i class="las la-user-plus"></i> New
+                                    </a>
+                                    <a class="nav-item nav-link theme-btn pt-0 pb-0 mr-1" id="navTab2" data-toggle="tab" href="#navTabListing2" role="tab" aria-controls="navTabListing2" aria-selected="false">
+                                        <i class="las la-reply-all"></i> Replied
+                                    </a>
+                                    <a class="nav-item nav-link theme-btn pt-0 pb-0 mr-1" id="navTab3" data-toggle="tab" href="#navTabListing3" role="tab" aria-controls="navTabListing3" aria-selected="false">
+                                        <i class="las la-trash-alt"></i> Deleted
+                                    </a>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="padding-bottom-50px tab-pane fade show active" id="navTabListing1" role="tabpanel" aria-labelledby="navTab1">
+                                    <div class="row">
+
+                                        <div class="col-lg-12 card-list-item1 padd0">
+                                            <div class="billing-title-wrap1">
+                                                <div class="row">
+                                                    <div class="col-md-12 text-right div-title-btn">
+                                                        <span  class="btn btn-c1 btn-color padd0px-btn">
+                                                            <i class="las la-mail-bulk"></i> New Messages
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           <!--  <div class="col-md-12 cfa-spinner text-center" [ngClass]="outboxNewLoading==true ? 'show' : 'hide'">
+                                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                            </div> -->
+                                            <div class="cfa-spinner text-center" [ngClass]="outboxNewLoading==true ? 'show' : 'hide'">
+                                                <div class="skeleton-loader"></div>
+                                            </div>
+                                            <div class="cfa-spinner text-center" [ngClass]="outboxNewLoading==true ? 'show' : 'hide'">
+                                                <div class="skeleton-loader"></div>
+                                            </div>
+                                            <div class="cfa-spinner text-center" [ngClass]="outboxNewLoading==true ? 'show' : 'hide'">
+                                                <div class="skeleton-loader"></div>
+                                            </div>
+
+                                            <div class="billing-content1 hide" [ngClass]="{show: outboxNewData==true}">
+                                                <div *ngFor="let outboxN of outboxNew | paginate: {id: 'outboxNew', itemsPerPage: itemsPerPage , currentPage: outboxNewPage, totalItems: outboxNewTotalItems }" class="card-list-item2 padd0">
+                                                    <div class="row">
+                                                        <div class="col-md-3 text-center">
+                                                            <a routerLink="/profile/{{outboxN.regno}}" class="card-image-wrap" target="_blank">
+                                                                <div class="card-image">
+                                                                    <img [defaultImage]="defaultImage" [lazyLoad]="outboxN.profilePicture" class="card__img" alt="">
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                       
+                                                        <div class="col-md-9">
+                                                            <div class="card-content1 padd_10">
+                                                                <div class="row clearfix">
+                                                                    <div class="col-lg-6">
+                                                                        <a routerLink="/profile/{{outboxN.regno}}" target="_blank">
+                                                                            <h4 class="card-title">{{outboxN.name}} [{{outboxN.regnumber}}]
+                                                                                <i class="fa fa-check-circle" data-toggle="tooltip" data-placement="top" title="Claimed"></i>
+                                                                            </h4>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="list-time">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <p class="card-sub">Profile created for {{outboxN.profilecreatedby}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-lg-5">
+                                                                        <ul class="info-list">
+                                                                            <li><span>Marital Status:</span> {{outboxN.maritalstatus}}</li>
+                                                                            <li><span>Age:</span> {{outboxN.age}} <span>Height:</span>  {{outboxN.height}} </li>
+                                                                            <li><span>Religion:</span> {{outboxN.religion}}</li>
+                                                                            <li><span>Caste:</span> {{outboxN.caste}} </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-lg-7">
+                                                                        <ul class="info-list">
+                                                                            <li><span>Location:</span> {{outboxN.communicationarea}} </li>
+                                                                            <li><span>Education:</span> {{outboxN.education}}</li>
+                                                                            <li><span>Profession:</span> {{outboxN.profession}}</li>
+                                                                            <li><span>Star:</span> {{outboxN.star}}</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <!-- Message -->
+                                                                        <div *ngIf="outboxN.type == 'Message' " class="row no-gutters mt-2">
+                                                                            <div class="ml-4 quote-small-txt">
+                                                                                <span class="quote-bg">
+                                                                                    <i class="las la-arrow-circle-right"></i>
+                                                                                </span>
+                                                                                <span class="mx-1"> Message Sent</span> | 
+                                                                                <span class="ml-1 text-muted"> {{outboxN.interestSentTime ? outboxN.interestSentTime : '---'}} </span>
+                                                                            </div>
+                                                                            <div class="row col-md-12 col-sm-12 col-12 border mt-3 p-3 quote-box">
+                                                                                <div class="col-lg-8">
+                                                                                    <div class="font-weight"> 
+                                                                                        {{outboxN.receiveMessage ? outboxN.receiveMessage : '---'}} <i class="las la-check-double"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-4">
+                                                                                    <div class="_listButton text-right">
+                                                                                        <!-- <button (click)="openVerticallyCentered(content,outboxN.regnumber, outboxN.userrequestid,'outboxnew', 'message')" class="btn btn-danger"><i class="las la-times"></i> Delete</button> -->
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- Photo -->
+                                                                        <div *ngIf="outboxN.type == 'Photo'" class="row no-gutters mt-2">
+                                                                            <div class="ml-4 quote-small-txt">
+                                                                                <span class="quote-bg">
+                                                                                    <i class="las la-arrow-circle-right"></i>
+                                                                                </span>
+                                                                                <span class="mx-1">Photo Request Sent</span> | 
+                                                                                <span class="ml-1 text-muted"> {{outboxN.interestSentTime ? outboxN.interestSentTime : '---'}} </span>
+                                                                            </div>
+
+                                                                            <div class="row col-md-12 col-sm-12 col-12 border mt-3 p-3 quote-box">
+                                                                                <div class="col-lg-8">
+                                                                                    <div class="font-weight"> 
+                                                                                        {{outboxN.receiveMessage ? outboxN.receiveMessage : '---'}}
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-4">
+                                                                                    <div class="_listButton text-right">
+                                                                                        <!-- <button (click)="openVerticallyCentered(content,outboxN.regnumber, outboxN.userrequestid,'outboxNew','photo')" class="btn btn-danger"><i class="las la-times"></i> Decline</button> -->
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- Album -->
+                                                                        <div *ngIf="outboxN.type == 'Album'" class="row no-gutters mt-2">
+                                                                            <div class="ml-4 quote-small-txt">
+                                                                                <span class="quote-bg">
+                                                                                    <i class="las la-arrow-circle-right"></i>
+                                                                                </span>
+                                                                                <span class="mx-1">Album Request Sent</span> | 
+                                                                                <span class="ml-1 text-muted"> {{outboxN.interestSentTime ? outboxN.interestSentTime : '---'}} </span>
+                                                                            </div>
+
+                                                                            <div class="row col-md-12 col-sm-12 col-12 border mt-3 p-3 quote-box">
+                                                                                <div class="col-lg-8">
+                                                                                    <div class="font-weight"> 
+                                                                                        {{outboxN.receiveMessage ? outboxN.receiveMessage : '---'}}
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-4">
+                                                                                    <div class="_listButton text-right">
+                                                                                        <!-- <button (click)="openVerticallyCentered(content,outboxN.regnumber, outboxN.userrequestid,'outboxNew','photo')" class="btn btn-danger"><i class="las la-times"></i> Decline</button> -->
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- Horoscope -->
+                                                                        <div *ngIf="outboxN.type == 'Horoscope' " class="row no-gutters mt-2">
+                                                                            <div class="ml-4 quote-small-txt">
+                                                                                <span class="quote-bg">
+                                                                                    <i class="las la-arrow-circle-right"></i>
+                                                                                </span>
+                                                                                <span class="mx-1">Horoscope Request Sent</span> | 
+                                                                                <span class="ml-1 text-muted"> {{outboxN.interestSentTime ? outboxN.interestSentTime : '---'}} </span>
+                                                                            </div>
+
+                                                                            <div class="row col-md-12 col-sm-12 col-12 border mt-3 p-3 quote-box">
+                                                                                <div class="col-lg-8">
+                                                                                    <div class="font-weight"> 
+                                                                                        {{outboxN.receiveMessage ? outboxN.receiveMessage : '---'}}
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-4">
+                                                                                    <div class="_listButton text-right">
+                                                                                        <!-- <button (click)="openVerticallyCentered(content,outboxN.regnumber, outboxN.userrequestid,'outboxnew','horoscope')" class="btn btn-danger"><i class="las la-times"></i> Decline</button> -->
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <pagination-controls
+                                                    id="outboxNew" 
+                                                    (pageChange)="getoutboxNew(outboxNewPage = $event)"
+                                                    maxSize="9"
+                                                    directionLinks="true"
+                                                    autoHide="true"
+                                                    responsive="true">
+                                                </pagination-controls>
+                                            </div>
+                                            <div [ngClass]="{show: outboxNewNotFound==true}" class="hide alert alert-danger text-center">
+                                                <strong>No data found...!</strong>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="navTabListing2" role="tabpanel" aria-labelledby="navTab2">
+                                    <div class="row">
+
+                                        <div class="col-lg-12 card-list-item1 padd0">
+                                            <div class="billing-title-wrap1">
+                                                <div class="row">
+                                                    <div class="col-md-12 text-right div-title-btn">
+                                                        <span  class="btn btn-c1 btn-color padd0px-btn">
+                                                            <i class="las la-envelope-open-text"></i> Replied Messages
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-md-12 cfa-spinner text-center" [ngClass]="outboxRepliedLoading==true ? 'show' : 'hide'">
+                                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                            </div> -->
+                                            <div class="cfa-spinner text-center" [ngClass]="outboxRepliedLoading==true ? 'show' : 'hide'">
+                                                <div class="skeleton-loader"></div>
+                                            </div>
+                                            <div class="cfa-spinner text-center" [ngClass]="outboxRepliedLoading==true ? 'show' : 'hide'">
+                                                <div class="skeleton-loader"></div>
+                                            </div>
+                                            <div class="cfa-spinner text-center" [ngClass]="outboxRepliedLoading==true ? 'show' : 'hide'">
+                                                <div class="skeleton-loader"></div>
+                                            </div>
+
+                                            <div class="billing-content1 hide" [ngClass]="{show: outboxRepliedData==true}">
+                                                <div *ngFor="let outboxR of outboxReplied | paginate: {id: 'outboxReplied', itemsPerPage: itemsPerPage , currentPage: outboxRepliedPage, totalItems: outboxRepliedTotalItems }" class="card-list-item2 padd0">
+                                                    <div class="row">
+                                                        <div class="col-md-3 text-center">
+                                                            <a routerLink="/profile/{{outboxR.regno}}" class="card-image-wrap" target="_blank">
+                                                                <div class="card-image">
+                                                                    <img [defaultImage]="defaultImage" [lazyLoad]="outboxR.profilePicture" class="card__img" alt="">
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="card-content1 padd_10">
+                                                                <div class="row clearfix">
+                                                                    <div class="col-lg-6">
+                                                                        <a routerLink="/profile/{{outboxR.regno}}" target="_blank">
+                                                                            <h4 class="card-title">{{outboxR.name}} [{{outboxR.regnumber}}]
+                                                                                <i *ngIf="outboxR.Profiletype==1" class="fa fa-check-circle" data-toggle="tooltip" data-placement="top" title="Verified"></i>
+                                                                            </h4>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="list-time">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <p class="card-sub">Profile created for {{outboxR.profilecreatedby}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-lg-5">
+                                                                        <ul class="info-list">
+                                                                            <li><span>Marital Status:</span> {{outboxR.maritalstatus}}</li>
+                                                                            <li><span>Age:</span> {{outboxR.age}} <span>Height:</span>  {{outboxR.height}} </li>
+                                                                            <li><span>Religion:</span> {{outboxR.religion}}</li>
+                                                                            <li><span>Caste:</span> {{outboxR.caste}} </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-lg-7">
+                                                                        <ul class="info-list">
+                                                                            <li><span>Location:</span> {{outboxR.communicationarea}} </li>
+                                                                            <li><span>Education:</span> {{outboxR.education}}</li>
+                                                                            <li><span>Profession:</span> {{outboxR.profession}}</li>
+                                                                            <li><span>Star:</span> {{outboxR.star}}</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <!-- Message -->
+                                                                        <div *ngIf="outboxR.type == 'Message' " class="row no-gutters mt-2">
+                                                                            <div class="ml-4 quote-small-txt">
+                                                                                <span class="quote-bg">
+                                                                                    <i class="las la-arrow-circle-right"></i>
+                                                                                </span>
+                                                                                <span class="mx-1"> Message Replied</span> | 
+                                                                                <span class="ml-1 text-muted"> {{outboxR.repliedTime ? outboxR.repliedTime : '---'}} </span>
+                                                                            </div>
+                                                                            <div class="row col-md-12 col-sm-12 col-12 border mt-3 p-3 quote-box">
+                                                                                <div class="col-lg-8">
+                                                                                    <div class="font-weight"> 
+                                                                                        {{outboxR.receiveMessage ? outboxR.receiveMessage : '---'}}
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-4">
+                                                                                    <!-- <div class="_listButton text-right">
+                                                                                        <button (click)="openVerticallyCentered(content,outboxR.regnumber, outboxR.userrequestid,'outboxReplied', 'message')" class="btn btn-danger"><i class="las la-times"></i> Decline</button>
+                                                                                    </div> -->
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- Photo -->
+                                                                        <div *ngIf="outboxR.type == 'Photo' " class="row no-gutters mt-2">
+                                                                            <div class="ml-4 quote-small-txt">
+                                                                                <span class="quote-bg">
+                                                                                    <i class="las la-arrow-circle-right"></i>
+                                                                                </span>
+                                                                                <span class="mx-1">Photo Request Replied</span> | 
+                                                                                <span class="ml-1 text-muted"> {{outboxR.acceptedTime ? outboxR.acceptedTime : '---'}} </span>
+                                                                            </div>
+
+                                                                            <div class="row col-md-12 col-sm-12 col-12 border mt-3 p-3 quote-box">
+                                                                                <div class="col-lg-8">
+                                                                                    <div class="font-weight"> 
+                                                                                        {{outboxR.receiveMessage ? outboxR.receiveMessage : '---'}}
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-4">
+                                                                                    <div  *ngIf="outboxR.uploadimages.length>0" class="_listButton text-right">
+                                                                                        <button (click)="uploadProfile(profile,outboxR.regnumber, outboxR.userrequestid,'outboxReplied','photo')" class="btn btn-success"><i class="las la-check"></i> View Images</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- Album -->
+                                                                        <div *ngIf="outboxR.type == 'Album' " class="row no-gutters mt-2">
+                                                                            <div class="ml-4 quote-small-txt">
+                                                                                <span class="quote-bg">
+                                                                                    <i class="las la-arrow-circle-right"></i>
+                                                                                </span>
+                                                                                <span class="mx-1">Album Request Replied</span> | 
+                                                                                <span class="ml-1 text-muted"> {{outboxR.acceptedTime ? outboxR.acceptedTime : '---'}} </span>
+                                                                            </div>
+
+                                                                            <div class="row col-md-12 col-sm-12 col-12 border mt-3 p-3 quote-box">
+                                                                                <div class="col-lg-8">
+                                                                                    <div class="font-weight"> 
+                                                                                        {{outboxR.receiveMessage ? outboxR.receiveMessage : '---'}}
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-4">
+                                                                                    <div  *ngIf="outboxR.uploadimages.length>0" class="_listButton text-right">
+                                                                                        <button (click)="uploadProfile(profile,outboxR.regnumber, outboxR.userrequestid,'outboxReplied','photo')" class="btn btn-success"><i class="las la-check"></i> View Images</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- Horoscope -->
+                                                                        <div *ngIf="outboxR.type == 'Horoscope' " class="row no-gutters mt-2">
+                                                                            <div class="ml-4 quote-small-txt">
+                                                                                <span class="quote-bg">
+                                                                                    <i class="las la-arrow-circle-right"></i>
+                                                                                </span>
+                                                                                <span class="mx-1">Horoscope Request Replied</span> | 
+                                                                                <span class="ml-1 text-muted"> {{outboxR.acceptedTime ? outboxR.acceptedTime : '---'}} </span>
+                                                                            </div>
+
+                                                                            <div class="row col-md-12 col-sm-12 col-12 border mt-3 p-3 quote-box">
+                                                                                <div class="col-lg-8">
+                                                                                    <div class="font-weight"> 
+                                                                                        {{outboxR.receiveMessage ? outboxR.receiveMessage : '---'}}
+                                                                                    </div>
+                                                                                </div>
+                                                                               <!--  <div class="col-lg-4">
+                                                                                    <div class="_listButton text-right">
+                                                                                        <button (click)="openVerticallyCentered(content,outboxR.regnumber, outboxR.userrequestid,'outboxReplied','horoscope')" class="btn btn-danger"><i class="las la-times"></i> Decline</button>
+                                                                                    </div>
+                                                                                </div> -->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <pagination-controls
+                                                    id="outboxReplied" 
+                                                    (pageChange)="getoutboxReplied(outboxRepliedPage = $event)"
+                                                    maxSize="9"
+                                                    directionLinks="true"
+                                                    autoHide="true"
+                                                    responsive="true">
+                                                </pagination-controls>
+                                            </div>
+                                            <div [ngClass]="{show: outboxRepliedNotFound==true}" class="hide alert alert-danger text-center">
+                                                <strong>No data found...!</strong>
+                                            </div>
+                                        </div>
+                                    
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="navTabListing3" role="tabpanel" aria-labelledby="navTab3">
+                                    <div class="row">
+
+                                        <div class="col-lg-12 card-list-item1 padd0">
+                                            <div class="billing-title-wrap1">
+                                                <div class="row">
+                                                    <div class="col-md-12 text-right div-title-btn">
+                                                        <span  class="btn btn-c1 btn-color padd0px-btn">
+                                                            <i class="las la-trash-alt"></i> Deleted Messages
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           <!--  <div class="col-md-12 cfa-spinner text-center" [ngClass]="outboxDeletedLoading==true ? 'show' : 'hide'">
+                                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                            </div> -->
+                                            <div class="cfa-spinner text-center" [ngClass]="outboxDeletedLoading==true ? 'show' : 'hide'">
+                                                <div class="skeleton-loader"></div>
+                                            </div>
+                                            <div class="cfa-spinner text-center" [ngClass]="outboxDeletedLoading==true ? 'show' : 'hide'">
+                                                <div class="skeleton-loader"></div>
+                                            </div>
+                                            <div class="cfa-spinner text-center" [ngClass]="outboxDeletedLoading==true ? 'show' : 'hide'">
+                                                <div class="skeleton-loader"></div>
+                                            </div>
+
+                                            <div class="billing-content1 hide" [ngClass]="{show: outboxDeletedData==true}">
+                                                <div *ngFor="let outboxD of outboxDeleted | paginate: {id: 'outboxDeleted', itemsPerPage: itemsPerPage , currentPage: outboxDeletedPage, totalItems: outboxDeletedTotalItems }" class="card-list-item2 padd0">
+                                                    <div class="row">
+                                                        <div class="col-md-3 text-center">
+                                                            <a routerLink="/profile/{{outboxD.regno}}" class="card-image-wrap" target="_blank">
+                                                                <div class="card-image">
+                                                                    <img [defaultImage]="defaultImage" [lazyLoad]="outboxD.profilePicture" class="card__img" alt="">
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="card-content1 padd_10">
+                                                                <div class="row clearfix">
+                                                                    <div class="col-lg-6">
+                                                                        <a routerLink="/profile/{{outboxD.regno}}" target="_blank">
+                                                                            <h4 class="card-title">{{outboxD.name}} [{{outboxD.regnumber}}]
+                                                                                <i class="fa fa-check-circle" data-toggle="tooltip" data-placement="top" title="Claimed"></i>
+                                                                            </h4>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="list-time">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <p class="card-sub">Profile created for {{outboxD.profilecreatedby}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-lg-5">
+                                                                        <ul class="info-list">
+                                                                            <li><span>Marital Status:</span> {{outboxD.maritalstatus}}</li>
+                                                                            <li><span>Age:</span> {{outboxD.age}} <span>Height:</span>  {{outboxD.height}} </li>
+                                                                            <li><span>Religion:</span> {{outboxD.religion}}</li>
+                                                                            <li><span>Caste:</span> {{outboxD.caste}} </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-lg-7">
+                                                                        <ul class="info-list">
+                                                                            <li><span>Location:</span> {{outboxD.communicationarea}} </li>
+                                                                            <li><span>Education:</span> {{outboxD.education}}</li>
+                                                                            <li><span>Profession:</span> {{outboxD.profession}}</li>
+                                                                            <li><span>Star:</span> {{outboxD.star}}</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <!-- Message -->
+                                                                        <div *ngIf="outboxD.type == 'Message' " class="row no-gutters mt-2">
+                                                                            <div class="ml-4 quote-small-txt">
+                                                                                <span class="quote-bg">
+                                                                                    <i class="las la-arrow-circle-right"></i>
+                                                                                </span>
+                                                                                <span class="mx-1"> Message Deleted</span> | 
+                                                                                <span class="ml-1 text-muted"> {{outboxD.deletedTime ? outboxD.deletedTime : '---'}} </span>
+                                                                            </div>
+                                                                            <div class="row col-md-12 col-sm-12 col-12 border mt-3 p-3 quote-box">
+                                                                                <div class="col-lg-8">
+                                                                                    <div class="font-weight"> 
+                                                                                        {{outboxD.receiveMessage ? outboxD.receiveMessage : '---'}}
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-4">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- Photo -->
+                                                                        <div *ngIf="outboxD.type == 'Photo' " class="row no-gutters mt-2">
+                                                                            <div class="ml-4 quote-small-txt">
+                                                                                <span class="quote-bg">
+                                                                                    <i class="las la-arrow-circle-right"></i>
+                                                                                </span>
+                                                                                <span class="mx-1">Photo Request Deleted</span> | 
+                                                                                <span class="ml-1 text-muted"> {{outboxD.ignoredTime ? outboxD.ignoredTime : '---'}} </span>
+                                                                            </div>
+
+                                                                            <div class="row col-md-12 col-sm-12 col-12 border mt-3 p-3 quote-box">
+                                                                                <div class="col-lg-8">
+                                                                                    <div class="font-weight"> 
+                                                                                        {{outboxD.receiveMessage ? outboxD.receiveMessage : '---'}}
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-4">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- Album -->
+                                                                        <div *ngIf="outboxD.type == 'Album' " class="row no-gutters mt-2">
+                                                                            <div class="ml-4 quote-small-txt">
+                                                                                <span class="quote-bg">
+                                                                                    <i class="las la-arrow-circle-right"></i>
+                                                                                </span>
+                                                                                <span class="mx-1">Album Request Deleted</span> | 
+                                                                                <span class="ml-1 text-muted"> {{outboxD.ignoredTime ? outboxD.ignoredTime : '---'}} </span>
+                                                                            </div>
+
+                                                                            <div class="row col-md-12 col-sm-12 col-12 border mt-3 p-3 quote-box">
+                                                                                <div class="col-lg-8">
+                                                                                    <div class="font-weight"> 
+                                                                                        {{outboxD.receiveMessage ? outboxD.receiveMessage : '---'}}
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-4">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- Horoscope -->
+                                                                        <div *ngIf="outboxD.type == 'Horoscope' " class="row no-gutters mt-2">
+                                                                            <div class="ml-4 quote-small-txt">
+                                                                                <span class="quote-bg">
+                                                                                    <i class="las la-arrow-circle-right"></i>
+                                                                                </span>
+                                                                                <span class="mx-1">Horoscope Request Deleted</span> | 
+                                                                                <span class="ml-1 text-muted"> {{outboxD.ignoredTime ? outboxD.ignoredTime : '---'}} </span>
+                                                                            </div>
+
+                                                                            <div class="row col-md-12 col-sm-12 col-12 border mt-3 p-3 quote-box">
+                                                                                <div class="col-lg-8">
+                                                                                    <div class="font-weight"> 
+                                                                                        {{outboxD.receiveMessage ? outboxD.receiveMessage : '---'}}
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-4">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <pagination-controls
+                                                    id="outboxDeleted" 
+                                                    (pageChange)="getoutboxDeleted(outboxDeletedPage = $event)"
+                                                    maxSize="9"
+                                                    directionLinks="true"
+                                                    autoHide="true"
+                                                    responsive="true">
+                                                </pagination-controls>
+                                            </div>
+                                            <div [ngClass]="{show: outboxDeletedNotFound==true}" class="hide alert alert-danger text-center">
+                                                <strong>No data found...!</strong>
+                                            </div>
+                                        </div>
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- <ng-template #content>
+    <div class="modal-header">
+        <h4 class="modal-title">Action</h4>
+    </div>
+    <div class="modal-body modal-delete text-center">
+        <h2><strong>Are you sure to delete?</strong></h2>
+        <button type="button" class="btn btn-danger" (click)="deleteMessage()"><i class="las la-check"></i> Yes</button>
+        <button type="button" class="btn btn-success" (click)="closeModal()"><i class="las la-times"></i> No</button>
+    </div>
+</ng-template> -->
+
+<ng-template #content>
+    <div class="modal-header">
+        <h4 class="modal-title">Action</h4>
+    </div>
+    <div class="modal-body modal-delete text-center">
+        <div class="contact">
+            <h2 [innerHtml]="activeMessage"></h2>
+            <ul *ngIf="activeProcess=='horoscope' && isBecome==0">
+                <li>1. Send / Recieve unlimited personalised messages</li>
+                <li>2. View the contact address of members.</li>
+            </ul>
+        </div>
+        <button *ngIf="actionButtonTrue" type="button" class="btn btn-success" (click)="customPopUp()"><i class="las la-check"></i>  {{actionButtonTrue}}</button>
+        <button *ngIf="actionButtonFalse" type="button" class="btn btn-danger" (click)="closeModal()"><i class="las la-times"></i> {{actionButtonFalse}}</button>
+    </div>
+</ng-template>
+
+<ng-template #profile>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">View Profile</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body SentExpress">
+        <div class="col-md-12">
+            <div class="form-group margin-top-10px text-center">
+                <div class="row clearfix">
+                    <div *ngFor='let url of urls' class="col-lg-3">
+                        <img [src]="url.image_url" class="img-fluid-c">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group margin-top-10px text-center">
+            </div>
+        </div>
+    </div>
+</ng-template>

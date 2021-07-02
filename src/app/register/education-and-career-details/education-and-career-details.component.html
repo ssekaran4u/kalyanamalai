@@ -1,0 +1,204 @@
+ <div class="container-fluid">
+    <div class="row">
+        <div id="_extend_Id" class="col-md-8 offset-lg-2 offset-sm-0">
+            <form id="msform" class="_rStep2" [formGroup]="EducationAndCareerDetails" (ngSubmit)="onSubmit()">
+                <fieldset>
+                    <div class="billing-form-item">
+                        <div class="progressbar"></div>
+                        <div class="billing-content">
+                            <div class="contact-form-action">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="1st _rImge">
+                                            <img src="assets/images/reg/education.png" class="img-fluid mx-auto d-none d-xl-block">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="col-lg-12">
+                                            <h2 class="fs-title">Education &amp; Career details</h2>
+                                            <div class="form-group mg-bt-20">
+                                                <div class="km-form-group" [ngClass]="{kmactive: isEducation===true}">
+                                                    <label class="floatClass" [ngClass]="{showlbl: isEducation===true}">Select Education</label>
+                                                    <ng-multiselect-dropdown 
+                                                      [placeholder]="'Select Education'"
+                                                      [settings]="EducationSettings"
+                                                      [data]="Education"
+                                                      formControlName="selectEducation"
+                                                      [(ngModel)]="selectedEducationItems"
+                                                      (onSelect)="onItemSelectEducation($event)"
+                                                      (onDeSelect)="OnItemDeSelectEducation($event)"
+                                                    >
+                                                    </ng-multiselect-dropdown>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 mg-bt-20">
+                                            <div class="form-group custom-form-group mg-tp-20">
+                                                <label for="EducationDetail">Your Education Detail</label>
+                                                <span class="las la-school form-icon"></span>
+                                                <input formControlName="EducationDetail" name="EducationDetail" type="text" class="form-control" id="EducationDetail">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 mg-tp-20">
+                                            <div class="km-form-group" [ngClass]="{kmactive: isProfession===true}">
+                                                <label class="floatClass" [ngClass]="{showlbl: isProfession===true}">Your Profession</label>
+                                                <ng-multiselect-dropdown 
+                                                  [placeholder]="'Select Profession'"
+                                                  [settings]="ProfessionSettings"
+                                                  [data]="Profession"
+                                                  formControlName="selectProfession"
+                                                  [(ngModel)]="selectedProfessionItems"
+                                                  (onSelect)="onItemSelectProfession($event)"
+                                                  (onDeSelect)="OnItemDeSelectProfession($event)"
+                                                >
+                                                </ng-multiselect-dropdown>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-lg-12 mg-tp-20">
+                                            <div class="form-group custom-form-group">
+                                                <label for="ProfessionDetail">Your Profession Detail</label>
+                                                <span class="las la-vihara form-icon"></span>
+                                                <input formControlName="ProfessionDetail" name="ProfessionDetail" type="text" class="form-control" id="ProfessionDetail">
+                                            </div>
+                                        </div>
+                                        
+                                        <div *ngIf="!isUnEmployed"> 
+                                            <div class="col-lg-12 mg-tp-20">
+                                                <div class="form-group custom-form-group">
+                                                    <label for="EmployedInDetail">Your Employed In</label>
+                                                    <span class="las la-building form-icon"></span>
+                                                    <input formControlName="EmployedInDetail" name="EmployedInDetail" type="text" class="form-control" id="EmployedInDetail">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="row mg-tp-20">
+                                                    <div class="col-lg-6">
+                                                        <div class="km-form-group" [ngClass]="{kmactive: isCurrency===true}">
+                                                            <label class="floatClass" [ngClass]="{showlbl: isCurrency===true}">Your Currency</label>
+                                                            <ng-multiselect-dropdown 
+                                                              [placeholder]="'Select Currency'"
+                                                              [settings]="CurrencySettings"
+                                                              [data]="Currency"
+                                                              formControlName="selectCurrency"
+                                                              [(ngModel)]="selectedCurrencyItems"
+                                                              (onSelect)="onItemSelectCurrency($event)"
+                                                              (onDeSelect)="OnItemDeSelectCurrency($event)"
+                                                            >
+                                                            </ng-multiselect-dropdown>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group custom-form-group mg-tp-4">
+                                                            <label for="EmployedInIncome">Your Income</label>
+                                                            <span class="las la-wallet form-icon"></span>
+                                                            <input (keypress)="numberOnly($event)" formControlName="EmployedInIncome" name="EmployedInIncome" type="text" class="form-control" id="EmployedInIncome">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="row clearfix">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group custom-form-group _hv_Ch">
+                                                            <label class="label-text posit-init">Your Income Type <span class="text-danger">*</span> </label>
+                                                            <ul class="radiogroup Income_TypeList prl_bg">
+                                                                <li *ngFor="let incomeType of incomeTypes">
+                                                                    <label class="_Ms_inty control control-radio" for="{{incomeType.name}}">
+                                                                        <input formControlName="Income_TypeList" type="radio" id="{{incomeType.name}}" name="Income_TypeList" value="{{incomeType.id}}" [value]="incomeType.id">
+                                                                        <span>{{incomeType.name}}</span>
+                                                                    </label>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group custom-form-group _hv_Ch">
+                                                            <label class="label-text posit-init">Additional Income <span class="text-danger">*</span> </label>
+                                                            <ul class="radiogroup AskAdditional_Income prl_bg len10">
+                                                                <li>
+                                                                    <label data-item="1" class="_Ms_asaddin control control-radio" for="AskAdditional_Income_Yes">
+                                                                        <input formControlName="AskAdditional_Income" type="radio" name="AskAdditional_Income" id="AskAdditional_Income_Yes" value="1"> 
+                                                                        <span>Yes</span>
+                                                                    </label> 
+                                                                </li>
+                                                                <li>
+                                                                    <label data-item="2" class="_Ms_asaddin control control-radio" for="AskAdditional_Income_No">
+                                                                        <input formControlName="AskAdditional_Income" type="radio" name="AskAdditional_Income" id="AskAdditional_Income_No" value="2"> 
+                                                                        <span>No</span>
+                                                                    </label> 
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="row clearfix">
+                                                    <div class="col-lg-12" id="AdditionalIncome" style="display: none;">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="km-form-group" [ngClass]="{kmactive: isAddCurrency===true}">
+                                                                    <label class="floatClass" [ngClass]="{showlbl: isAddCurrency===true}">Your Currency</label>
+                                                                    <ng-multiselect-dropdown 
+                                                                      [placeholder]="'Select Currency'"
+                                                                      [settings]="AddCurrencySettings"
+                                                                      [data]="AddCurrency"
+                                                                      formControlName="selectAddCurrency"
+                                                                      [(ngModel)]="selectedAddCurrencyItems"
+                                                                      (onSelect)="onItemSelectAddCurrency($event)"
+                                                                      (onDeSelect)="OnItemDeSelectAddCurrency($event)"
+                                                                    >
+                                                                    </ng-multiselect-dropdown>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="AdditionalIncomeAmount form-group custom-form-group mg-tp-4">
+                                                                    <label id="AdditionalIncomeAmount" for="AddIncome">Additional Income</label>
+                                                                    <span class="las la-wallet form-icon"></span>
+                                                                    <input (keypress)="numberOnly($event)" formControlName="AddIncome" name="AddIncome" type="text" class="form-control" id="AddIncome">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row clearfix">
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group custom-form-group _hv_Ch">
+                                                                    <label class="label-text posit-init">Additional Income Type <span class="text-danger">*</span> </label>
+                                                                    <ul class="radiogroup AddIncome_TypeList prl_bg">
+
+                                                                        <li *ngFor="let incomeType of incomeTypes">
+                                                                            <label class="_Ms_inty_add control control-radio" for="add{{incomeType.name}}">
+                                                                                <input formControlName="AddIncome_TypeList" type="radio" id="add{{incomeType.name}}" name="AddIncome_TypeList" value="{{incomeType.id}}" [value]="incomeType.id">
+                                                                                <span>{{incomeType.name}}</span>
+                                                                            </label>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-lg-12 _xs_center_ _s_mar">
+                                            <button [disabled]="disableBtn" type="submit" name="next" class='btn btn-lg next action-button btn-2clr'> 
+                                                {{SubmitbuttonName}} <i class="las la-arrow-circle-right"></i> 
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="overlay" [ngClass]="{show: isLoading===true}">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>

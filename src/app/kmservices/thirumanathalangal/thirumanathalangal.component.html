@@ -1,0 +1,219 @@
+<section class="card-area padding-top-40px padding-bottom-100px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h4 class="titleh1"><strong>{{ThiruthanagalInfo.ThiruthalangalName}}</strong></h4>
+            </div>
+            <div class="col-lg-4">
+                <div class="sidebar card-list-item">
+                    <h3 class="widget-title"> Thirumana Thiruthalangal</h3>
+                    <div class="title-shape"></div>
+                    <div class="sidebarscroll" id="leftdiv">
+                        <div class="col-lg-12 cfa-spinner text-center" [ngClass]="isloading1==true ? 'show' : 'hide'">
+                            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                        </div>
+                        <div *ngIf="ThiruthanagalMenu.length" class="check-box-list mt-2 mb-4" >
+                            <div *ngFor='let sMenu of ThiruthanagalMenu; let iX = index' class="custom-checkbox" [ngClass]="Thiruthanagalid==sMenu.id ? 'active' : ''" routerLinkActive="active">
+                                <a (click)="nextContent(sMenu.id)" routerLink="/kmservices/thirumanathalangal/{{sMenu.id}}/{{getSlug(sMenu.name)}}" >
+                                    <label class="text-left" for="chb1">{{sMenu.name}}</label>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-12 responsive-column" id="rightdiv">
+                        <div class="card-item">
+                            <div class="card-content-wrap">
+                                <div class="card-content">
+                                    <div class="col-lg-12 cfa-spinner text-center" [ngClass]="isloading==true ? 'show' : 'hide'">
+                                        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                    </div>
+
+                                    <div [innerHtml]='ThiruthanagalInfo.Body'>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- <section class="card-area padding-top-40px padding-bottom-100px">
+    <div class="container">
+        <div class="row">
+             <div class="col-lg-12 text-center">
+                <h4 class="titleh1"><strong>Thirumana Thiruthalangal By Meera Nagarajan</strong></h4>
+            </div>
+            <div class="col-lg-4" >
+                <div class="sidebar" >
+                    <h3 class="widget-title"> Thirumana Thiruthalangal</h3>
+                     <div class="title-shape" style="margin-bottom: 20px;"></div>
+                    <div class="sidebar-widget"  style="margin-bottom: 0px;">
+                        <div class="sidebar-option mb-3">
+                            <select class="form-control select-option-field">
+                                <option value="">Select a Location</option>
+                                <option value="AF">Afghanistan</option>
+                                <option value="AX">Åland Islands</option>
+                                <option value="AL">Albania</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="sidebarscroll" id="leftdiv">
+                       
+                        <div class="check-box-list mt-4 mb-4">
+                            <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left active" style="color:#ec8708;"  for="chb1">Patteeswaram  Durgambhika </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Sanjeevana Anjaneyar - Srirangam  </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Agaramangudi Temple </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Tirupattur Brahma Temple </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Keezhapavoor Narasimha Swami </label>
+                                </a>
+                            </div>
+
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Poovana Nathar Temple </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Perambakkam Soleeswarer </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Perambakkam Lakshmi Narasimhar </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Vellai Pillaiyar Temple </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Kannayiranathar Temple </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Perambakkam Soleeswarer </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Perambakkam Lakshmi Narasimhar </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Vellai Pillaiyar Temple </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Kannayiranathar Temple </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Kannayiranathar Temple </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Perambakkam Soleeswarer </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Perambakkam Lakshmi Narasimhar </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Vellai Pillaiyar Temple </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Kannayiranathar Temple </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Kannayiranathar Temple </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Perambakkam Soleeswarer </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Perambakkam Lakshmi Narasimhar </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Vellai Pillaiyar Temple </label>
+                                </a>
+                            </div>
+                             <div class="custom-checkbox">
+                                <a href="#">
+                                    <label class="text-left" for="chb1">Kannayiranathar Temple </label>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-12 responsive-column">
+                        <div class="card-item">
+                           
+                               
+                           
+                            <div class="card-content-wrap">
+                                <div class="card-content" id="rightdiv">
+                                   
+                                       
+                                   
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ -->

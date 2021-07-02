@@ -1,0 +1,14 @@
+ .card_p
+    {
+        padding-bottom: 10px;
+    }
+.plusbtn-clr
+	{
+	    background-color: #ff9400;
+	}
+.accordion-item .card:not(:last-of-type), .accordion-item .card:not(:first-of-type) 
+{
+    border-radius: 10px !important;
+    border-bottom: 1px solid #e24443 !important; /*1px solid rgba(128, 137, 150, 0.2) !important;*/
+}
+

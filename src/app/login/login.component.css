@@ -1,0 +1,67 @@
+.resentotp-btn
+{
+    position: absolute;
+    top: 4px;
+    background-color: #ff9400;
+    color: #ffffff;
+    font-size: 15px;
+    right: 5px;
+    padding: 6px 8px;
+}
+
+.sc-ic li {
+    display: inline-block;
+}
+.sc-ic .fa {
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+}
+.sc-ic .fa-google {
+    background: #e34133;
+}
+.contact-form-action .label-text {
+    font-size: 17px;
+}
+.btn-box button{
+    padding: 5px 20px;
+    font-size: 18px;
+}
+.hide {
+    display: none !important;
+}
+.show {
+    display: block !important;
+}
+.radiogroup li input {
+    display: none;
+}
+
+.MaritalStatus label {
+  display: block;
+  margin: 0 !important;
+  padding: 10px;
+  cursor: pointer;
+}
+.MaritalStatus li label.active  {
+    background: #C0C0C0;
+    color: #000;
+}
+.MaritalStatus li {
+    border: 2px solid #C0C0C0;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+.MaritalStatus li img {
+    margin-right: 10px;
+    width: 30px;
+    border-radius: 50%;
+}
+.hide-count-btn
+{
+    display: none;
+}

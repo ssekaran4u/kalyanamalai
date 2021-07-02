@@ -1,0 +1,589 @@
+<div class="container-fluid">
+    <div class="row">
+        <div id="_extend_Id" class="col-md-8 offset-lg-2 offset-sm-0">
+            <form id="msform" [formGroup]="createAccountForm" (ngSubmit)="onSubmit()">
+                <fieldset>
+                    <div class="billing-form-item">
+                        <div class="progressbar"></div>
+                        <div class="billing-content">
+                            <div class="contact-form-action">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="1st _rImge">
+                                            <img src="assets/images/reg/personal_details.png" class="img-fluid mx-auto d-none d-xl-block">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="col-lg-12">
+                                            <h2 class="fs-title">Personal Details</h2>
+                                            <div class="form-group custom-form-group _hv_Ch">
+                                                <label class="label-text posit-init ">Marital Status<span class="text-danger">*</span> </label>
+                                                <ul class="radiogroup MaritalStatus">
+                                                    <li class="mr-lf-m10">
+                                                        <label data-item="20" class="_Ms_s control-radio" for="Unmarried">
+                                                            <input formControlName="MaritalStatus" type="radio" id="Unmarried" name="MaritalStatus" value="20">
+                                                            <span>Unmarried</span>
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label data-item="21" class="_Ms_s control control-radio" for="Divorced">
+                                                            <input formControlName="MaritalStatus" type="radio" id="Divorced" name="MaritalStatus" value="21">
+                                                            <span>Divorced</span>
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label data-item="22" class="_Ms_s control control-radio" for="Widow">
+                                                            <input formControlName="MaritalStatus" type="radio" id="Widow" name="MaritalStatus" value="22">
+                                                            <span>Widow / Widower</span>
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label data-item="23" class="_Ms_s control control-radio" for="Marriage_not_consumated">
+                                                            <input formControlName="MaritalStatus" type="radio" id="Marriage_not_consumated" name="MaritalStatus" value="23">
+                                                            <span>Marriage not Consumated</span>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12" id="DivorcedData" style="display: none;">
+                                            <div class="row" id="DivorceCopy" style="display: none;">
+                                                <div class="col-lg-6">
+                                                    <div id="DivorceCopy_1" class="form-group custom-form-group">
+                                                        <label for="DivorceCopyNo">Divorce Copy No</label>
+                                                        <span class="las la-paperclip form-icon"></span>
+                                                        <input formControlName="DivorceCopyNo" type="text" class="form-control" id="DivorceCopyNo" name="DivorceCopyNo">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div id="DivorceCopy_2" class="form-group custom-form-group" [ngClass]="{'focused' : isDivorceFocused==true}">
+                                                        <label class="DivorceDateClass" for="DivorceDate" [ngClass]="{'active' : isDivorceFocused==true}">Divorce Date</label>
+                                                        <span class="las la-calendar-check form-icon"></span>
+                                                        <input formControlName="DivorceDate" type="text" class="form-control" id="DivorceDate" bsDatepicker (ngModelChange)="changeDivorceDate($event)" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" name="DivorceDate">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row" id="HaveChildrenList" style="display: none;">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group custom-form-group _hv_Ch">
+                                                        <label class="label-text posit-init width100">Do You Have Children? <span class="text-danger">*</span> </label>
+                                                        <ul class="radiogroup HaveChildrenS">
+                                                            <li>
+                                                                <label data-item="1" class="_Ms_hc control control-radio" for="HaveChildrenS_Yes">
+                                                                    <input formControlName="HaveChildrenS" type="radio" id="HaveChildrenS_Yes" name="HaveChildrenS" value="226">
+                                                                    <span>Yes</span>
+                                                                </label>
+                                                            </li>
+                                                            <li>
+                                                                <label data-item="2" class="_Ms_hc control control-radio" for="HaveChildrenS_No">
+                                                                    <input formControlName="HaveChildrenS" type="radio" id="HaveChildrenS_No" name="HaveChildrenS" value="225">
+                                                                    <span>No</span>
+                                                                </label>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6" id="HaveChildrenData" style="display: none;">
+                                                    <div class="form-group custom-form-group _hv_Ch">
+                                                        <label class="label-text posit-init width100">Does Children Stay?<span class="text-danger">*</span> </label>
+                                                        <ul class="radiogroup ChildrenStay">
+                                                            <li>
+                                                                <label data-item="1" class="_Ms_cs control control-radio" for="ChildrenStay_Yes">
+                                                                    <input formControlName="ChildrenStay" type="radio" id="ChildrenStay_Yes" name="ChildrenStay" value="226">
+                                                                    <span>Yes</span>
+                                                                </label>
+                                                            </li>
+                                                            <li>
+                                                                <label data-item="2" class="_Ms_cs control control-radio" for="ChildrenStay_No">
+                                                                    <input formControlName="ChildrenStay" type="radio" id="ChildrenStay_No" name="ChildrenStay" value="225">
+                                                                    <span>No</span>
+                                                                </label>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12" id="ChildrenStayData" style="display: none;">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div id="ChildrenStayData_1" class="form-group custom-form-group mr-bt-20">
+                                                                <label for="csla">Male</label>
+                                                                <span class="las la-male form-icon"></span>
+                                                                <input formControlName="NoofMaleChild" (keypress)="numberOnly($event)" type="text" class="form-control" id="csla" name="NoofMaleChild">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div id="ChildrenStayData_2" class="form-group custom-form-group mr-bt-20">
+                                                                <label for="cslfm">Female</label>
+                                                                <span class="las la-female form-icon"></span>
+                                                                <input formControlName="NoofFemaleChild" (keypress)="numberOnly($event)" type="text" class="form-control" id="cslfm" name="NoofFemaleChild">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group custom-form-group setDe_ss" [ngClass]="{'focused' : isDobFocused==true}">
+                                                        <label class="dobClass" for="dob" [ngClass]="{'active' : isDobFocused==true}">Date of Birth</label>
+                                                        <span class="las la-calendar-check form-icon"></span>
+                                                        <input formControlName="dob" type="text" class="form-control" id="dob" bsDatepicker (ngModelChange)="changeDobDate($event)" name="dob" [(bsValue)]="myDateValue">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group custom-form-group setDe_ss">
+                                                        <label for="Email">Email ID</label>
+                                                        <i class="las la-envelope form-icon"></i>
+                                                        <input formControlName="Email" name="Email" type="email" class="form-control" id="Email">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 mg-tp-25">
+                                                    <div class="km-form-group" [ngClass]="{kmactive: isMotherTongue===true}">
+                                                        <label class="floatClass" [ngClass]="{showlbl: isMotherTongue===true}">Select Mother Tongue</label>
+                                                        <ng-multiselect-dropdown 
+                                                          [placeholder]="'Select MotherTongue'"
+                                                          [settings]="MotherTonguesSettings"
+                                                          [data]="MotherTongue"
+                                                          formControlName="selectMotherTongue"
+                                                          [(ngModel)]="selectedMotherTonguesItems"
+                                                          (onSelect)="onItemSelectMotherTongue($event)"
+                                                          (onDeSelect)="OnItemDeSelectMotherTongue($event)"
+                                                        >
+                                                        </ng-multiselect-dropdown>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 mg-tp-25">
+                                                    <div class="km-form-group" [ngClass]="{kmactive: isCommunity==true}">
+                                                        <label class="floatClass" [ngClass]="{showlbl: isCommunity==true}">Select Community</label>
+                                                        <ng-multiselect-dropdown 
+                                                          [placeholder]="'Select Community'"
+                                                          [settings]="communitiesSettings"
+                                                          [data]="communities"
+                                                          formControlName="selectCommunity"
+                                                          [(ngModel)]="selectedcommunitiesItems"
+                                                          (onSelect)="onItemSelectCommunities($event)"
+                                                          (onDeSelect)="OnItemDeSelectCommunities($event)"
+                                                        >
+                                                        </ng-multiselect-dropdown>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 mg-tp-25">
+                                                    <div class="km-form-group" [ngClass]="{kmactive: isReligion===true}">
+                                                        <label class="floatClass" [ngClass]="{showlbl: isReligion===true}">Select Religion</label>
+                                                        <ng-multiselect-dropdown 
+                                                          [placeholder]="'Select Religion'"
+                                                          [settings]="religionsSettings"
+                                                          [data]="religions"
+                                                          formControlName="selectReligion"
+                                                          [(ngModel)]="selectedreligionsItems"
+                                                          (onSelect)="onItemSelectReligions($event)"
+                                                          (onSelectAll)="onSelectAllReligions($event)"
+                                                          (onDeSelect)="OnItemDeSelectReligions($event)"
+                                                        >
+                                                        </ng-multiselect-dropdown>
+                                                    </div>
+                                                </div>
+
+                                                <div id="interreligionbox" class="row padd15 hide">
+
+                                                    <div class="col-lg-6 mg-tp-25">
+                                                        <div class="km-form-group" [ngClass]="{kmactive: isFReligion===true}">
+                                                            <label class="floatClass" [ngClass]="{showlbl: isFReligion===true}">Select Father's Religion</label>
+                                                            <ng-multiselect-dropdown 
+                                                              [placeholder]="'Select Fathers Religion'"
+                                                              [settings]="FreligionsSettings"
+                                                              [data]="Freligions"
+                                                              formControlName="selectFReligion"
+                                                              [(ngModel)]="selectedFreligionsItems"
+                                                              (onSelect)="onItemSelectFReligions($event)"
+                                                              (onSelectAll)="onSelectAllFReligions($event)"
+                                                              (onDeSelect)="OnItemDeSelectFReligions($event)"
+                                                            >
+                                                            </ng-multiselect-dropdown>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-6 mg-tp-25">
+                                                        <div class="km-form-group" [ngClass]="{kmactive: isFCastes===true}">
+                                                            <label class="floatClass" [ngClass]="{showlbl: isFCastes===true}">Select fathers Caste</label>
+                                                            <ng-multiselect-dropdown 
+                                                              [placeholder]="'Select fathers Caste'"
+                                                              [settings]="FcastesSettings"
+                                                              [data]="Fcastes"
+                                                              formControlName="selectFCaste"
+                                                              [(ngModel)]="selectedFcastesItems"
+                                                              (onSelect)="onItemSelectFCastes($event)"
+                                                              (onSelectAll)="onSelectAllFCastes($event)"
+                                                              (onDeSelect)="OnItemDeSelectFCastes($event)"
+                                                            >
+                                                            </ng-multiselect-dropdown>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-6 mg-tp-25">
+                                                        <div class="km-form-group" [ngClass]="{kmactive: isFSubCastes===true}">
+                                                            <label class="floatClass" [ngClass]="{showlbl: isFSubCastes===true}">Select fathers SubCaste</label>
+                                                            <ng-multiselect-dropdown 
+                                                              [placeholder]="'Select fathers SubCaste'"
+                                                              [settings]="FsubcastesSettings"
+                                                              [data]="Fsubcastes"
+                                                              formControlName="selectFSubCaste"
+                                                              [(ngModel)]="selectedFsubcastesItems"
+                                                              (onSelect)="onItemSelectFSubCastes($event)"
+                                                              (onSelectAll)="onSelectAllFSubCastes($event)"
+                                                              (onDeSelect)="OnItemDeSelectFSubCastes($event)"
+                                                            >
+                                                            </ng-multiselect-dropdown>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-6 mg-tp-25">
+                                                        <div class="km-form-group" [ngClass]="{kmactive: isMReligion===true}">
+                                                            <label class="floatClass" [ngClass]="{showlbl: isMReligion===true}">Select Mother's Religion</label>
+                                                            <ng-multiselect-dropdown 
+                                                              [placeholder]="'Select Mothers Religion'"
+                                                              [settings]="MreligionsSettings"
+                                                              [data]="Mreligions"
+                                                              formControlName="selectMReligion"
+                                                              [(ngModel)]="selectedMreligionsItems"
+                                                              (onSelect)="onItemSelectMReligions($event)"
+                                                              (onSelectAll)="onSelectAllMReligions($event)"
+                                                              (onDeSelect)="OnItemDeSelectMReligions($event)"
+                                                            >
+                                                            </ng-multiselect-dropdown>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-6 mg-tp-25">
+                                                        <div class="km-form-group" [ngClass]="{kmactive: isMCastes===true}">
+                                                            <label class="floatClass" [ngClass]="{showlbl: isMCastes===true}">Select mothers Caste</label>
+                                                            <ng-multiselect-dropdown 
+                                                              [placeholder]="'Select Mothers Caste'"
+                                                              [settings]="McastesSettings"
+                                                              [data]="Mcastes"
+                                                              formControlName="selectMCaste"
+                                                              [(ngModel)]="selectedMcastesItems"
+                                                              (onSelect)="onItemSelectMCastes($event)"
+                                                              (onSelectAll)="onSelectAllMCastes($event)"
+                                                              (onDeSelect)="OnItemDeSelectMCastes($event)"
+                                                            >
+                                                            </ng-multiselect-dropdown>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-6 mg-tp-25">
+                                                        <div class="km-form-group" [ngClass]="{kmactive: isMSubCastes===true}">
+                                                            <label class="floatClass" [ngClass]="{showlbl: isMSubCastes===true}">Select mothers SubCaste</label>
+                                                            <ng-multiselect-dropdown 
+                                                              [placeholder]="'Select Mothers  SubCaste'"
+                                                              [settings]="MsubcastesSettings"
+                                                              [data]="Msubcastes"
+                                                              formControlName="selectMSubCaste"
+                                                              [(ngModel)]="selectedMsubcastesItems"
+                                                              (onSelect)="onItemSelectMSubCastes($event)"
+                                                              (onSelectAll)="onSelectAllMSubCastes($event)"
+                                                              (onDeSelect)="OnItemDeSelectMSubCastes($event)"
+                                                            >
+                                                            </ng-multiselect-dropdown>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div id="withoutinter_religion" class="col-lg-6 mg-tp-25">
+                                                    <div class="km-form-group" [ngClass]="{kmactive: isCastes===true}">
+                                                        <label class="floatClass" [ngClass]="{showlbl: isCastes===true}">Select Caste</label>
+                                                        <ng-multiselect-dropdown 
+                                                          [placeholder]="'Select Caste'"
+                                                          [settings]="castesSettings"
+                                                          [data]="castes"
+                                                          formControlName="selectCaste"
+                                                          [(ngModel)]="selectedcastesItems"
+                                                          (onSelect)="onItemSelectCastes($event)"
+                                                          (onSelectAll)="onSelectAllCastes($event)"
+                                                          (onDeSelect)="OnItemDeSelectCastes($event)"
+                                                        >
+                                                        </ng-multiselect-dropdown>
+                                                    </div>
+                                                </div>
+
+                                                <div id="intercastebox" class="row padd15 hide">
+
+                                                    <div class="col-lg-6 mg-tp-25">
+                                                        <div class="km-form-group" [ngClass]="{kmactive: isFFCastes===true}">
+                                                            <label class="floatClass" [ngClass]="{showlbl: isFFCastes===true}">Select fathers Caste</label>
+                                                            <ng-multiselect-dropdown 
+                                                              [placeholder]="'Select fathers Caste'"
+                                                              [settings]="FFcastesSettings"
+                                                              [data]="FFcastes"
+                                                              formControlName="selectFFCaste"
+                                                              [(ngModel)]="selectedFFcastesItems"
+                                                              (onSelect)="onItemSelectFFCastes($event)"
+                                                              (onSelectAll)="onSelectAllFFCastes($event)"
+                                                              (onDeSelect)="OnItemDeSelectFFCastes($event)"
+                                                            >
+                                                            </ng-multiselect-dropdown>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-6 mg-tp-25">
+                                                        <div class="km-form-group" [ngClass]="{kmactive: isFFSubCastes===true}">
+                                                            <label class="floatClass" [ngClass]="{showlbl: isFFSubCastes===true}">Select fathers SubCaste</label>
+                                                            <ng-multiselect-dropdown 
+                                                              [placeholder]="'Select fathers SubCaste'"
+                                                              [settings]="FFsubcastesSettings"
+                                                              [data]="FFsubcastes"
+                                                              formControlName="selectFFSubCaste"
+                                                              [(ngModel)]="selectedFFsubcastesItems"
+                                                              (onSelect)="onItemSelectFFSubCastes($event)"
+                                                              (onSelectAll)="onSelectAllFFSubCastes($event)"
+                                                              (onDeSelect)="OnItemDeSelectFFSubCastes($event)"
+                                                            >
+                                                            </ng-multiselect-dropdown>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-6 mg-tp-25">
+                                                        <div class="km-form-group" [ngClass]="{kmactive: isMMCastes===true}">
+                                                            <label class="floatClass" [ngClass]="{showlbl: isMMCastes===true}">Select mothers Caste</label>
+                                                            <ng-multiselect-dropdown 
+                                                              [placeholder]="'Select Mothers Caste'"
+                                                              [settings]="MMcastesSettings"
+                                                              [data]="MMcastes"
+                                                              formControlName="selectMMCaste"
+                                                              [(ngModel)]="selectedMMcastesItems"
+                                                              (onSelect)="onItemSelectMMCastes($event)"
+                                                              (onSelectAll)="onSelectAllMMCastes($event)"
+                                                              (onDeSelect)="OnItemDeSelectMMCastes($event)"
+                                                            >
+                                                            </ng-multiselect-dropdown>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-6 mg-tp-25">
+                                                        <div class="km-form-group" [ngClass]="{kmactive: isMMSubCastes===true}">
+                                                            <label class="floatClass" [ngClass]="{showlbl: isMMSubCastes===true}">Select mothers SubCaste</label>
+                                                            <ng-multiselect-dropdown 
+                                                              [placeholder]="'Select Mothers  SubCaste'"
+                                                              [settings]="MMsubcastesSettings"
+                                                              [data]="MMsubcastes"
+                                                              formControlName="selectMMSubCaste"
+                                                              [(ngModel)]="selectedMMsubcastesItems"
+                                                              (onSelect)="onItemSelectMMSubCastes($event)"
+                                                              (onSelectAll)="onSelectAllMMSubCastes($event)"
+                                                              (onDeSelect)="OnItemDeSelectMMSubCastes($event)"
+                                                            >
+                                                            </ng-multiselect-dropdown>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div id="withoutinter_caste" class="col-lg-6 mg-tp-25">
+                                                    <div class="km-form-group" [ngClass]="{kmactive: isSubCastes===true}">
+                                                        <label class="floatClass" [ngClass]="{showlbl: isSubCastes===true}">Select SubCaste</label>
+                                                        <ng-multiselect-dropdown 
+                                                          [placeholder]="'Select SubCaste'"
+                                                          [settings]="subcastesSettings"
+                                                          [data]="subcastes"
+                                                          formControlName="selectSubCaste"
+                                                          [(ngModel)]="selectedsubcastesItems"
+                                                          (onSelect)="onItemSelectSubCastes($event)"
+                                                          (onSelectAll)="onSelectAllSubCastes($event)"
+                                                          (onDeSelect)="OnItemDeSelectSubCastes($event)"
+                                                        >
+                                                        </ng-multiselect-dropdown>
+                                                    </div>
+                                                </div>
+
+                                                <div id="intersubcastebox" class="row padd15 hide">
+
+                                                    <div class="col-lg-6 mg-tp-25">
+                                                        <div class="km-form-group" [ngClass]="{kmactive: isFSubCastes===true}">
+                                                            <label class="floatClass" [ngClass]="{showlbl: isFSubCastes===true}">Select fathers SubCaste</label>
+                                                            <ng-multiselect-dropdown 
+                                                              [placeholder]="'Select fathers SubCaste'"
+                                                              [settings]="FsubcastesSettings"
+                                                              [data]="Fsubcastes"
+                                                              formControlName="selectFSubCaste"
+                                                              [(ngModel)]="selectedFsubcastesItems"
+                                                              (onSelect)="onItemSelectFSubCastes($event)"
+                                                              (onSelectAll)="onSelectAllFSubCastes($event)"
+                                                              (onDeSelect)="OnItemDeSelectFSubCastes($event)">
+                                                            </ng-multiselect-dropdown>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-6 mg-tp-25">
+                                                        <div class="km-form-group" [ngClass]="{kmactive: isMSubCastes===true}">
+                                                            <label class="floatClass" [ngClass]="{showlbl: isMSubCastes===true}">Select mothers SubCaste</label>
+                                                            <ng-multiselect-dropdown 
+                                                              [placeholder]="'Select Mothers  SubCaste'"
+                                                              [settings]="MsubcastesSettings"
+                                                              [data]="Msubcastes"
+                                                              formControlName="selectSubCaste"
+                                                              [(ngModel)]="selectedMsubcastesItems"
+                                                              (onSelect)="onItemSelectMSubCastes($event)"
+                                                              (onSelectAll)="onSelectAllMSubCastes($event)"
+                                                              (onDeSelect)="OnItemDeSelectMSubCastes($event)"
+                                                            >
+                                                            </ng-multiselect-dropdown>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6 mg-tp-25">
+                                                    <div class="km-form-group" [ngClass]="{kmactive: isStar===true}">
+                                                        <label class="floatClass" [ngClass]="{showlbl: isStar===true}">Select Star</label>
+                                                        <ng-multiselect-dropdown 
+                                                          [placeholder]="'Select Star'"
+                                                          [settings]="starsSettings"
+                                                          [data]="stars"
+                                                          formControlName="selectStar"
+                                                          [(ngModel)]="selectedstarsItems"
+                                                          (onSelect)="onItemSelectStar($event)"
+                                                          (onDeSelect)="OnItemDeSelectStar($event)"
+                                                        >
+                                                        </ng-multiselect-dropdown>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6 mg-tp-25">
+                                                    <div class="km-form-group" [ngClass]="{kmactive: isPadam===true}">
+                                                        <label class="floatClass" [ngClass]="{showlbl: isPadam===true}">Select Padam</label>
+                                                        <ng-multiselect-dropdown 
+                                                          [placeholder]="'Select Padam'"
+                                                          [settings]="PadamsSettings"
+                                                          [data]="Padam"
+                                                          formControlName="selectPadam"
+                                                          [(ngModel)]="selectedPadamsItems"
+                                                          (onSelect)="onItemSelectPadam($event)"
+                                                          (onDeSelect)="OnItemDeSelectPadam($event)"
+                                                        >
+                                                        </ng-multiselect-dropdown>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6 mg-tp-25">
+                                                    <div class="km-form-group" [ngClass]="{kmactive: isRaasi===true}">
+                                                        <label class="floatClass" [ngClass]="{showlbl: isRaasi===true}">Select Raasi</label>
+                                                        <ng-multiselect-dropdown 
+                                                          [placeholder]="'Select Raasi'"
+                                                          [settings]="RaasiSettings"
+                                                          [data]="Raasi"
+                                                          formControlName="selectRaasi"
+                                                          [(ngModel)]="selectedRaasiItems"
+                                                          (onSelect)="onItemSelectRaasi($event)"
+                                                          (onDeSelect)="OnItemDeSelectRaasi($event)"
+                                                        >
+                                                        </ng-multiselect-dropdown>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6 mg-tp-25">
+                                                    <div class="km-form-group" [ngClass]="{kmactive: isGowthram===true}">
+                                                        <label class="floatClass" [ngClass]="{showlbl: isGowthram===true}">Select Gothram</label>
+                                                        <ng-multiselect-dropdown 
+                                                          [placeholder]="'Select Gothram'"
+                                                          [settings]="gowthramSettings"
+                                                          [data]="gowthram"
+                                                          formControlName="selectGothram"
+                                                          [(ngModel)]="selectedgowthramItems"
+                                                          (onSelect)="onItemSelectGowthram($event)"
+                                                          (onDeSelect)="OnItemDeSelectGowthram($event)"
+                                                        >
+                                                        </ng-multiselect-dropdown>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group custom-form-group _hv_Ch mg-tp-10">
+                                                <label class="label-text posit-init">Do You Have Dosham? <span class="text-danger">*</span> </label>
+                                                <ul class="Dosham_List radiogroup">
+                                                    <li>
+                                                        <label (click)="clearDosham($event)" data-item="1" class="_Ms_ds control control-radio" for="Dosham_No">
+                                                            <input formControlName="Dosham" type="radio" id="Dosham_No" name="Dosham" value="225">
+                                                            <span>No</span>
+                                                        </label>
+                                                    </li>
+
+                                                    <li>
+                                                        <label data-item="2" class="_Ms_ds control control-radio" for="Dosham_Yes">
+                                                            <input formControlName="Dosham" type="radio" id="Dosham_Yes" name="Dosham" value="226">
+                                                            <span>Yes</span>
+                                                        </label>
+                                                    </li>
+
+                                                    <li>
+                                                        <label (click)="clearDosham($event)" data-item="3" class="_Ms_ds control control-radio" for="Dosham_dont_know">
+                                                            <input formControlName="Dosham" type="radio" id="Dosham_dont_know" name="Dosham" value="227">
+                                                            <span>Don't Know</span>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                           <div class="col-lg-12 check-box-list mt-1 row mg-tp-10" id="DoshamList" style="display: none;">
+                                                <label class="label-text posit-init">Dosham <span class="text-danger">*</span> </label>
+                                               
+                                                <ul class="radiogroup Dosam mg-tp-10">
+                                                    <li *ngFor="let dosham of doshams;">
+                                                        <label 
+                                                        (change)="Doshamselect(dosham.id, $event.target.checked)"
+                                                        id="DoshamID{{dosham.id}}" 
+                                                        class="control control-radio padd-left-right-5" 
+                                                        for="{{dosham.name}}" 
+                                                        [ngClass]="{active: dosham.selected==1}">
+                                                            <input 
+                                                            type="checkbox" 
+                                                            id="{{dosham.name}}" 
+                                                            name="selectDoshams" 
+                                                            [value]="dosham.id" 
+                                                            [checked]="dosham.selected==1"
+                                                            >
+                                                            <span>{{dosham.name}}</span>       
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <!-- <div class="check-box-list mt-1 row mg-tp-10" id="DoshamList" style="display: none;">
+                                                <div class="col-lg-12">
+                                                    <div class="km-form-group" [ngClass]="{kmactive: isDosham===true}">
+                                                        <label class="floatClass" [ngClass]="{showlbl: isDosham===true}">Select Dosham</label>
+                                                        <ng-multiselect-dropdown 
+                                                          [placeholder]="'Select Dosham'"
+                                                          [settings]="doshamSettings"
+                                                          [data]="doshams"
+                                                          formControlName="selectDoshams"
+                                                          [(ngModel)]="selecteddoshamItems"
+                                                          (onSelect)="onItemSelectDosham($event)"
+                                                          (onDeSelect)="OnItemDeSelectDosham($event)"
+                                                        >
+                                                        </ng-multiselect-dropdown>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                        <div class="col-lg-12 _xs_center_">
+                                            <!-- (click)="goToNextPage()" -->
+                                            <button [disabled]="disableBtn" type="submit" name="next" class='btn btn-lg next action-button btn-2clr'> 
+                                                {{SubmitbuttonName}} <i class="las la-arrow-circle-right"></i> 
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="overlay" [ngClass]="{show: isLoading===true}">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>

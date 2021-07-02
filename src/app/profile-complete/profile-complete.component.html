@@ -1,0 +1,203 @@
+<section class="card-area padding-top-40px padding-bottom-100px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 padding-top-10px padding-bottom-10px">
+                <h1 class="headingfont">Profile Completeness</h1>
+            </div>
+           
+
+
+            <div class="col-lg-12">
+                <div class="card-item card-listing d-flex">
+                    <div class="card-content-wrap">
+                        <div class="card-content">
+                            <div class="progress-status">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <p>Profile Status</p>
+                                    </div>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width:{{activeprofiledata}}%">{{activeprofiledata}} %</div>
+                                </div>
+                            </div>
+
+                           <!--  <div class="card-list-item">
+                            	<div class="card-content">
+		                            <div class="col-md-12">
+		                            		<b>A complete profile will get you better response and will enable quicker marriage
+		                                           and also make your profile look appealing to other members.</b>
+		                            </div>
+		                        </div>
+	                        </div> -->
+
+	                         <div class="col-md-12 mg-top-20">
+                            	<b>A complete profile will get you better response and will enable quicker marriage
+                                           and also make your profile look appealing to other members.</b>
+                            </div>
+
+	                        <div class="card-list-item" [ngClass]="{hide: activeprofiledata_details.BasicInformationPoint==0}">
+                            	<div class="card-content">
+		                            <div class="col-md-12 row">
+		                            	<div class="col-md-6 text-left">
+		                            		<p>Update Basic Information Increase score by</p>
+		                            	</div>
+		                            	<div class="col-md-4 text-center">
+		                            		<label class="btn-sm btn-warning1">{{activeprofiledata_details.BasicInformationPoint}} </label>
+		                            	</div>
+		                            	<div class="col-md-2 text-center"  *ngIf="activeprofiledata_details.BasicInformationPoint!='Completed'">
+		                            		<a class='btn btn-lg next action-button1' routerLink="../edit/edit-personal-details">
+		                            			<i class="las la-plus-circle"></i>
+		                                                Add Details  
+		                                    </a>
+		                            	</div>
+		                            </div>
+		                        </div>
+	                        </div>
+
+	                         <div class="card-list-item" [ngClass]="{hide: activeprofiledata_details.CommunicationPoint==0}">
+                            	<div class="card-content">
+		                            <div class="col-md-12 row">
+		                            	<div class="col-md-6 text-left">
+		                            		<p> Update Communication Details Increase score by</p>
+		                            	</div>
+		                            	<div class="col-md-4 text-center">
+		                            		<label class="btn-sm btn-warning1">{{activeprofiledata_details.CommunicationPoint}} </label>
+		                            	</div>
+		                            	<div class="col-md-2 text-center"  *ngIf="activeprofiledata_details.CommunicationPoint!='Completed'">
+		                            		<a class='btn btn-lg next action-button1' routerLink="../edit/edit-communication-address">
+		                            			<i class="las la-plus-circle"></i>
+		                                                Add Details  
+		                                    </a>
+		                            	</div>
+		                            </div>
+		                        </div>
+	                        </div>
+
+	                         <div class="card-list-item" [ngClass]="{hide: activeprofiledata_details.HoroScopePoint==0}">
+                            	<div class="card-content">
+		                            <div class="col-md-12 row">
+		                            	<div class="col-md-6 text-left">
+		                            		<p>Once the profile is satisfactory, the next step towards marriage is horoscope matching which plays a vital role in marriages. </p>
+		                            		<p>Add Horoscope Increase score by</p>
+		                            	</div>
+		                            	<div class="col-md-4 text-center">
+		                            		<label class="btn-sm btn-warning1">{{activeprofiledata_details.HoroScopePoint}} </label>
+		                            	</div>
+		                            	<div class="col-md-2 text-center"  *ngIf="activeprofiledata_details.HoroScopePoint!='Completed'">
+		                            		<a class='btn btn-lg next action-button1' routerLink="">
+		                            			<i class="las la-plus-circle"></i>
+		                                                Add Details  
+		                                    </a>
+		                            	</div>
+		                            </div>
+		                        </div>
+	                        </div>
+
+	                        <div class="card-list-item" [ngClass]="{hide: activeprofiledata_details.FamiliyPoint==0}">
+                            	<div class="card-content">
+		                            <div class="col-md-12 row">
+		                            	<div class="col-md-6 text-left">
+		                            		<p>  Update Family Details Increase score by</p>
+		                            	</div>
+		                            	<div class="col-md-4 text-center">
+		                            		<label class="btn-sm btn-warning1">{{activeprofiledata_details.FamiliyPoint}} </label>
+		                            	</div>
+		                            	<div class="col-md-2 text-center" *ngIf="activeprofiledata_details.FamiliyPoint!='Completed'">
+		                            		<a class='btn btn-lg next action-button1' routerLink="#">
+		                            			<i class="las la-plus-circle"></i>
+		                                                Add Details  
+		                                    </a>
+		                            	</div>
+		                            </div>
+		                        </div>
+	                        </div>
+
+	                         <div class="card-list-item" [ngClass]="{hide: activeprofiledata_details.HobbiesPoint==0}">
+                            	<div class="card-content">
+		                            <div class="col-md-12 row">
+		                            	<div class="col-md-6 text-left">
+		                            		<p>Explain you hobbies in detail which may attract the profiles in this partner search of same feel.</p>
+		                            		<p> Add Hobbies Increase score by</p>
+		                            	</div>
+		                            	<div class="col-md-4 text-center">
+		                            		<label class="btn-sm btn-warning1">{{activeprofiledata_details.HobbiesPoint}} </label>
+		                            	</div>
+		                            	<div class="col-md-2 text-center"  *ngIf="activeprofiledata_details.HobbiesPoint!='Completed'">
+		                            		<a class='btn btn-lg next action-button1' routerLink="../edit/edit-hobbies-details">
+		                            			<i class="las la-plus-circle"></i>
+		                                                Add Details  
+		                                    </a>
+		                            	</div>
+		                            </div>
+		                        </div>
+	                        </div>
+
+	                        <div class="card-list-item" [ngClass]="{hide: activeprofiledata_details.AboutmePoint==0}">
+                            	<div class="card-content">
+		                            <div class="col-md-12 row">
+		                            	<div class="col-md-6 text-left">
+		                            		<p>  Update About Myself to Increase score by</p>
+		                            	</div>
+		                            	<div class="col-md-4 text-center">
+		                            		<label class="btn-sm btn-warning1">{{activeprofiledata_details.AboutmePoint}} </label>
+		                            	</div>
+		                            	<div class="col-md-2 text-center"  *ngIf="activeprofiledata_details.AboutmePoint!='Completed'">
+		                            		<a class='btn btn-lg next action-button1' routerLink="#">
+		                            			<i class="las la-plus-circle"></i>
+		                                                Add Details  
+		                                    </a>
+		                            	</div>
+		                            </div>
+		                        </div>
+	                        </div>
+
+	                        <div class="card-list-item" [ngClass]="{hide: activeprofiledata_details.PartnerPrefrencePoint==0}">
+                            	<div class="card-content">
+		                            <div class="col-md-12 row">
+		                            	<div class="col-md-6 text-left">
+		                            		<p>  Update My Expectation Points to Increase score by</p>
+		                            	</div>
+		                            	<div class="col-md-4 text-center">
+		                            		<label class="btn-sm btn-warning1">{{activeprofiledata_details.PartnerPrefrencePoint}} </label>
+		                            	</div>
+		                            	<div class="col-md-2 text-center"  *ngIf="activeprofiledata_details.PartnerPrefrencePoint!='Completed'">
+		                            		<a class='btn btn-lg next action-button1' routerLink="#">
+		                            			<i class="las la-plus-circle"></i>
+		                                                Add Details  
+		                                    </a>
+		                            	</div>
+		                            </div>
+		                        </div>
+	                        </div>
+
+	                         <div class="card-list-item" [ngClass]="{hide: activeprofiledata_details.PhotoPoint==0}">
+                            	<div class="card-content">
+		                            <div class="col-md-12 row">
+		                            	<div class="col-md-6 text-left">
+		                            		<p> Add Photo Increase score by</p>
+		                            	</div>
+		                            	<div class="col-md-4 text-center">
+		                            		<label class="btn-sm btn-warning1">{{activeprofiledata_details.PhotoPoint}} </label>
+		                            	</div>
+		                            	<div class="col-md-2 text-center"  *ngIf="activeprofiledata_details.PhotoPoint!='Completed'">
+		                            		<a class='btn btn-lg next action-button1' routerLink="">
+		                            			<i class="las la-plus-circle"></i>
+		                                                Add Details  
+		                                    </a>
+		                            	</div>
+		                            </div>
+		                        </div>
+	                        </div>
+
+	                        <div class="col-md-12 mg-top-20">
+                            	<b>As the saying goes 'First impression is the best impression', to add high values to the profile upload your photo which would create center of attention by the other profiles to view yours in detail.</b>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

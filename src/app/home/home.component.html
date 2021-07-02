@@ -1,0 +1,507 @@
+<!--Begin Hero Section-->
+
+
+<section class="bg-img">
+    <div class="container-page  hero height_700px ">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-2 offset-sm-0 col-md-12 col-xs-12 col-sm-12 col-12">
+
+                   
+                    <div class="hero-text padding-top-220px" [ngClass]="{hide: isUserloginsts==true}">
+                        <h1>Where there is love there is life.</h1>
+                        <p></p>
+                        <form class="_rStep1" [formGroup]="initialRegister" (ngSubmit)="onSubmit()">
+                            <div class="form-row">
+                                <div class="col-md-3 mb-3">
+                                    <label>Name</label>
+                                    <input formControlName="uname" type="text" class="form-control border_style" placeholder="Enter Name" name="uname">
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label>Mobile</label>
+                                    <input (keypress)="numberOnly($event)" formControlName="umobile" type="text" class="form-control border_style" placeholder="Enter Mobile Number" name="umobile">
+                                </div>
+                                <div class="col-md-2 mb-3">
+                                    <label>Gernder</label>
+                                    
+                                    <div class="cdrop2 border_style">
+                                        <span> <span class="_p1_X2">Gernder</span> <i class="pull-right las la-angle-down"></i></span>
+                                    </div>
+                                    <div class="pdrop_1b border_style">
+                                        <ul class="prodropdown">
+                                            <li  *ngFor="let Genderby of Gender;">
+                                                <label>
+                                                    <input  #genderby (click)="genderbyclick(genderby)"  [attr.data-gender-id]="Genderby.id" [attr.data-gender-val]="Genderby.name" formControlName="ugender" class=""  type="radio" name="ugender" [value]="Genderby.id" ><span> <i class="las la-male"></i> {{Genderby.name}}</span> 
+                                                </label>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 mb-3">
+                                    <label>Created By</label>
+                                    <div class="cdrop1 border_style">
+                                        <span> <span class="_p1_X1">Created By</span> <i class="pull-right las la-angle-down"></i></span>
+                                    </div>
+                                    <div class="pdrop_1a border_style">
+                                        <ul class="prodropdown">
+                                             <li  *ngFor="let Profilecrdby of Profilecrdby;">
+                                                <label>
+                                                    <input  #procrdby (click)="Profilecrdbyclick(procrdby)"  [attr.data-profile-id]="Profilecrdby.id" [attr.data-profile-val]="Profilecrdby.name" formControlName="uregisterby1" class="profileValue1"  type="radio" name="uregisterby1" [value]="Profilecrdby.id" ><span>{{Profilecrdby.name}}</span> 
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div> 
+                                <div class="col-md-2 mb-3">
+                                    <button type="submit" class="btn btn-c1 text-uppercase btn-search" [disabled]="disableBtn">{{SubmitbuttonName}}</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+
+                    <div class="hero-text" [ngClass]="{hide: isUserloginsts==false}">
+                        <h1 class="h1-style">Find love with all of your heart. </h1>
+                        <p></p>
+                        <form class="_rStep1" [formGroup]="homepageSearch" (ngSubmit)="onSubmitSearch()">
+                            <div class="form-row">
+
+                              <!--   <div class="col-md-4 mb-3">
+                                    <label>Looking for</label>
+                                    <div class="cdrop">
+                                        <span><span>Female<input formControlName="Lookingfor" type="hidden" value="7"></span></span>
+                                    </div>
+                                </div> -->
+
+                                
+                                   <!--  <div class="col-md-12 row">
+                                        <div class="col-md-5 select-box-style">
+                                            <div class="km-form-group" [ngClass]="{kmactive: isAgefrom==true}">
+                                               <label class="floatClass" [ngClass]="{showlbl: isAgefrom==true}">Age From</label>
+                                               <ng-multiselect-dropdown 
+                                               [placeholder]="'From'"
+                                               [settings]="AgefromSettings"
+                                               [data]="Agefrom"
+                                               formControlName="Agefrom"
+                                               [(ngModel)]="selectedAgefrom"
+                                               (onSelect)="onItemSelectedAgefrom($event)"
+                                               (onDeSelect)="onItemDeSelectedAgefrom($event)"
+                                               >
+                                               </ng-multiselect-dropdown>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2"><label>To</label></div>
+                                        <div class="col-md-5 select-box-style">
+                                            <div class="km-form-group" [ngClass]="{kmactive: isAgeto==true}">
+                                               <label class="floatClass" [ngClass]="{showlbl: isAgeto==true}">Age To</label>
+                                               <ng-multiselect-dropdown 
+                                               [placeholder]="'To'"
+                                               [settings]="AgetoSettings"
+                                               [data]="Ageto"
+                                               formControlName="Ageto"
+                                               [(ngModel)]="selectedAgeto"
+                                               (onSelect)="onItemSelectedAgeto($event)"
+                                               (onDeSelect)="onItemDeSelectedAgeto($event)"
+                                               >
+                                               </ng-multiselect-dropdown>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                   
+                                <!-- </div> -->
+
+                                <div class="col-md-4 mb-3 mt-3per">
+                                    <!-- <label>Community</label> -->
+                                    <div class="col-md-12 select-box-style">
+                                        <div class="km-form-group" [ngClass]="{kmactive: isCommunity==true}">
+                                            <label class="floatClass" [ngClass]="{showlbl: isCommunity==true}">Select Community</label>
+                                            <ng-multiselect-dropdown 
+                                            [placeholder]="'Select Community'"
+                                            [settings]="communitiesSettings"
+                                            [data]="communities"
+                                            formControlName="selectCommunity"
+                                            [(ngModel)]="selectedcommunitiesItems"
+                                            (onSelect)="onItemSelectCommunities($event)"
+                                            (onDeSelect)="OnItemDeSelectCommunities($event)">
+                                            </ng-multiselect-dropdown>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="col-md-4 mb-3 mt-3per">
+                                    <!-- <label>Religion</label> -->
+                                    <div class="col-md-12 select-box-style">
+                                        <div class="km-form-group" [ngClass]="{kmactive: isReligion===true}">
+                                            <label class="floatClass" [ngClass]="{showlbl: isReligion===true}">Select Religion</label>
+                                            <ng-multiselect-dropdown 
+                                            [placeholder]="'Select Religion'"
+                                            [settings]="religionsSettings"
+                                            [data]="religions"
+                                            formControlName="selectReligion"
+                                            [(ngModel)]="selectedreligionsItems"
+                                            (onSelect)="onItemSelectReligions($event)"
+                                            (onSelectAll)="onSelectAllReligions($event)"
+                                            (onDeSelect)="OnItemDeSelectReligions($event)"
+                                              >
+                                            </ng-multiselect-dropdown>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <div class="col-md-4 mb-3 mt-3per">
+                                    <!-- <label>Caste</label> -->
+                                    <div class="col-md-12 select-box-style">
+                                        <div class="km-form-group" [ngClass]="{kmactive: isCastes===true}">
+                                            <label class="floatClass" [ngClass]="{showlbl: isCastes===true}">Select Caste</label>
+                                            <ng-multiselect-dropdown 
+                                            [placeholder]="'Select Caste'"
+                                            [settings]="castesSettings"
+                                            [data]="castes"
+                                            formControlName="selectCaste"
+                                            [(ngModel)]="selectedcastesItems"
+                                            (onSelect)="onItemSelectCastes($event)"
+                                            (onSelectAll)="onSelectAllCastes($event)"
+                                            (onDeSelect)="OnItemDeSelectCastes($event)"
+                                            >
+                                            </ng-multiselect-dropdown>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 mb-3 mt-3per">
+                                     <div class="km-form-group select-box-style" [ngClass]="{kmactive: isAgefrom==true}">
+                                        <label class="floatClass" [ngClass]="{showlbl: isAgefrom==true}">Age From</label>
+                                        <ng-multiselect-dropdown 
+                                           [placeholder]="'From'"
+                                           [settings]="AgefromSettings"
+                                           [data]="Agefrom"
+                                           formControlName="Agefrom"
+                                           [(ngModel)]="selectedAgefrom"
+                                           (onSelect)="onItemSelectedAgefrom($event)"
+                                           (onDeSelect)="onItemDeSelectedAgefrom($event)"
+                                           >
+                                        </ng-multiselect-dropdown>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3 mt-3per">
+                                    <div class="km-form-group select-box-style" [ngClass]="{kmactive: isAgeto==true}">
+                                       <label class="floatClass" [ngClass]="{showlbl: isAgeto==true}">Age To</label>
+                                        <ng-multiselect-dropdown 
+                                            [placeholder]="'To'"
+                                            [settings]="AgetoSettings"
+                                            [data]="Ageto"
+                                           formControlName="Ageto"
+                                           [(ngModel)]="selectedAgeto"
+                                           (onSelect)="onItemSelectedAgeto($event)"
+                                           (onDeSelect)="onItemDeSelectedAgeto($event)"
+                                       >
+                                       </ng-multiselect-dropdown>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="col-md-4 mb-3">
+                                    <label>Profile</label>
+                                    <div class="col-md-12 select-box-style">
+                                        <div class="km-form-group" [ngClass]="{kmactive: isprofile===true}">
+                                            <label class="floatClass" [ngClass]="{showlbl: isprofile===true}">Select Profile Settings</label>
+                                            <ng-multiselect-dropdown 
+                                            [placeholder]="'Select profile'"
+                                            [settings]="profileSettings"
+                                            [data]="profile"
+                                            formControlName="selectprofile"
+                                            [(ngModel)]="selectedprofileItems"
+                                            (onSelect)="onItemSelectprofile($event)"
+                                            (onSelectAll)="onSelectAllprofile($event)"
+                                            (onDeSelect)="OnItemDeSelectprofile($event)"
+                                            >
+                                            </ng-multiselect-dropdown>
+                                        </div>
+                                    </div>
+                                </div>  -->
+                                <!-- <div class="col-md-8 mb-3">
+                                    
+                                </div> -->
+                                <div class="col-md-4 mb-3 btn_search_tab mt-3per">
+                                    <button type="submit" class="margin-top-0px btn btn-c1 text-uppercase btn-search" [disabled]="disableBtn">{{SearchbuttonName}}</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>            
+        </div>
+
+        <carousel class="hide-slide" [noWrap]="noWrapSlides" [showIndicators]="showIndicator">
+            <slide *ngFor="let slide of slides;">
+                <img class="carousel-item_img" src="{{slide.image}}" alt="image slide" style="display: block; width: 100%;">
+                <!-- <div class="carousel-caption">
+                    <h4>Slide {{index+1}}</h4>
+                </div> -->
+            </slide>
+        </carousel>
+
+       <!--  <carousel  class="hide-slide" [(activeSlide)]="activeSlideIndex">
+            <slide>
+                <img src="assets/images/banner/_VE_3786.jpg" alt="first slide" style="display: block; width: 100%;"> -->
+               <!--  <div class="carousel-caption d-none d-md-block">
+                    <h3>First slide label</h3>
+                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                </div> -->
+           <!--  </slide>
+            <slide>
+                <img src="assets/images/banner/_VE_3880.jpg" alt="second slide" style="display: block; width: 100%;"> -->
+              <!--   <div class="carousel-caption d-none d-md-block">
+                    <h3>Second slide label</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div> -->
+            <!-- </slide>
+            <slide>
+                <img src="assets/images/banner/_VE_3786.jpg" alt="third slide" style="display: block; width: 100%;"> -->
+               <!--  <div class="carousel-caption d-none d-md-block">
+                    <h3>Third slide label</h3>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                </div> -->
+           <!--  </slide>
+        </carousel> -->
+    </div>
+</section>
+
+<section id="about-p" class="pd-tp-20 pd-bt-20 bg-color-1 about-text doubleclr">
+    <!--container-->
+    <div class="container">
+        <div class="row">
+            <!--text-->
+            <div class="col-md-5 col-lg-5 col-sm-5 col-12">
+                <h2>Exclusive Services <br> Get individual service <br> from an Exclusive Team Advisor</h2>
+            </div>
+            <!--text-->
+            <!--number block-->
+            <div class="col-md-6 col-lg-6 col-sm-6 offset-md-1 col-12">
+                <div class="row pd-tp-15">
+                    <div class="col-md-4 col-lg-4 col-sm-4 col-12">
+                        <div class="icon-text">
+                            <img src="assets/images/icons/favorites.svg" class="animate-icon" alt="">
+                            <h3>{{profilecount.Suntvprograms}}+</h3>
+                            <span>SUN TV Programs</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-4 col-12">
+                        <div class="icon-text">
+                            <img src="assets/images/icons/secure-shield.svg" alt="">
+                            <h3>{{profilecount.Happyweddings}}+</h3>
+                            <span>Happy Weddings</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-4 col-12">
+                        <div class="icon-text">
+                            <img src="assets/images/icons/headphones.svg" alt="">
+                            <h3>{{profilecount.Exclusivemembers}}+</h3>
+                            <span>Exclusive Members</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--number block-->
+        </div>
+    </div>
+    <!--container-->
+</section>
+<!-- about block colored-->
+<!--About app-->
+<section id="about">
+    <div class="content-text padd-40">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-6 col-md-6 col-12 wow fadeInLeft">
+                   <!--  <img src="assets/images/mohan _sir.png" alt=""> -->
+                   <div class="col-lg-12 row">
+                        <div class="col-lg-6 padd0">
+                            <img src="assets/images/aahakalayanamalai/kalyanamalai.jpg" class="card__img_leftborder" alt="">
+                        </div>
+                        <div class="col-lg-6 padd0">
+                            <img src="assets/images/aahakalayanamalai/weddingimg.jpg" class="card__img_right_top_border" alt="">
+                        </div>
+                        <div class="col-lg-6 padd0">
+                            <img src="assets/images/aahakalayanamalai/wedding-hands-hindu.jpg" class="card__img_left_bottom_border" alt="">
+                        </div>
+                        <div class="col-lg-6 padd0">
+                            <img src="assets/images/aahakalayanamalai/south-indian-wedding.jpg" class="card__img_rightborder" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 ">
+                    <h2 class="title-h2">Kalyanamalai Private Limited</h2>
+                    <p class="font-p mg-tp-30 mg-bt-30">Kalyanamalai Private Limited , was started in 1999 and shot to fame with its unique TV program, Kalyanamalai. The company offers matrimonial services to Indians and Non Resident Indian's.</p>
+                    <p class="font-p mg-tp-30 mg-bt-30">Matrimonial alliances are arranged through the television programme, magazines and website We also arrange events and exclusive community meetings for prospective brides and grooms.</p>
+                    <hr>
+                    <h4><strong class="font_size_25">Types of Matrimonial Services Offered</strong></h4>
+                    <ul class="list-text">
+                        <li> <i class="las la-check-double"></i> Kalyanamalai SUN TV Program</li>
+                        <li> <i class="las la-check-double"></i> Kalyanamalai e-Magazine</li>
+                        <li> <i class="las la-check-double"></i> Kalyanamalai Website</li>
+                        <li> <i class="las la-check-double"></i> Specially Arranged Matrimonial Ground Events</li>
+                        <li> <i class="las la-check-double"></i> Exclusive Service</li>
+                        <li> <i class="las la-check-double"></i> Exclusive Community Meets</li>
+                    </ul>
+                    <hr>
+                    <!-- <a routerLink="" class="btn btn-c1 text-uppercase">Get Started! </a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg_clr">
+    <div class="container-page padd-40 margin-bottom-50px">
+        <div class="container vide-sc">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="billing-title-wrap pd-l-0 margin-bottom-10px">
+                        <h3 class="widget-title pb-0">Kalyanamalai</h3>
+                        <div class="title-shape margin-top-10px"></div>
+                    </div>
+                </div>
+               <!--  <div class="col-lg-4" *ngFor="let youtubelistlink of youtubelist; let index=index">
+                    <iframe width="100%" height="200" src="{{youtubelistlink.link}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div> -->
+                <div class="col-lg-4">
+                    <iframe width="100%" height="200" src="https://www.youtube-nocookie.com/embed/VW9IvlwZqrs?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-lg-4">
+                    <iframe width="100%" height="200" src="https://www.youtube-nocookie.com/embed/k1tALsX-5dE?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-lg-4">
+                    <iframe width="100%" height="200" src="https://www.youtube-nocookie.com/embed/SjGLxwUgJa0?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-lg-12 col-md-12 text-center margin-top-10px">
+                    <a href="//www.youtube.com/channel/UCXwhdtT0CCyD_77C5x7-WEg" target="_blank" class="btn btn-c1 text-uppercase btn-2clr">View more! </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-img-fix">
+    <div class="content-text padd-40 appscreens">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-6 col-md-6 col-12 wow fadeInLeft">
+                    <h2 class="title-h2 font_clr">Meet your life partner with Kalyanamalai App!</h2>
+                    <div class="colorTitles">
+                        <!-- <span class="pink wow bounceInRight animated" data-wow-offset="120" data-wow-duration="1s"> -->
+                        <span class="blue wow bounceInRight animated" data-wow-offset="120" data-wow-duration="1s">
+                            Stylish ,Simple and Unique !
+                        </span>
+                        <br>
+                        <!-- <span class="yellow wow bounceInRight animated" data-wow-offset="120" data-wow-duration="1.5s"> -->
+                        <span class="green wow bounceInRight animated" data-wow-offset="120" data-wow-duration="1.5s">
+                            Be creative
+                        </span>
+                    </div>
+                    <p class="font-p mg-tp-30 mg-bt-30 font_clr">Our App hosts profiles of millions of prospective and eligible brides and grooms from all communities. Profiles with relevant details and photos are available for the website users. The systematically arranged profiles with details, makes the search for brides and grooms easy.</p>
+                    <!-- <p class="font-p mg-tp-30 mg-bt-30">The App currently receives over 5.3 lakh hits per day.The demand from the users of the app is continually growing.</p> -->
+                    <hr>
+                    <h4 class="font_clr"><strong>Our App Packed with amazing features</strong></h4>
+                    <ul class="list-text margin-bottom-10px font_clr">
+                        <li> <span class="fa fa-check-circle-o"></span> Reliable and Secure Platform</li>
+                        <li> <span class="fa fa-check-circle-o"></span> Everything is perfectly orgainized for future</li>
+                        <li> <span class="fa fa-check-circle-o"></span> Stylish ,Simple and Unique !</li>
+                    </ul>
+                    <a href="https://play.google.com/store/apps/details?id=com.kalyanamalai.matrimony&hl=en&gl=US" target="_blank" class="padd-R-20">
+                        <img src="assets/images/icons/play-store.png" class="img-fluid" alt="">
+                    </a>
+                   
+                    <img src="assets/images/icons/app-store.png" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 wow fadeInRight">
+                    <carousel  class="hide-slide android-slider" [noWrap]="noWrapSlides" [showIndicators]="showIndicator_mobile" [isAnimated]="true" [interval]="2000">
+                       <slide *ngFor="let mobileslid of mobileslider; let index=index" >
+                            <img class="mobile_img" src="{{mobileslid.image}}" alt="first slide">
+                        </slide>
+                    </carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- pricing table -->
+<section id="testimonials" class="bg_clr">
+    <div class="container-page padd-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 text-center">
+                    <h2 class="title-h2">Testimonials</h2>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="service-block">
+                        <img src="assets/images/testimonial/1.jpg" alt="" class="img-fluid">
+                        <h3 class="margin_10">Sudha &amp; Venkatesh</h3>
+                        <p>It was beautifully conducted by Athithi. Everyone thoroughly enjoyed the food. I can proudly say that probably I was one of a very few bride’s mom who was totally relaxed and I got to enjoy the wedding as well.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="service-block">
+                        <img src="assets/images/testimonial/2.jpg" alt="" class="img-fluid">
+                        <h3 class="margin_10">Gayathri &amp; Shriram</h3>
+                        <p>We happily & gratefully record our appreciation to Athithi Caterers & their staff and executives who did service on the above days and made our daughter Gayathri Natarajan’s marriage a great success.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="service-block">
+                        <img src="assets/images/testimonial/1.jpg" alt="" class="img-fluid">
+                        <h3 class="margin_10">Sudha &amp; Venkatesh</h3>
+                        <p>Our soulmate search was made easy by Kalyanamalai as we got to know each other very quickly with the splendid service rendered by the Kalyanamalai team</p>
+                    </div>
+                </div>
+               <!--  <div class="col-lg-12 col-md-12 text-center">
+                    <a routerLink="" class="btn btn-c1 text-uppercase">Get Started! </a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="padd-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-7 col-lg-7 text-center">
+                <h2 class="title-h2">About Kalyanamalai </h2>
+                <p class="font-p mg-tp-30 padd-10">Kalyanamalai Private Limited , was started in 1999 and shot to fame with its unique TV program, Kalyanamalai. The company offers matrimonial services to Indians and Non Resident Indian's. Matrimonial alliances are arranged through the television programme, magazines and website We also arrange events and exclusive community meetings for prospective brides and grooms.</p>
+                <a routerLink="about" class="btn btn-c1 text-uppercase btn-2clr viewbtn-style">View More! </a>
+            </div>
+            <div class="col-5 col-lg-5 text-center">
+                <h2 class="title-h2">Regional Services </h2>
+                <ul class="nav justify-content-center padd-10">
+                    <li class="nav-item">
+                        <span class="nav-link active">தமிழ்</span>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link">తెలుగు</span>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link">മലയാളം</span>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link">ಕನ್ನಡಂ</span>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <span class="nav-link active">हिंदी</span>
+                    </li>
+                     <li class="nav-item">
+                        <span class="nav-link active">English</span>
+                    </li> -->
+                </ul>
+                <ul class="nav justify-content-center padd-5">
+                    <li class="nav-item">
+                        <span class="nav-link active">हिंदी</span>
+                    </li>
+                     <li class="nav-item">
+                        <span class="nav-link active">English</span>
+                    </li>
+                </ul>
+                <!-- <a routerLink="about" class="btn btn-c1 text-uppercase">View More! </span> -->
+            </div>
+        </div>
+    </div>
+</section>
+
+

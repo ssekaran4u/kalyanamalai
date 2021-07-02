@@ -1,0 +1,173 @@
+ <section class="team-area padding-top-40px padding-bottom-20px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 row">
+                    <div class="col-md-6 text-right">
+                        <img src="assets/images/suntv/suntvlogo.png">
+                    </div>
+                    <div class="col-md-6 text-left">
+                        <h2 class="breadcrumb__title"><strong>SUN TV Profile</strong></h2>
+                        <ul class="breadcrumb__list">
+                            <li>We Introduce you to the world</li>
+                        </ul>
+                    </div>
+                </div><!-- end col-lg-12 -->
+                <div class="col-lg-12">
+                    <div class="section-heading text-center">
+                        <h2 class="sec__title">Welcome to Kalyanamalai Program</h2>
+                        <p class="sec__desc">Kalyanamalai Private Limited takes pleasure in presenting the prospective brides and grooms visually on television through its famous <b>Kalyanamalai program on SUN TV.</b> Millions of TV viewers from all over the world see the program telecast on every Sunday between 08.00 and 8.30 AM. The program enjoys the unique distinction of enabling quicker marriage to over 85% of the marriage seekers took part in it. The first of its kind visual presentation of brides and grooms blended with subjective debates is well received by the viewers globally.</p>
+                        <hr>
+                        <div class="col-md-12 row">
+                            <div class="col-md-12 text-center program_title">
+                                <span class="p_grid">View Programs</span>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="youtube.html"><img src="assets/images/suntv/youtube.jpg" style="width: 100%;"></a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="youtube.html"><img src="assets/images/suntv/youtube.jpg" style="width: 100%;"></a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="youtube.html"><img src="assets/images/suntv/youtube.jpg" style="width: 100%;"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section class="card-area padding-top-40px padding-bottom-100px">
+        <div class="container">
+            <div class="text-center program_title">
+                <p class="p_grid">The profiles presented during the program are displayed below.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="generic-header margin-bottom-30px">
+                        <p class="showing__text text-left">Showing 1 to 6 of 30 entries</p>
+                    </div><!-- end generic-header -->
+                </div><!-- end col-lg-12 -->
+                <div class="col-lg-12 row">
+                    <div class="col-lg-3">
+                    </div>
+                    <div class="col-lg-9 padd0">
+                        <div class="row">
+                            <div class="col-lg-12 card-list-item1 padd0" >
+                                <div class="billing-title-wrap1">
+                                    <div class="row">
+                                        <div class="col-md-12 text-right div-title-btn">
+                                            <span  class="btn btn-c1 btn-color padd0px-btn">
+                                                <i class="las la-user-friends"></i> Sun TV Profiles
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cfa-spinner text-center" [ngClass]="isMatchingLoading==true ? 'show' : 'hide'">
+                                    <div class="skeleton-loader"></div>
+                                </div>
+                                 <div class="cfa-spinner text-center" [ngClass]="isMatchingLoading==true ? 'show' : 'hide'">
+                                    <div class="skeleton-loader"></div>
+                                </div>
+                                <div class="cfa-spinner text-center" [ngClass]="isMatchingLoading==true ? 'show' : 'hide'">
+                                    <div class="skeleton-loader"></div>
+                                </div>
+
+
+                                <div *ngFor="let item of matchinglists | paginate: { itemsPerPage: itemsPerPage , currentPage: p, totalItems: totalMatchingItems }"  class="card-list-item2 hide" [ngClass]="{show: isMatchingLoadingData==true}">
+                                    <div class="row">
+                                        <div class="col-md-3 text-center">
+                                            <div *ngIf="item.ProtectedImage==1 && item.Imagestatus==1" class="card-image">
+                                                <img [defaultImage]="defaultImage" [lazyLoad]="item.profilepicture" class="card__img" alt="">
+                                                <button (click)="openCommonModal(content,communication,'photo',item.RegNumber)" class="absolute btn btn-c1">Request for Access</button>
+                                            </div>
+
+                                            <div *ngIf="item.ProtectedImage==0 && item.Imagestatus==0" class="card-image">
+                                                <img [defaultImage]="defaultImage" [lazyLoad]="item.profilepicture" class="card__img" alt="">
+                                                <button (click)="openCommonModal(content,communication,'photo',item.RegNumber)" class="absolute btn btn-c1">Request for Upload</button>
+                                            </div>
+
+                                            <div *ngIf="item.ProtectedImage==1 && item.Imagestatus==0" class="card-image">
+                                                <img [defaultImage]="defaultImage" [lazyLoad]="item.profilepicture" class="card__img" alt="">
+                                                <button (click)="openCommonModal(content,communication,'photo',item.RegNumber)" class="absolute btn btn-c1">Request for Access</button>
+                                            </div>
+
+                                            <a *ngIf="item.Imagestatus==1 && item.ProtectedImage==0" routerLink="/profile/{{item.RegNumber}}" class="card-image-wrap">
+                                                <div class="card-image">
+                                                    <img [defaultImage]="defaultImage" [lazyLoad]="item.profilepicture" class="card__img" alt="">
+                                                </div>
+                                            </a>
+
+                                            <span *ngIf="item.Imagestatus==1 && item.ProtectedImage==0 &&  item.images.length>1" class="cbadge-toggle" title="View Images" (click)="openCommonModal(content,gallery,'gallery',item.RegNumber)"> {{item.images.length}} </span>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="card-content1">
+                                                <a routerLink="/profile/{{item.RegNumber}}">
+                                                    <h4 class="card-title">{{item.Name}} [{{item.RegNumber}}]</h4>
+                                                    <p class="card-sub">Profile created for {{item.ProfileCreatedBy}}</p>
+                                                </a>
+                                                <div class="row">
+                                                    <div class="col-lg-5">
+                                                        <ul class="info-list">
+                                                            <li><span>Age:</span> {{item.Age}} <span>Height:</span> {{item.Height}} </li>
+                                                            <li><span>Marital Status:</span> {{item.MaritalStatus}}</li>
+                                                            <li><span>Religion:</span> {{item.Religion}}</li>
+                                                            <li><span>Caste:</span> {{item.Caste}}</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-lg-7">
+                                                        <ul class="info-list">
+                                                            <li><span>Location:</span> {{item.CommunicationCity}}</li>
+                                                            <li><span>Education:</span> {{item.Education}}</li>
+                                                            <li><span>Profession:</span> {{item.Profession}}</li>
+                                                            <li><span>Star:</span> {{item.Star}}</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-5">
+                                                        <ul class="info-list">
+                                                            <li>
+                                                                <ul class="_iconsLst">
+                                                                    <li><span (click)="openCommonModal(content,communication,'contact',item.RegNumber)"><i title="Contact Details" class="las la-phone-volume"></i></span> </li>
+                                                                    <li><span (click)="openCommonModal(content,expressinterest,'expressinterest',item.RegNumber)"><i title="Express Interest" class="lar la-heart"></i></span> </li>
+                                                                    <li><span (click)="openCommonModal(content,personalized,'message',item.RegNumber)"><i  title="Personlized Message" class="lar la-envelope"></i></span></li>
+                                                                    <li><span (click)="openCommonModal(content,'','bookmark',item.RegNumber)"><i title="Bookmark" class="lar la-bookmark"></i></span> </li>
+                                                                    <li><span (click)="openCommonModal(content,'','horoscope',item.RegNumber)"><i title="Horoscope" class="las la-table"></i></span> </li>
+                                                                    <li><span (click)="openCommonModal(content,'','block',item.RegNumber)"><i title="Block" class="las la-ban"></i></span> </li>
+                                                                    <li><span (click)="openCommonModal(content,'','ignore',item.RegNumber)"><i title="Ignore" class="las la-comment-slash"></i></span> </li>
+                                                                    <li><span (click)="openCommonModal(content,forward,'forward',item.RegNumber)"><i title="Forward Profile" class="las la-share-square"></i></span> </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="_listButton">
+                                                            <a routerLink="/profile/{{item.RegNumber}}" class="btn btn-c1" target="_blank"><i class="las la-user-check"></i> View Profile</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <pagination-controls 
+                                    (pageChange)="getPage(p = $event)"
+                                    maxSize="9"
+                                    directionLinks="true"
+                                    autoHide="true"
+                                    responsive="true"
+                                ></pagination-controls>
+                            </div>
+                            <div [ngClass]="{show: isMatchingNotFoundLoading==true}" class="col-lg-12 hide alert alert-danger text-center">
+                                <strong>No data found...!</strong>
+                            </div>
+                        </div>
+                    </div><!-- end row -->
+                </div>
+                
+            </div><!-- end row -->
+            
+        </div><!-- end container -->
+    </section>

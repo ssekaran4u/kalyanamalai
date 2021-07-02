@@ -1,0 +1,40 @@
+/*.headerareatitle
+    {
+        /*background-image: url(assets/images/suntv/weddingfixed/weddinghands.jpg);
+        background-size: cover;
+    }
+.reviewtitle
+    {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: #e7e8eb;
+        border: 1px solid #e7e8eb;
+    }*/
+
+.limitTextHeight 
+{
+    height: 50px;
+    overflow: hidden;
+}
+.h4-style
+{
+    background-color: #ffffff;
+    padding: 10px;
+    padding-left: 0px;
+    border-radius: 5px;
+    color: #352d2d !important;
+}
+@media only screen and (max-width: 991px) 
+{
+    .display_img
+    {
+        display: none
+    }
+}
+
+.suss_img 
+{
+    max-width: 70%;
+    height: auto;
+    border-radius: 10px;
+}

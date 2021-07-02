@@ -1,0 +1,253 @@
+<div class="container-fluid">
+    <div class="row">
+        <div id="_extend_Id" class="col-md-8 offset-lg-2 offset-sm-0">
+            <form id="msform" [formGroup]="editDescribeYourselfForm" (ngSubmit)="onSubmit()">
+                <fieldset>
+                    <div class="billing-form-item">
+                        <div class="progressbar"></div>
+                        <div class="billing-content">
+                            <div class="contact-form-action">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="1st _rImge">
+                                            <img src="assets/images/reg/yourself.png" class="img-fluid mx-auto d-none d-xl-block">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        
+                                        <div class="col-lg-12">
+                                            <h2 class="fs-title">Edit Describe yourself</h2>
+                                            <div class="form-group mg-tp-20 your_1" [ngClass]="{'focused' : isAboutMyself==true}">
+                                                <span class="has-float-label">
+                                                    <textarea #term (keyup)="searchDescribe(term.value)" formControlName="DescribeyourselfText"  name="DescribeyourselfText" cols="50" rows="3" class="form-control" id="DescribeyourselfText" placeholder=" Describe yourself in a few words" maxlength="1000" value="{{isEdit.AboutMyself}}"></textarea>
+                                                    <label for="DescribeyourselfText"> Describe yourself in a few words  <span class="required">*</span></label>
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="row clearfix">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group custom-form-group _hv_Ch">
+                                                        <label class="label-text YourselfContent cur posit-init">Or Choose yourself content <i class="las la-eye"></i> </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <p class="text-right"><span>( <span id="typeDescribeCount">{{isDescribeCount}}</span>  / 1000)</span></p>
+                                                </div>
+                                                <div class="col-lg-12" id="YourselfContent" style="display: none;">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="input-box">
+                                                                <div class="form-group">
+                                                                    <div class="custom-control">
+                                                                        <input type="radio" class="custom-control-input" name="Describeyourself" id="Describeyourself1" value="1">
+                                                                        <label class="custom-control-label Describeyourself1" for="Describeyourself1"> I am a very simple, god fearing, caring, talented, understanding, trustworthy and kind hearted human being. I believe in the motto ‘Live and let live’. I hate liars. I am fun loving, down to earth and very much Optimist. I love traveling, sightseeing, listening to rock music, reading all the latest fiction novels.</label>
+                                                                    </div>
+                                                                    <div class="custom-control">
+                                                                        <input type="radio" class="custom-control-input" name="Describeyourself" id="Describeyourself2" value="2">
+                                                                        <label class="custom-control-label Describeyourself2" for="Describeyourself2"> I have always been an achiever; be it academics or professional life or sports or any other field in my life. I believe in success through hard work & dedication. My motto in life is to ‘If you want something, work hard & you will achieve it; there are no shot cuts’. I enjoy life to the fullest & love humor. I am a progressive thinker & respect each person’s space & values.</label>
+                                                                    </div>
+                                                                    <div class="custom-control">
+                                                                        <input type="radio" class="custom-control-input" name="Describeyourself" id="Describeyourself3" value="3">
+                                                                        <label class="custom-control-label Describeyourself3" for="Describeyourself3"> My son is 5ft 5in - 165.1cm, Fair, Athletic & completed his Less than High School in 12. He is working with Doesn't Matter as a Fax. He is clever, intelligent and smart looking. He has the capacity to fulfill all her family duties and achieve her professional goals at the same time. He is an excellent cook & knows to cook a variety of cuisines. His favorite pastime is watching movies, playing guitar, playing indoor sports like table tennis, badminton, carom & swimming. </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="form-group your_2" [ngClass]="{'focused' : isExpAbtLifePartner==true}">
+                                                        <span class="has-float-label">
+                                                            <textarea #expectation (keyup)="searchMyExpectation(expectation.value)" formControlName="MyExpectationText" name="MyExpectationText" cols="50" rows="3" class="form-control" id="MyExpectationText" placeholder="My Expectation about life partner" maxlength="1000" value="{{isEdit.ExpectationAboutLifePartner}}"></textarea>
+                                                            <label for="MyExpectationText">My Expectation about life partner <span class="required">*</span></label>
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12">
+                                                    <div class="row clearfix">
+                                                        <div class="col-lg-9">
+                                                            <div class="form-group custom-form-group _hv_Ch">
+                                                                <label class="label-text posit-init MyExpectationContent cur">Or Choose My Expectation about life partner content <i class="las la-eye"></i> </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3">
+                                                            <p class="text-right"><span>( <span id="typeExpectationCount">{{isMyExpectationCount}}</span>  / 1000)</span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12" id="MyExpectationContent" style="display: none;">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="input-box">
+                                                                <div class="form-group">
+                                                                    <div class="custom-control">
+                                                                        <input type="radio" class="custom-control-input" name="MyExpectation" id="MyExpectation1" value="1">
+                                                                        <label class="custom-control-label MyExpectation1" for="MyExpectation1">I am looking for a soulmate, who is understanding, down to earth, lives and enjoys every moment of life, who will be my best friend for life.. !! </label>
+                                                                    </div>
+                                                                    <div class="custom-control">
+                                                                        <input type="radio" class="custom-control-input" name="MyExpectation" id="MyExpectation2" value="2">
+                                                                        <label class="custom-control-label MyExpectation2" for="MyExpectation2">I am looking for honest, intelligent & sensitive companion to nurture my life & home with security, warmth, freedom and harmony. She should have good communication to manage & maintain relations with all my family members & friends. She should respect elders & family values.  </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+
+                                        <div class="col-lg-12 row">
+                                            <div class="col-lg-12 _xs_center_">
+                                               <button [disabled]="disableBtn" type="submit" name="next" class='btn btn-lg next action-button'> 
+                                                {{SubmitbuttonName}} <i class="las la-arrow-circle-right"></i> 
+                                                </button>
+                                            
+                                                <a class='btn btn-lg next action-button' routerLink="../../user/profile">
+                                                    Back to Profile 
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="overlay" [ngClass]="{show: isLoading===true}">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>
+
+
+
+<!-- <div class="container-fluid">
+    <div class="row">
+        <div id="_extend_Id" class="col-md-8 offset-lg-2 offset-sm-0">
+            <form id="msform" [formGroup]="editDescribeYourselfForm" (ngSubmit)="onSubmit()">
+                <fieldset>
+                    <div class="billing-form-item">
+                        <div class="progressbar"></div>
+                        <div class="billing-content">
+                            <div class="contact-form-action">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="1st _rImge">
+                                            <img src="assets/images/reg/yourself.png" class="img-fluid mx-auto d-none d-xl-block">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        
+                                        <div class="col-lg-12">
+                                            <h2 class="fs-title">Edit Describe yourself</h2>
+                                            <div class="form-group mg-tp-20 your_1" [ngClass]="{'focused' : isAboutMyself==true}">
+                                                <span class="has-float-label">
+                                                    <textarea id="DescribeyourselfText" formControlName="DescribeyourselfText"  name="DescribeyourselfText" cols="50" rows="3" class="form-control" id="DescribeyourselfText" placeholder=" Describe yourself in a few words" value="{{isEdit.AboutMyself}}"></textarea>
+                                                    <label for="DescribeyourselfText"> Describe yourself in a few words  <span class="required">*</span></label>
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="row clearfix">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group custom-form-group _hv_Ch">
+                                                        <label class="label-text YourselfContent cur posit-init">Or Choose yourself content <i class="las la-eye"></i> </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12" id="YourselfContent" style="display: none;">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="input-box">
+                                                                <div class="form-group">
+                                                                    <div class="custom-control">
+                                                                        <input type="radio" class="custom-control-input" name="Describeyourself" id="Describeyourself1" value="1">
+                                                                        <label class="custom-control-label Describeyourself1" for="Describeyourself1"> I am a very simple, god fearing, caring, talented, understanding, trustworthy and kind hearted human being. I believe in the motto ‘Live and let live’. I hate liars. I am fun loving, down to earth and very much Optimist. I love traveling, sightseeing, listening to rock music, reading all the latest fiction novels.</label>
+                                                                    </div>
+                                                                    <div class="custom-control">
+                                                                        <input type="radio" class="custom-control-input" name="Describeyourself" id="Describeyourself2" value="2">
+                                                                        <label class="custom-control-label Describeyourself2" for="Describeyourself2"> I have always been an achiever; be it academics or professional life or sports or any other field in my life. I believe in success through hard work & dedication. My motto in life is to ‘If you want something, work hard & you will achieve it; there are no shot cuts’. I enjoy life to the fullest & love humor. I am a progressive thinker & respect each person’s space & values.</label>
+                                                                    </div>
+                                                                    <div class="custom-control">
+                                                                        <input type="radio" class="custom-control-input" name="Describeyourself" id="Describeyourself3" value="3">
+                                                                        <label class="custom-control-label Describeyourself3" for="Describeyourself3"> My son is 5ft 5in - 165.1cm, Fair, Athletic & completed his Less than High School in 12. He is working with Doesn't Matter as a Fax. He is clever, intelligent and smart looking. He has the capacity to fulfill all her family duties and achieve her professional goals at the same time. He is an excellent cook & knows to cook a variety of cuisines. His favorite pastime is watching movies, playing guitar, playing indoor sports like table tennis, badminton, carom & swimming. </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="form-group your_2" [ngClass]="{'focused' : isExpAbtLifePartner==true}">
+                                                        <span class="has-float-label">
+                                                            <textarea id="MyExpectationText" formControlName="MyExpectationText" name="MyExpectationText" cols="50" rows="3" class="form-control" id="MyExpectationText" placeholder="My Expectation about life partner"  value="{{isEdit.ExpectationAboutLifePartner}}"></textarea>
+                                                            <label for="MyExpectationText">My Expectation about life partner <span class="required">*</span></label>
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12">
+                                                    <div class="form-group custom-form-group _hv_Ch">
+                                                        <label class="label-text posit-init MyExpectationContent cur">Or Choose My Expectation about life partner content <i class="las la-eye"></i> </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12" id="MyExpectationContent" style="display: none;">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="input-box">
+                                                                <div class="form-group">
+                                                                    <div class="custom-control">
+                                                                        <input type="radio" class="custom-control-input" name="MyExpectation" id="MyExpectation1" value="1">
+                                                                        <label class="custom-control-label MyExpectation1" for="MyExpectation1">I am looking for a soulmate, who is understanding, down to earth, lives and enjoys every moment of life, who will be my best friend for life.. !! </label>
+                                                                    </div>
+                                                                    <div class="custom-control">
+                                                                        <input type="radio" class="custom-control-input" name="MyExpectation" id="MyExpectation2" value="2">
+                                                                        <label class="custom-control-label MyExpectation2" for="MyExpectation2">I am looking for honest, intelligent & sensitive companion to nurture my life & home with security, warmth, freedom and harmony. She should have good communication to manage & maintain relations with all my family members & friends. She should respect elders & family values.  </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+
+                                      
+                                        <div class="col-lg-12 row">
+                                            <div class="col-lg-12 _xs_center_">
+                                               <button [disabled]="disableBtn" type="submit" name="next" class='btn btn-lg next action-button'> 
+                                                {{SubmitbuttonName}} <i class="las la-arrow-circle-right"></i> 
+                                                </button>
+                                            
+                                                <a class='btn btn-lg next action-button' routerLink="../../user/profile">
+                                                    Back to Profile 
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="overlay" [ngClass]="{show: isLoading===true}">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>
+ -->

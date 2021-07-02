@@ -1,0 +1,81 @@
+
+<section class="contact-area padding-top-40px padding-bottom-80px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 padding-top-10px padding-bottom-10px">
+                <div class="col-lg-12 para_head_style">
+                    <h1 class="headingfont">Suggestion</h1>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="billing-form-item">
+                    
+                    <div class="billing-content">
+                        <div class="our-office-content">
+                            <div class="section-heading">
+                                <p class="card_p sec__desc font-size-15 line-height-24">We always welcome your suggestions that will improve our services. We will be happy to receive the most productive suggestions from you, which in turn will help us to serve our members better. Please use this place to offer your valuable suggestions.</p>
+                                <p class="card_p sec__desc font-size-15 line-height-24">When we receive your suggestion We will be in touch with you using your mail ID. Alternatively you may also call us on <strong>+91 44 2434 1400</strong>  between <strong>08.00 AM</strong> to <strong>08.00 PM</strong>  on any working day to talk to a customer friendly official at our office.</p>
+                                <p class="card_p sec__desc font-size-15 line-height-24">You may also post your suggestion letter to</p>
+                                <p class="card_p sec__desc font-size-15 line-height-24"><strong>Kalyanamalai Private Limited,</strong></p>
+                                <p class="card_p sec__desc font-size-15 line-height-24">   New No.16, Lakshmi Graham, <br>  Dr. Nair Road, T.Nagar,<br> Chennai - 600 017, <br>Tamilnadu, India</p>
+                               
+                                                
+                                
+                            </div>
+                            
+                        </div><!-- end our-office-content -->
+                    </div><!-- end billing-content -->
+                </div><!-- end billing-form-item -->
+            </div><!-- end col-lg-5 -->
+            <div class="col-lg-5">
+                <div class="billing-form-item">
+                    <div class="billing-title-wrap">
+                        <h3 class="widget-title pb-0">Suggestion</h3>
+                        <div class="title-shape margin-top-10px"></div>
+                    </div><!-- billing-title-wrap -->
+                    <div class="billing-content billcnt">
+                        <div class="contact-form-action">
+                            <form id="msform" [formGroup]="SuggestionForm" (ngSubmit)="onSubmit()">
+                                <div class="input-box">
+                                    <label class="label-text">Name <span class="text-danger">*</span> </label>
+                                    <div class="form-group">
+                                        <span class="la la-user form-icon"></span>
+                                        <input class="form-control" type="text" name="name" formControlName="name" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="input-box">
+                                            <label class="label-text">E-Mail Id<span class="text-danger">*</span></label>
+                                            <div class="form-group">
+                                                <span class="la la-envelope-o form-icon"></span>
+                                                <input class="form-control" type="email" name="email" formControlName="email" placeholder="E-Mail Id">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="input-box">
+                                    <label class="label-text">Suggestion<span class="text-danger">*</span></label>
+                                    <div class="form-group">
+                                        <span class="la la-pencil form-icon"></span>
+                                        <textarea class="form-control" name="message" formControlName="message" placeholder="Write message"></textarea>
+                                    </div>
+                                </div>
+                                <div class="btn-box">
+                                    <button type="submit" class="theme-btn border-0 btn_2clr">
+                                        <span class="la la-paper-plane"></span>{{SubmitbuttonName}} 
+                                    </button>
+                                </div>
+                            </form>
+                        </div><!-- end contact-form-action -->
+                    </div><!-- end billing-content -->
+                </div><!-- end billing-form-item -->
+            </div><!-- end col-lg-7 -->
+           
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end contact-area -->
+
+

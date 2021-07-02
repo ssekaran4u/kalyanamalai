@@ -1,0 +1,603 @@
+<section class="card-area padding-top-40px padding-bottom-100px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <form  id="msform" [formGroup]="Serch_profileForm">
+                    <div class="sidebar">
+
+                        <!-- Profile Setting -->
+
+                        <div class="sidebar-widget card-list-item">
+                            <h3 class="widget-title">Photo Settings</h3>
+                            <div class="title-shape"></div>
+                            <div class="cfa-spinner text-center" [ngClass]="issearchProfileLoading1==true ? 'show' : 'hide'">
+                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                            </div>
+                            <ul class="radiogroup profilesetting mg-tp-20">
+                                <li *ngFor="let profilesetting of profilesetting;">
+                                    <label  #profilesettingSts 
+                                    (click)="profilesSearch(profilesettingSts)" 
+                                    id="ProfileselectID{{profilesetting.id}}" 
+                                    [attr.data-profSrh-id]="profilesetting.id" 
+                                    class="control control-radio" 
+                                    for="{{profilesetting.name}}" 
+                                    [ngClass]="{active: profilesetting.selected==1}">
+                                        <input 
+                                        formControlName="profilesetting" 
+                                        type="radio" 
+                                        id="{{profilesetting.name}}" 
+                                        name="profilesetting" 
+                                        [value]="profilesetting.id" 
+                                        [checked]="profilesetting.selected==1"
+                                        >
+                                        <span>{{profilesetting.name}}</span>       
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Marital Status -->
+                        
+                        <div class="sidebar-widget tag-widget card-list-item">
+                            <h3 class="widget-title">Marital Status</h3>
+                            <div class="title-shape"></div>
+                            <div class="cfa-spinner text-center" [ngClass]="issearchProfileLoading1==true ? 'show' : 'hide'">
+                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                            </div>
+                            <ul class="radiogroup MaritalStatus mg-tp-20">
+                                <li *ngFor="let MaritalStatus of MaritalStatus;">
+                                    <label 
+                                    (change)="MaritalStatusSearch(MaritalStatus.id, $event.target.checked)"
+                                    id="MaritalID{{MaritalStatus.id}}" 
+                                    class="control control-radio padd-left-right-5" 
+                                    for="{{MaritalStatus.name}}" 
+                                    [ngClass]="{active: MaritalStatus.selected==1}">
+                                        <input 
+                                        type="checkbox" 
+                                        id="{{MaritalStatus.name}}" 
+                                        name="MaritalStatus" 
+                                        [value]="MaritalStatus.id" 
+                                        [checked]="MaritalStatus.selected==1"
+                                        >
+                                        <span>{{MaritalStatus.name}}</span>       
+                                    </label>
+                                </li>
+                            </ul> 
+                        </div>
+
+                        <!-- Community -->
+
+                        <div class="sidebar-widget tag-widget card-list-item">
+                            <h3 class="widget-title">Community</h3>
+                            <div class="title-shape"></div>
+                            <div class="cfa-spinner text-center" [ngClass]="issearchProfileLoading1==true ? 'show' : 'hide'">
+                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                            </div>
+                            <ul class="radiogroup communities mg-tp-20">
+                                <li *ngFor="let communities of communities;">
+                                    <label  #CommunityEl 
+                                    (change)="CommunitiesSearch(communities.id, $event.target.checked)"
+                                    id="CommunityID{{communities.id}}"  
+                                    class="control control-radio" 
+                                    for="{{communities.name}}" 
+                                    [ngClass]="{active: communities.selected==1}">
+                                        <input  
+                                        type="checkbox" 
+                                        id="{{communities.name}}" 
+                                        name="communities" 
+                                        [value]="communities.id" 
+                                        [checked]="communities.selected==1"
+                                        >
+                                        <span>{{communities.name}}</span>       
+                                    </label>
+                                </li>
+                            </ul> 
+                        </div>
+
+                        <!-- Religion -->
+
+                        <div id="menu1" class="sidebar-widget card-list-item">
+                            <h3 class="widget-title">Religion</h3>
+                            <div class="title-shape"></div>
+                            <div class="cfa-spinner text-center" [ngClass]="issearchProfileLoading1==true ? 'show' : 'hide'">
+                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                            </div>
+                            <ul class="term-list mg-tp-20">
+                                <!-- <div class="scroll-sty-more-less"> -->
+                                    <li class="term-item" *ngFor="let religion of religions; let j = index" [ngClass]="{hide: j>=5, Religion: j>=5}">
+                                        <!-- (change)="onChange(religion.id, $event.target.checked)" (click)="ReligionSearch(messageEl)" -->
+                                        <label (change)="ReligionSearch(religion.id, $event.target.checked)" id="ReligionID{{religion.id}}">
+                                            <input [checked]="religion.selected===1"  id="religion.name" type="checkbox" [value]="religion.id" class="checkbox-color">
+                                            {{religion.name}}
+                                        </label>
+                                    </li>
+                                <!-- </div> -->
+                                 <li class="hide" [ngClass]="{show: religions.length==0}">No Religion Found</li>
+                                <li class="moreReligion btn-sm btn-more-less text-center" [ngClass]="{hide: religions.length<=6}">More...</li>
+                            </ul>
+                        </div>
+
+                        <!-- Caste -->
+                       
+                        <div class="sidebar-widget card-list-item">
+                            <h3 class="widget-title">Caste</h3>
+                            <div class="title-shape"></div>
+                            <div class="cfa-spinner text-center" [ngClass]="issearchProfileLoading1==true ? 'show' : 'hide'">
+                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                            </div>
+                            <ul class="term-list mg-tp-20">
+                                <div class="scroll-sty-more-less" [ngClass]="casteslength==true ? 'Height-auto' : ''">
+                                     <!-- [ngClass]="{Height-auto: castes.length==''}" -->
+                                    <li class="term-item" *ngFor="let castes of castes;  let j = index" [ngClass]="{hide: j>=5, Caste: j>=5}">
+                                        <label  #CasteEl (change)="CasteSearch(castes.id, $event.target.checked)" id="CasteID{{castes.id}}">
+                                            <input [checked]="castes.selected===1"  id="castes.name" type="checkbox" [value]="castes.id" class="checkbox-color">
+                                            {{castes.name}}
+                                        </label>
+                                    </li>
+                                </div>
+                                <li class="hide" [ngClass]="{show: castes.length==0}">No Caste Found</li>
+                                <li class="moreCaste btn-sm btn-more-less text-center" [ngClass]="{hide: castes.length<=6}">More...</li>
+                            </ul> 
+                        </div>
+
+                         <!-- Subsect -->
+                        <div class="sidebar-widget card-list-item">
+                            <h3 class="widget-title">SubCaste</h3>
+                            <div class="title-shape"></div>
+                            <div class="cfa-spinner text-center" [ngClass]="issearchProfileLoading1==true ? 'show' : 'hide'">
+                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                            </div>
+                            <ul class="term-list mg-tp-20">
+                                <div class="scroll-sty-more-less" [ngClass]="casteslength==true ? 'Height-auto' : ''">
+                                    <li class="term-item" *ngFor="let subcastes of subcastes; let l = index" [ngClass]="{hide: l>=5, SubCaste: l>=5}">
+                                        <label  #SubCasteEl (change)="SubCasteSearch(subcastes.id, $event.target.checked)" id="SubCasteID{{subcastes.id}}">
+                                            <input [checked]="subcastes.selected===1" id="subcastes.name" type="checkbox" [value]="subcastes.id" class="checkbox-color">
+                                            {{subcastes.name}}
+                                        </label>
+                                    </li>
+                                </div>
+                                <li class="hide" [ngClass]="{show: subcastes.length==0}">No Subcaste Found</li>
+                                <li class="moreSubCaste btn-sm btn-more-less text-center" [ngClass]="{hide: subcastes.length<=5}">More...</li>
+                            </ul>
+                        </div>
+
+
+                        <!-- <div class="col-lg-12 _xs_center_">
+                             <button [disabled]="disableBtn" (click)="onSearch" class='btn btn-lg next action-button'> 
+                                {{SubmitbuttonSearch}} <i class="las la-arrow-circle-right"></i> 
+                             </button>
+                        </div> -->
+                    </div>
+                    
+                </form>
+               
+            </div>
+            <div class="col-lg-9">
+                <div class="_searchProfiles">
+                    <!-- <div class="cfa-spinner text-center" [ngClass]="issearchProfileLoading==true ? 'show' : 'hide'">
+                        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                    </div> -->
+                    <div class="cfa-spinner text-center" [ngClass]="issearchProfileLoading==true ? 'show' : 'hide'">
+                            <div class="skeleton-loader"></div>
+                        </div>
+                        <div class="cfa-spinner text-center" [ngClass]="issearchProfileLoading==true ? 'show' : 'hide'">
+                            <div class="skeleton-loader"></div>
+                        </div>
+                        <div class="cfa-spinner text-center" [ngClass]="issearchProfileLoading==true ? 'show' : 'hide'">
+                            <div class="skeleton-loader"></div>
+                        </div>
+                    <div class="hide" [ngClass]="{show: issearchProfileData==true}">
+                        <div class="card-list-item2" *ngFor="let profile of searchProfiles | paginate: {itemsPerPage: itemsPerPage , currentPage: searchProfileP, totalItems: totalsearchProfileItems }" >
+                            <div class="row">
+                                <div class="col-md-3 text-center">
+                                    <div *ngIf="profile.PROTECTEDIMAGE==1 && profile.IMAGESTATUS==1" class="card-image">
+                                        <img [defaultImage]="defaultImage" [lazyLoad]="profile.IMAGEURL" class="card__img" alt="">
+                                        <span [ngClass]="{'badge-toggle-pin': (bookmarkStatus || profile.BOOKMARKSTATUS==1)}" (click)="openCommonModal(content,'','bookmark',profile.getGalleryItemforsearch,'matching')" class="badge-toggle cur" data-toggle="tooltip" data-placement="bottom" title="{{(bookmarkStatus || profile.BOOKMARKSTATUS==1) ? 'Bookmarked' : 'Bookmark' }}">
+                                            
+                                            <i [ngClass]="{'fa-star':bookmarkStatus}" *ngIf="profile.BOOKMARKSTATUS==0" class="fa fa-star-o" aria-hidden="true"></i>
+
+                                            <i *ngIf="profile.BOOKMARKSTATUS==1" class="fa fa-star" aria-hidden="true"></i>
+                                        </span>
+
+                                        <button (click)="openCommonModal(content,'','photo',profile.REGNUMBER,'matching')" class="absolute btn btn-c1">Request for Access</button>
+                                    </div>
+                                    <div *ngIf="profile.PROTECTEDIMAGE==0 && profile.IMAGESTATUS==0" class="card-image">
+
+                                        <span [ngClass]="{'badge-toggle-pin': (bookmarkStatus || profile.BOOKMARKSTATUS==1)}" (click)="openCommonModal(content,'','bookmark',profile.REGNUMBER,'matching')" class="badge-toggle cur" data-toggle="tooltip" data-placement="bottom" title="{{(bookmarkStatus || profile.BOOKMARKSTATUS==1) ? 'Bookmarked' : 'Bookmark' }}">
+                                            
+                                            <i [ngClass]="{'fa-star':bookmarkStatus}" *ngIf="profile.BOOKMARKSTATUS==0" class="fa fa-star-o" aria-hidden="true"></i>
+
+                                            <i *ngIf="profile.BOOKMARKSTATUS==1" class="fa fa-star" aria-hidden="true"></i>
+                                        </span>
+
+                                        <img [defaultImage]="defaultImage" [lazyLoad]="profile.IMAGEURL" class="card__img" alt="">
+
+                                        <button (click)="openCommonModal(content,'','photo',profile.REGNUMBER,'matching')" class="absolute btn btn-c1">Request for Upload</button>
+
+                                    </div>
+                                    <div *ngIf="profile.PROTECTEDIMAGE==1 && profile.IMAGESTATUS==0" class="card-image">
+                                        <span [ngClass]="{'badge-toggle-pin': (bookmarkStatus || profile.BOOKMARKSTATUS==1)}" (click)="openCommonModal(content,'','bookmark',profile.REGNUMBER,'matching')" class="badge-toggle cur" data-toggle="tooltip" data-placement="bottom" title="{{(bookmarkStatus || profile.BOOKMARKSTATUS==1) ? 'Bookmarked' : 'Bookmark' }}">
+                                            
+                                            <i [ngClass]="{'fa-star':bookmarkStatus}" *ngIf="profile.BOOKMARKSTATUS==0" class="fa fa-star-o" aria-hidden="true"></i>
+
+                                            <i *ngIf="profile.BOOKMARKSTATUS==1" class="fa fa-star" aria-hidden="true"></i>
+                                        </span>
+
+                                        <img [defaultImage]="defaultImage" [lazyLoad]="profile.IMAGEURL" class="card__img" alt="">
+                                        <button (click)="openCommonModal(content,'','photo',profile.REGNUMBER,'matching')" class="absolute btn btn-c1">Request for Access</button>
+                                    </div>
+                                    <div *ngIf="profile.IMAGESTATUS==1 && profile.PROTECTEDIMAGE==0" class="card-image">
+                                        <img [defaultImage]="defaultImage" [lazyLoad]="profile.IMAGEURL" class="card__img cur" alt="" routerLink="/profile/{{profile.REGNUMBER}}">
+
+                                        <span [ngClass]="{'badge-toggle-pin': (bookmarkStatus || profile.BOOKMARKSTATUS==1)}" (click)="openCommonModal(content,'','bookmark',profile.REGNUMBER,'matching')" class="badge-toggle cur" data-toggle="tooltip" data-placement="bottom" title="{{(bookmarkStatus || profile.BOOKMARKSTATUS==1) ? 'Bookmarked' : 'Bookmark' }}">
+                                            
+                                            <i [ngClass]="{'fa-star':bookmarkStatus}" *ngIf="profile.BOOKMARKSTATUS==0" class="fa fa-star-o" aria-hidden="true"></i>
+
+                                            <i *ngIf="profile.BOOKMARKSTATUS==1" class="fa fa-star" aria-hidden="true"></i>
+                                        </span>
+
+                                        <div *ngIf="profile.IMAGESTATUS==1 && profile.PROTECTEDIMAGE==0 &&  profile.IMAGESCOUNT>1" class="category-title">
+                                            <ul class="lxbk">
+                                                <li (click)="openCommonModal(content,gallery,'gallery',profile.REGNUMBER,'matching')" class="cur">{{profile.IMAGESCOUNT}} <i class="fa fa-camera" aria-hidden="true"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-3">
+
+                                    <div *ngIf="profile.PROTECTEDIMAGE==1 && profile.IMAGESTATUS==1" class="card-image">
+                                        <img [defaultImage]="defaultImage" [lazyLoad]="profile.IMAGEURL" class="card__img" alt="">
+                                        <button (click)="openCommonModal(content,communication,'photo',profile.RegNumber)" class="absolute btn btn-c1">Request for Access</button>
+                                    </div>
+
+                                    <div *ngIf="profile.PROTECTEDIMAGE==0 && profile.IMAGESTATUS==0" class="card-image">
+                                        <img [defaultImage]="defaultImage" [lazyLoad]="profile.IMAGEURL" class="card__img" alt="">
+                                        <button (click)="openCommonModal(content,communication,'photo',profile.RegNumber)" class="absolute btn btn-c1">Request for Upload</button>
+                                    </div>
+
+                                    <div *ngIf="profile.PROTECTEDIMAGE==1 && profile.IMAGESTATUS==0" class="card-image">
+                                        <img [defaultImage]="defaultImage" [lazyLoad]="profile.IMAGEURL" class="card__img" alt="">
+                                        <button (click)="openCommonModal(content,communication,'photo',profile.RegNumber)" class="absolute btn btn-c1">Request for Access</button>
+                                    </div>
+
+                                    <a *ngIf="profile.IMAGESTATUS==1 && profile.PROTECTEDIMAGE==0" routerLink="/profile/{{profile.RegNumber}}" class="card-image-wrap">
+                                        <div class="card-image">
+                                            <img [defaultImage]="defaultImage" [lazyLoad]="profile.IMAGEURL" class="card__img" alt="">
+                                        </div>
+                                    </a>
+
+                                    <span *ngIf="profile.IMAGESTATUS==1 && profile.PROTECTEDIMAGE==0 &&  profile.IMAGES.length>1" class="cbadge-toggle" title="View Images" (click)="openCommonModal(content,gallery,'gallery',profile.RegNumber)"> {{profile.IMAGES.length}} </span>
+                                </div> -->
+                                <div class="col-md-9">
+                                    <div class="card-content1">
+                                        <a routerLink="/profile/{{profile.REGNUMBER}}">
+                                            <span class="card-title">{{profile.FIRSTNAME}} [{{profile.REGNO}}]
+                                               <i *ngIf="profile.PROFILETYPE==1" class="fa fa-check-circle" data-toggle="tooltip" data-placement="top" title="Verified"></i>
+                                                <i *ngIf="profile.PROFILETYPE==0" class="fa fa-times-circle clr_red" data-toggle="tooltip" data-placement="top" title="Not Verified"></i>
+                                            </span>
+                                            <p class="card-sub">Profile created for sister</p>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-5">
+                                                <ul class="info-list">
+                                                    <li><span>Age:</span> {{profile.AGE}}</li>
+                                                    <!-- <li><span>Age:</span> {{profile.AGE}} <span>Height:</span> 5 ft </li> -->
+                                                    <li><span>Marital Status:</span> {{profile.MARITALSTATUS}}</li>
+                                                    <li><span>Religion:</span> {{profile.RELIGION}}</li>
+                                                    <li><span>Caste:</span> {{profile.CASTE}},{{profile.SUBSECT}}</li>
+                                                    
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-7">
+                                                <ul class="info-list">
+                                                    <li><span>Location:</span> {{profile.COMMUNICATIONCITY}}</li>
+                                                    <li><span>Education:</span> {{profile.EDUCATION}}</li>
+                                                    <li><span>Profession:</span> {{profile.PROFESSION}}</li>
+                                                    <li><span>Star</span> {{profile.STAR}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-5">
+                                                <ul class="info-list">
+                                                    <li>
+                                                        <ul class="_iconsLst">
+                                                            <li><span (click)="openCommonModal(content,communication,'contact',profile.REGNUMBER,'searchprofile')"><i title="Contact Details" class="las la-phone-volume"></i></span> </li>
+                                                            <li><span (click)="openCommonModal(content,expressinterest,'expressinterest',profile.REGNUMBER,'searchprofile')"><i title="Express Interest" class="lar la-heart"></i></span> </li>
+                                                            <li><span (click)="openCommonModal(content,personalized,'message',profile.REGNUMBER,'searchprofile')"><i title="Personlized Message" class="lar la-envelope"></i></span></li>
+                                                            <li><span (click)="openCommonModal(content,'','album',profile.REGNUMBER,'searchprofile')"><i title="Album Request" class="lar la-images"></i></span> </li>
+
+                                                            <li><span (click)="openCommonModal(content,'','horoscope',profile.REGNUMBER,'searchprofile')"><i title="Horoscope" class="las la-table"></i></span> </li>
+                                                            <li><span (click)="openCommonModal(content,'','block',profile.REGNUMBER,'searchprofile')"><i title="Block" class="las la-ban"></i></span> </li>
+                                                            <li><span (click)="openCommonModal(content,'','ignore',profile.REGNUMBER,'searchprofile')"><i title="Ignore" class="las la-comment-slash"></i></span> </li>
+                                                            <li><span (click)="openCommonModal(content,forward,'forward',profile.REGNUMBER,'searchprofile')"><i title="Forward Profile" class="las la-share-square"></i></span> </li>
+                                                            
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-7">
+                                                <div class="_listButton">
+                                                    <a routerLink="/profile/{{profile.REGNUMBER}}" class="btn btn-c1" target="_blank">
+                                                        <i class="las la-user-check"></i> View Profile</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <pagination-controls
+                                        (pageChange)="getsearchProfile(searchProfileP = $event)"
+                                        maxSize="9"
+                                        directionLinks="true"
+                                        autoHide="true"
+                                        responsive="true"
+                                    ></pagination-controls>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div [ngClass]="{show: issearchProfileNotFoundLoading==true}" class="hide alert alert-danger text-center">
+                        <strong>No data found...!</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<ng-template #expressinterest>
+    <div class="modal-body modal-delete SentExpress">
+        <h5 class="margin-bottom-10px">Choose your message</h5>
+        <ul>
+            <li *ngFor="let expressI of expressInterestMsg; let i = index" [class.active]="SentInterestMessage === i" (click)="activateClass(i)">{{expressI.name}} <i class="las la-check-double"></i> </li>
+        </ul>
+        <div class="form-group margin-top-10px text-center">
+            <button [disabled]="disableBtn" (click)="SentExpressInterest()" class="btn btn-success"><i class="las la-paper-plane"></i> {{SubmitbuttonName}}</button>
+            <button type="button" class="btn btn-danger" (click)="closeModal()"><i class="las la-times"></i> Cancel </button>
+        </div>
+    </div>
+</ng-template>
+<ng-template #communication>
+    <div class="modal-body _ngxcomm">
+        <div class="cfa-spinner text-center" [ngClass]="_ModalContactLoading==true ? 'show' : 'hide'">
+            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        </div>
+        <div *ngIf="_ModalContacteData" class="row">
+            <div class="col-md-12">
+                <h3 class="text-center">Congratulations and best wishes for your wedding...!</h3>
+            </div>
+            <div class="col-md-3">
+                <img src="{{getContactInfo.profilepicture}}" class="img-fluid rounded mx-auto d-block">
+            </div>
+            <div class="col-md-9">
+                <div class="map-address-box">
+                    <ul class="map-address">
+                        <li>
+                            <span class="las la-user-circle"></span>
+                            <h5 class="map__title">name</h5>
+                            <p class="map__desc">{{getContactInfo.name}}</p>
+                        </li>
+                        <li>
+                            <span class="la la-mobile"></span>
+                            <h5 class="map__title">Mobile</h5>
+                            <p class="map__desc">{{getContactInfo.mobile}}</p>
+                        </li>
+                        <li><span class="la la-envelope"></span>
+                            <h5 class="map__title">email</h5>
+                            <p class="map__desc">{{getContactInfo.email}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-12 text-center mg-pd-10">
+                <button (click)="closeModal()" class="btn btn-c1"><i class="las la-times-circle"></i> Close</button>
+            </div>
+        </div>
+        <div *ngIf="!_ModalContacteData" class="row mg-pd-10">
+            <div class="contact">
+                <h2 [innerHtml]="activeMessage" class="text-danger"></h2>
+            </div>
+            <button *ngIf="actionButtonFalse" type="button" class="btn btn-danger" (click)="closeModal()"><i class="las la-times"></i> {{actionButtonFalse}}</button>
+        </div>
+    </div>
+</ng-template>
+<ng-template #personalized>
+    <div class="modal-body modal-delete SentExpress">
+        <div class="col-md-7 offset-lg-2 offset-sm-0 text-center">
+            <h5><strong>Now send personalized message to your loved person.</strong></h5>
+            <form [formGroup]="personalizedMessageForm" (ngSubmit)="onMessageSubmit()">
+                <div class="form-group margin-top-10px text-center">
+                    <textarea formControlName="message" class="form-control" placeholder="Enter your message"></textarea>
+                </div>
+                <div class="form-group margin-top-10px text-center">
+                    <button type="submit" [disabled]="MsgdisableBtn" class="btn btn-success"><i class="las la-paper-plane"></i> {{MsgSubmitbuttonName}}</button>
+                    <button type="button" class="btn btn-danger" (click)="closeModal()"><i class="las la-times"></i> Cancel </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>
+<ng-template #content>
+    <div class="modal-body modal-delete _remodify text-center">
+        <div class="cfa-spinner text-center" [ngClass]="_ModalResponseLoading==true ? 'show' : 'hide'">
+            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        </div>
+        <div *ngIf="_ModalResponseData">
+            <div class="contact">
+                <h2 [innerHtml]="activeMessage"></h2>
+            </div>
+            <button *ngIf="actionButtonTrue" type="button" class="btn btn-success" (click)="customPopUp()"><i class="las la-check"></i> {{actionButtonTrue}}</button>
+            <button *ngIf="actionButtonFalse" type="button" class="btn btn-danger" (click)="closeModal()"><i class="las la-times"></i> {{actionButtonFalse}}</button>
+        </div>
+        <div *ngIf="!_ModalResponseData">
+            <div class="contact">
+                <h2 [innerHtml]="activeMessage" class="text-danger"></h2>
+            </div>
+            <button *ngIf="actionButtonFalse" type="button" class="btn btn-danger" (click)="closeModal()"><i class="las la-times"></i> {{actionButtonFalse}}</button>
+        </div>
+    </div>
+</ng-template>
+<ng-template #forward>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Forward Profile</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body modal-delete SentExpress">
+        <form [formGroup]="FwdMessageForm" (ngSubmit)="onFwdMessageSubmit()">
+            <div class="form-group">
+                <label for="fwdEmail">Email Id of your friend or relative: <span class="text-danger">*</span> </label>
+                <input type="email" class="form-control" id="fwdEmail" placeholder="Email Id of your friend or relative" formControlName="fwdEmail">
+            </div>
+            <div *ngIf="FwrdProfileMessage.subject" class="form-group">
+                <label for="pwd">Subject:</label><br>
+                {{FwrdProfileMessage.subject}}
+            </div>
+            <div *ngIf="FwrdProfileMessage.message" class="form-group">
+                <label for="pwd">Message:</label><br>
+                {{FwrdProfileMessage.message}}
+            </div>
+            <div class="form-group">
+                <button type="submit" [disabled]="MsgFwddisableBtn" class="btn btn-success"><i class="las la-paper-plane"></i> {{FwdSubmitbuttonName}}</button>
+                <button type="button" class="btn btn-danger" (click)="closeModal()"><i class="las la-times"></i> Cancel </button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+<ng-template #gallery>
+    <div class="modal-body modal-delete">
+        <button type="button" class="close pull-right color_fff" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="row">
+            <div class="col-lg-4">
+                <carousel [interval]="0" [noPause]="true" [(activeSlide)]="activeSlide" [showIndicators]="false" [noWrap]="true">
+                    <slide *ngFor="let gallery of galleryItems" class="text-center">
+                        <img [defaultImage]="defaultImage" [lazyLoad]="gallery.image_url" class="card__img mdl_img_style" alt="">
+                    </slide>
+                </carousel>
+                <div class="block-dis">
+                    <ol class="indicators">
+                        <li *ngFor="let gallery of galleryItems; let i = index" [class.active]="i === activeSlide" [attr.aria-pressed]="i === activeSlide" (click)="switchSlide(i)">
+                            <img [defaultImage]="defaultImage" [lazyLoad]="gallery.image_url" class="card__img" alt="">
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="col-lg-8 card_icon">
+                
+                <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3>{{galleryItemsdata.FIRSTNAME}}</h3>
+                <div class="title-shape margin-top-10px"></div>
+                <hr>
+                
+                <div class="col-md-12 row margin-top-10px font_size_17">
+
+                    <div class="col-md-12 row">
+                        <div class="col-md-2">
+                            <span class="span_style">DOB: </span>
+                        </div>
+                        <div class="col-md-10">
+                            <span>{{galleryItemsdata.DATEOFBIRTH}}({{galleryItemsdata.Age}} Years)</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 row padd_B">
+                        <div class="col-md-2">
+                            <span class="span_style">Height: </span>
+                        </div>
+                        <div class="col-md-4">
+                            <span>{{galleryItemsdata.HEIGHT=='' ? '---' : galleryItemsdata.HEIGHT }}</span>
+                        </div>
+                        <div class="col-md-2">
+                            <span class="span_style">Weight: </span>
+                        </div>
+                        <div class="col-md-4">
+                            <span>{{galleryItemsdata.WEIGHT=='' ? '---' : galleryItemsdata.WEIGHT }}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 row padd_B">
+                        <div class="col-md-2">
+                            <span class="span_style">Raasi: </span>
+                        </div>
+                        <div class="col-md-4">
+                            <span>{{galleryItemsdata.RAASI=='' ? '---' : galleryItemsdata.RAASI }}</span>
+                        </div>
+                        <div class="col-md-2">
+                            <span class="span_style">Star: </span>
+                        </div>
+                        <div class="col-md-4">
+                            <span>{{galleryItemsdata.STAR=='' ? '---' : galleryItemsdata.STAR }}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 row padd_B">
+                        <div class="col-md-2">
+                            <span class="span_style">Dosam: </span>
+                        </div>
+                        <div class="col-md-10">
+                            <span>{{galleryItemsdata.DOSHAM=='' ? '---' : galleryItemsdata.DOSHAM }}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 row padd_B">
+                        <div class="col-md-2">
+                            <span class="span_style">Education: </span>
+                        </div>
+                        <div class="col-md-10">
+                            <span>{{galleryItemsdata.EDUCATION=='' ? '---' : galleryItemsdata.EDUCATION }}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 row padd_B">
+                        <div class="col-md-2">
+                            <span class="span_style">Location: </span>
+                        </div>
+                        <div class="col-md-10">
+                            <span>{{galleryItemsdata.COMMUNICATIONCITY=='' ? '---' : galleryItemsdata.COMMUNICATIONCITY }}</span>
+                        </div>
+                    </div>
+                   
+                </div>
+
+                <div class="col-lg-12 mrg_T_15">
+                    <ul class="info-list text-center">
+                        <li>
+                           <ul class="_iconsLst">
+                                <li>
+                                    <button (click)="openCommonModal(content,expressinterest,'expressinterest',galleryItemsdata.REGNUMBER)" class="gallery_btn btn btn-c1">
+                                    <i class="font_size_13px color_fff_im las la-heart"></i> Sent Express Intrest</button>
+                                </li>
+                                 <li>
+                                    <button (click)="openCommonModal(content,personalized,'message',galleryItemsdata.REGNUMBER,'recentvisitors')" class="gallery_btn btn btn-c1">
+                                    <i class="font_size_13px color_fff_im lab la-telegram-plane"></i> Personalized Message</button>
+                                </li>
+                                <!-- <li><span (click)="openCommonModal(content,communication,'contact',galleryItemsdata.REGNUMBER)"><i title="Contact Details" class="las la-phone-volume"></i></span> </li>
+                                <li><span (click)="openCommonModal(content,expressinterest,'expressinterest',galleryItemsdata.REGNUMBER)"><i title="Express Interest" class="lar la-heart"></i></span> </li>
+                                <li><span (click)="openCommonModal(content,personalized,'message',galleryItemsdata.REGNUMBER)"><i  title="Personlized Message" class="lar la-envelope"></i></span></li>
+                                <li><span (click)="openCommonModal(content,'','bookmark',galleryItemsdata.REGNUMBER)"><i title="Bookmark" class="lar la-bookmark"></i></span> </li>
+                                <li><span (click)="openCommonModal(content,'','horoscope',galleryItemsdata.REGNUMBER)"><i title="Horoscope" class="las la-table"></i></span> </li>
+                                <li><span (click)="openCommonModal(content,'','block',galleryItemsdata.REGNUMBER)"><i title="Block" class="las la-ban"></i></span> </li>
+                                <li><span (click)="openCommonModal(content,'','ignore',galleryItemsdata.REGNUMBER)"><i title="Ignore" class="las la-comment-slash"></i></span> </li>
+                                <li><span (click)="openCommonModal(content,forward,'forward',galleryItemsdata.REGNUMBER)"><i title="Forward Profile" class="las la-share-square"></i></span> </li> -->
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</ng-template>

@@ -1,0 +1,187 @@
+<div *ngIf="message" class="modal" tabindex="-1" role="dialog" style="display:block!important">    
+    <div class="modal-dialog custom-alert" role="document">    
+        <div class="modal-content">    
+    
+            <div *ngIf="message?.type == 'confirm'" class="modal-body">    
+                <div class="row">    
+                    <div class="col-md-12">    
+                        <p class="text-center confirm-message">{{message.text}}</p>    
+                    </div>    
+                </div>    
+                <div class="row">    
+                    <div class="col-md-12">    
+                        <p class="confirm-button">    
+                            <a class="mr-2" (click)="message.yesFn()">    
+                                <button class="btn btn-yes">Yes</button>    
+                            </a>    
+                            <a (click)="message.noFn()">    
+                                <button class="btn btn-no">No</button>    
+                            </a>    
+                        </p>    
+                    </div>    
+                </div>    
+            </div>    
+        </div>    
+    </div>    
+</div> 
+ <section class="contact-area padding-top-40px padding-bottom-80px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="billing-form-item">
+                        <div class="billing-title-wrap">
+                            <h3 class="widget-title pb-0">Get in touch</h3>
+                            <div class="title-shape margin-top-10px"></div>
+                        </div><!-- billing-title-wrap -->
+                        <div class="billing-content">
+                            <div class="contact-form-action">
+                                <form id="msform" [formGroup]="CommunicationForm" (ngSubmit)="onSubmit()">
+                                    <div class="input-box">
+                                        <p (click)="showDialog()">Dear Member, You may use the contact form below to mail the details of Information.</p>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label class="label-text">Communication Name <span class="text-danger">*</span> </label>
+                                            <div class="form-group">
+                                                <span class="la la-user form-icon"></span>
+                                                <input class="form-control" type="text" name="c_name" placeholder="Name" formControlName="cname">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="input-box">
+                                                <label class="label-text">Reg No</label>
+                                                <div class="form-group">
+                                                    <span class="las la-registered form-icon"></span>
+                                                    <input class="form-control" type="text" name="text" placeholder="Reg No" formControlName="c_regno">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="col-lg-6">
+                                            <label class="label-text">Communication Office <span class="text-danger">*</span> </label>
+                                            <div class="form-group">
+                                                <select class="form-control" formControlName="c_office">
+                                                    <option selected="selected" value="1">Chennai</option>
+                                                    <option value="8">Kumbakonam</option>
+                                                    <option value="10">Mumbai</option>
+                                                    <option value="11">Salem</option>
+                                                    <option value="12">Trichy</option>
+                                                    <option value="14">Vellore</option>
+                                                    <option value="15">Madurai</option>
+                                                    <option value="18">Thiruvarur</option>
+                                                    <option value="19">Gobichettipalayam</option>
+                                                    <option value="26">Krishnagiri</option>
+                                                    <option value="33">Rajapalayam</option>
+                                                    <option value="38">Namakkal</option>
+                                                    <option value="40">Bangalore</option>
+                                                    <option value="59">Coimbatore</option>
+                                                </select>
+                                            </div>
+                                        </div> 
+                                        <div class="col-lg-6">
+                                            <div class="input-box">
+                                                <label class="label-text">City <span class="text-danger">*</span> </label>
+                                                <div class="form-group">
+                                                    <span class="la la-envelope-o form-icon"></span>
+                                                    <input class="form-control" type="text" name="c_city" placeholder="City" formControlName="c_city">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="input-box">
+                                                <label class="label-text">Country</label>
+                                                <div class="form-group">
+                                                    <span class="la la-envelope-o form-icon"></span>
+                                                    <input class="form-control" type="text" name="c_country" placeholder="Country" formControlName="c_country">
+                                                </div>
+                                            </div>
+                                        </div>-->
+                                        <div class="col-lg-6">
+                                            <div class="input-box">
+                                                <label class="label-text">E-Mail Id</label>
+                                                <div class="form-group">
+                                                    <span class="la la-envelope-o form-icon"></span>
+                                                    <input class="form-control" type="email" name="text" placeholder="E-Mail Id" formControlName="c_emailid">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="input-box">
+                                                <label class="label-text">Mobile No <span class="text-danger">*</span> </label>
+                                                <div class="form-group">
+                                                    <span class="las la-phone form-icon"></span>
+                                                    <input class="form-control" type="text" name="text" placeholder="Mobile No" formControlName="c_mobileno">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-box">
+                                        <label class="label-text">Your Message</label>
+                                        <div class="form-group">
+                                            <span class="la la-pencil form-icon"></span>
+                                            <textarea class="message-control form-control" name="message" placeholder="Write message" formControlName="c_message"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="btn-box">
+                                        <button type="submit" class="theme-btn border-0 btn_2clr">
+                                            <span class="la la-paper-plane"></span>{{SubmitbuttonName}} 
+                                        </button>
+                                    </div>
+                                </form>
+                            </div><!-- end contact-form-action -->
+                        </div><!-- end billing-content -->
+                    </div><!-- end billing-form-item -->
+                </div><!-- end col-lg-7 -->
+                <div class="col-lg-5">
+                    <div class="billing-form-item">
+                        <div class="billing-title-wrap">
+                            <h3 class="widget-title pb-0">Kalyanamalai Office - Head Office</h3>
+                            <div class="title-shape margin-top-10px"></div>
+                        </div><!-- billing-title-wrap -->
+                        <div class="billing-content">
+                            <div class="our-office-content">
+                                <div class="section-heading">
+                                    <p class="sec__desc line-height-24 h3"><strong>Chennai Head Office</strong></p>
+                                </div>
+                                <div class="map-address-box mt-4">
+                                    <ul class="map-address">
+                                        <li>
+                                            <span class="la la-map-marker"></span>
+                                            <h5 class="map__title">Kalyanamalai Private Limited</h5>
+                                            <p class="map__desc">
+                                                New No.16, Lakshmi Graham, Dr. Nair Road, T.Nagar, <br>
+                                                Chennai - 600 017 Tamilnadu, India <br />
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <span class="la la-phone"></span>
+                                            <h5 class="map__title">phone</h5>
+                                            <p class="map__desc">91-44-24341400</p>
+                                        </li>
+                                        <li>
+                                            <span class="la la-envelope-o"></span>
+                                            <h5 class="map__title">email</h5>
+                                            <p class="map__desc">info@kmmatrimony.com</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div><!-- end our-office-content -->
+                        </div><!-- end billing-content -->
+                        <div class="billing-title-wrap pt-0">
+                            <h3 class="widget-title pb-0">Working Hours</h3>
+                            <div class="title-shape margin-top-10px"></div>
+                        </div><!-- billing-title-wrap -->
+                        <div class="billing-content">
+                            <ul class="list-items">
+                                <li class="d-flex align-items-center justify-content-between color-text-2"><strong class="font-weight-medium">Monday to Saturday</strong><strong class="font-weight-medium color-text-3">9AM - 7PM</strong></li>
+                                <li class="d-flex align-items-center justify-content-between color-text-2"><strong class="font-weight-medium">Sunday</strong><strong class="color-text">8AM - 4PM</strong></li>
+                            </ul>
+                        </div><!-- end billing-content -->
+                    </div><!-- end billing-form-item -->
+                </div><!-- end col-lg-5 -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </section><!-- end contact-area -->
+    <!-- <div class="gmaps">
+        <div id="map"></div>
+    </div> -->

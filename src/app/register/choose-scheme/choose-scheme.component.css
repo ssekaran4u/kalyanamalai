@@ -1,0 +1,238 @@
+.db-attached {
+    margin-top: 20px;
+}
+body {
+    background: #eee;
+}
+.later p {
+    padding: 5px 0;
+}
+.later p a {
+    color: #000;
+}
+
+.raletp {
+    border-radius: 10px 0 0 0;
+}
+.rarttp {
+    border-radius: 0 10px 0 0;
+}
+/*============================================================
+BACKGROUND COLORS
+============================================================*/
+.plr{
+    padding-right: 0;
+    padding-left: 0;
+}
+.db-bk-color-one {
+    /*background-color: #f55039;*/
+}
+
+.db-bk-color-two {
+    box-shadow: 16px 0 14px -14px rgba(107, 88, 88, 0.25), -9px 0 14px -4px rgba(107, 88, 88, 0.25);
+    /*box-shadow: 6px 0 4px -4px rgba(107, 88, 88, 0.25), -6px 0 4px -4px rgba(107, 88, 88, 0.25); */
+    /*box-shadow: 15px 0 15px -10px rgba(107, 88, 88, 0.25), -15px 0 15px -10px rgba(107, 88, 88, 0.25);*/
+    /*background-color: #46A6F7;*/
+}
+
+.db-bk-color-three {
+    /*background-color: #47887E;*/
+}
+
+.db-bk-color-six {
+    /*background-color: #F59B24;*/
+}
+._exclu_ {
+    background: #e2e0d3;
+    border-radius: 0 10px 0 0;
+}
+/*============================================================
+PRICING STYLES
+==========================================================*/
+
+.db-bk-color-one .type {
+    background: #a93a5a;
+}
+.db-bk-color-two .type {
+    background: #d78c0c;
+}
+.db-bk-color-three .type {
+    background: #3772aa;
+}
+.db-padding-btm {
+    padding-bottom: 50px;
+}
+
+.db-button-color-square {
+    color: #fff;
+    background-color: #ff9400;
+    border: none;
+    border-radius: 0px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    padding: 5px 30px;
+    border-radius: 5px;
+    font-size: 17px;
+}
+
+.db-button-color-square:hover {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.50);
+    border: none;
+}
+.db-pricing-eleven .description {
+    color: #666a71;
+    border-left: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+}
+.db-pricing-eleven .description li {
+    line-height: 26px !important;
+    font-size: 15px !important;
+    border-bottom: 1px solid #d9d9d9 !important;
+    padding: 6px 0 !important;
+}
+.db-pricing-eleven .description li:last-child {
+    border-bottom: none;
+}
+
+.db-pricing-eleven {
+    margin-bottom: 30px;
+    text-align: center;
+    color: #000;
+    line-height: 30px;
+}
+
+.db-pricing-eleven ul {
+    list-style: none;
+    margin: 0;
+    text-align: center;
+    padding-left: 0px;
+}
+.db-pricing-eleven .type s {
+    color: #d8cfcf;
+}
+.db-bk-color-one .price {
+    background-color: #c04468;
+}
+.db-bk-color-two .price {
+    background-color: #eca610;
+}
+.db-bk-color-three .price {
+    background-color: #4484c1;
+}
+.db-bk-color-one .addtype {
+    background-color: rgba(0, 0, 0, 0.50);
+}
+.db-bk-color-two .addtype {
+    background-color: rgba(0, 0, 0, 0.50);
+}
+.db-bk-color-three .addtype {
+    background-color: rgba(0, 0, 0, 0.50);
+}
+.db-pricing-eleven .contacts {
+    padding: 5px 0;
+    color: #fff;
+    font-size: 18px;
+}
+.db-bk-color-one .contacts {
+    background-color: #c04468;
+}
+.db-bk-color-two .contacts {
+    background-color: #eca610;
+}
+.db-bk-color-three .contacts {
+    background-color: #4484c1;
+}
+.db-pricing-eleven .price {
+    font-family: 'Tangerine', cursive;
+    padding: 15px 0;
+    font-size: 50px;
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
+}
+
+.db-pricing-eleven .addtype {
+    padding: 20px 0;
+    font-size: 26px;
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
+}
+
+.db-pricing-eleven .price small {
+    color: #B8B8B8;
+    display: block;
+    font-size: 12px;
+    margin-top: 22px;
+}
+
+.db-pricing-eleven .type {
+    color: #fff;
+    padding: 10px 0;
+    font-size: 20px;
+}
+.db-pricing-eleven .addtype {
+    color: #fff;
+    padding: 5px 0;
+    font-size: 17px;
+}
+
+.db-pricing-eleven .pricing-footer {
+    padding: 8px;
+}
+.db-pricing-eleven .type ul {
+    list-style: none;
+}
+.db-pricing-eleven .type ul li {
+    font-size: 35px;
+    margin: 5px 0;
+}
+.db-pricing-eleven .type p {
+    font-size: 16px;
+}
+.db-pricing-eleven .type ul li:nth-child(1)  {
+    font-size: 18px;
+    margin: 5px 0;
+}
+.db-attached>.col-lg-4,
+.db-attached>.col-lg-3,
+.db-attached>.col-md-4,
+.db-attached>.col-md-3,
+.db-attached>.col-sm-4,
+.db-attached>.col-sm-3 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.db-pricing-eleven.popular {
+    margin-top: 10px;
+}
+
+.db-pricing-eleven.popular .price {
+    padding-top: 80px;
+}
+.db-bk-color-three .description {
+    border-right: 1px solid #d9d9d9
+}
+.db-padding-btm {
+    position: relative;
+}
+.skip-button {
+    background: #ff9400;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 6px 40px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 1;
+}
+.border_style
+{
+    border: 1px solid #ada8a870;
+    border-radius: 10px;
+}

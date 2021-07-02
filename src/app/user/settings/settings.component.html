@@ -1,0 +1,240 @@
+<section class="dashboard-area padding-bottom-90px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 padd0">
+               <!--  <div class="progress-status">
+                    <div class="row">
+                        <div class="col-6">
+                            <p>Profile Status</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="text-right"><a href="">How to get 100%</a></p>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width:70%">70%</div>
+                    </div>
+                </div> -->
+                <div class="dashboard-nav justify-content-between align-items-center mb-4">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <nav>
+                                <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link theme-btn pt-0 pb-0 mr-1 active" id="navTab1" data-toggle="tab" href="#navTabListing1" role="tab" aria-controls="navTabListing1" aria-selected="true">
+                                        <span class="la la-list-alt"></span> Change Password
+                                    </a>
+                                    <a class="nav-item nav-link theme-btn pt-0 pb-0 mr-1" id="navTab2" data-toggle="tab" href="#navTabListing2" role="tab" aria-controls="navTabListing2" aria-selected="false">
+                                        <span class="la la-user"></span> Mail Alert
+                                    </a>
+                                    <a class="nav-item nav-link theme-btn pt-0 pb-0 mr-1" id="navTab3" data-toggle="tab" href="#navTabListing3" role="tab" aria-controls="navTabListing3" aria-selected="false">
+                                        <span class="la la-bookmark-o"></span> SMS Alert
+                                    </a>
+                                    <a class="nav-item nav-link theme-btn pt-0 pb-0 mr-1" id="navTab4" data-toggle="tab" href="#navTabListing4" role="tab" aria-controls="navTabListing3" aria-selected="false">
+                                        <span class="la la-bookmark-o"></span> Delete Account
+                                    </a>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="tab-content" id="nav-tabContent">
+
+                                <div class="tab-pane fade show active" id="navTabListing1" role="tabpanel" aria-labelledby="navTab1">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="user-form-action">
+                                                <div class="billing-form-item">
+                                                    <div class="billing-title-wrap">
+                                                        <h3 class="widget-title pb-0">Change Password</h3>
+                                                        <div class="title-shape margin-top-10px"></div>
+                                                    </div>
+                                                    <div class="billing-content">
+                                                        <div class="contact-form-action">
+                                                            <form id="msform" [formGroup]="updatePasswordForm" (ngSubmit)="onSubmit()">
+                                                                <div class="input-box">
+                                                                    <label class="label-text">Current Password</label>
+                                                                    <div class="form-group">
+                                                                        <span class="la la-pencil form-icon"></span>
+                                                                        <input class="form-control" formControlName="CurrentPassword" name="CurrentPassword"  type="password" name="text" placeholder="Current Password">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-box">
+                                                                    <label class="label-text">New Password</label>
+                                                                    <div class="form-group">
+                                                                        <span class="la la-pencil form-icon"></span>
+                                                                        <input formControlName="NewPassword" class="form-control" type="password" name="NewPassword" placeholder="New Password">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-box">
+                                                                    <label class="label-text">Confirm New Password</label>
+                                                                    <div class="form-group">
+                                                                        <span class="la la-pencil form-icon"></span>
+                                                                        <input class="form-control" formControlName="ConfirmNewPassword" type="password"  name="ConfirmNewPassword" placeholder="Confirm New Password">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="btn-box">
+                                                                    <button [disabled]="disableBtn" type="submit" name="next" class='btn btn-c1 action-button'>{{SubmitbuttonName}} <i class="las la-arrow-circle-right"></i> </button>
+                                                                   <!--  <button class="btn btn-c1">updated password</button> -->
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="navTabListing2" role="tabpanel" aria-labelledby="navTab2">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="delete-account-info">
+                                                <div class="cfa-spinner text-center" [ngClass]="ismailLoading==true ? 'show' : 'hide'">
+                                                    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                                </div>
+
+                                                <div class="billing-form-item hide" [ngClass]="{show: isMailData==true}">
+                                                    <div class="billing-title-wrap">
+                                                        <h3 class="widget-title pb-0 color-text">Mail Alert</h3>
+                                                        <div class="title-shape margin-top-10px"></div>
+                                                    </div>
+                                                    <div class="delete-info-content">
+                                                        <table class="table tbl_mg_2">
+                                                            <tr>
+                                                                <td class="table-org">Receive Contents</td>
+                                                                <td class="table-org">Mail Receive Date &amp; time</td>    
+                                                            </tr>                                                   
+                                                            <tr *ngFor="let mail of mails | paginate: {id: 'mailPaginate', itemsPerPage: itemsPerPage , currentPage: mailp, totalItems: totalMailItems }" class="card-list-item">
+                                                                <td class="table-grey" [innerHTML]="mail.Message"></td>
+                                                                <td class="table-grey">{{mail.SendOn}}</td>
+                                                            </tr>
+                                                        </table>
+                                                        <pagination-controls
+                                                            id="mailPaginate" 
+                                                            (pageChange)="getMailPage(mailp = $event)"
+                                                            maxSize="9"
+                                                            directionLinks="true"
+                                                            autoHide="true"
+                                                            responsive="true"
+                                                        ></pagination-controls>
+                                                    </div>
+                                                </div>
+                                                <div [ngClass]="{show: ismailNotFoundLoading==true}" class="hide alert alert-danger text-center">
+                                                    <strong>No data found...!</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="navTabListing3" role="tabpanel" aria-labelledby="navTab3">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="delete-account-info">
+                                                
+                                                <div class="cfa-spinner text-center" [ngClass]="isSmsLoading==true ? 'show' : 'hide'">
+                                                    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                                </div>
+
+                                                <div class="billing-form-item hide" [ngClass]="{show: isSmsData==true}">
+                                                    <div class="billing-title-wrap">
+                                                        <h3 class="widget-title pb-0 color-text">Mobile Alert</h3>
+                                                        <div class="title-shape margin-top-10px"></div>
+                                                    </div>
+
+                                                    <div class="delete-info-content">
+                                                        <table class="table">
+                                                            <tr>
+                                                                <td class="table-org">Receive Messages</td>
+                                                                <td class="table-org">SMS Receive Date &amp; Tme</td>
+                                                            </tr>
+                                                            <tr *ngFor="let mobile of mobiles | paginate: {id: 'mobilePaginate', itemsPerPage: itemsPerPage , currentPage: mobilep, totalItems: totalMobileItems }" class="card-list-item">
+                                                                <td class="table-grey" [innerHTML]="mobile.Message"></td>
+                                                                <td class="table-grey">{{mobile.SendOn}}</td>
+                                                            </tr>
+                                                        </table>
+                                                        <pagination-controls
+                                                            id="mobilePaginate" 
+                                                            (pageChange)="getMobilePage(mobilep = $event)"
+                                                            maxSize="9"
+                                                            directionLinks="true"
+                                                            autoHide="true"
+                                                            responsive="true"
+                                                        ></pagination-controls>
+                                                    </div>
+                                                </div>
+                                                <div [ngClass]="{show: isSmsNotFoundLoading==true}" class="hide alert alert-danger text-center">
+                                                    <strong>No data found...!</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="navTabListing4" role="tabpanel" aria-labelledby="navTab4">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="delete-account-info">
+                                                <div class="billing-form-item">
+                                                    <div class="billing-title-wrap">
+                                                        <h3 class="widget-title pb-0 color-text">Delete Account</h3>
+                                                        <div class="title-shape margin-top-10px"></div>
+                                                    </div>
+                                                    <div class="delete-info-content">
+                                                        <div class="col-lg-12 mg-tp-20">
+                                                            <p class="mb-3"><span class="text-warning">Warning:</span> Please note that profile once deleted cannot be restored.</p>
+                                                            <hr>
+                                                            <p>We hope that you found your life partner and its the reason for deciding to delete your profile..</p>
+                                                        </div>
+                                                        <form id="msform" class="_rStep2" [formGroup]="deleteAccount" (ngSubmit)="onSubmit1()">
+                                                            <div class="col-lg-12 mg-tp-20">
+                                                                <div class="km-form-group" [ngClass]="{kmactive: isDeleteReason===true}">
+                                                                    <label class="floatClass" [ngClass]="{showlbl: isDeleteReason===true}">Select the reason for deleting your profile</label>
+                                                                    <ng-multiselect-dropdown 
+                                                                      [placeholder]="'Select the reason for deleting your profile'"
+                                                                      [settings]="deleteSettings"
+                                                                      [data]="deleteReasonItems"
+                                                                      formControlName="deleteReason"
+                                                                      [(ngModel)]="selectedDeleteReason"
+                                                                      (onSelect)="onItemSelectDeleteReason($event)"
+                                                                    >
+                                                                    </ng-multiselect-dropdown>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group mg-tp-20">
+                                                                    <span class="has-float-label">
+                                                                        <textarea formControlName="comments" name="comments" cols="50" class="form-control" id="comments" placeholder="Add your Comments"></textarea>
+                                                                        <label for="comments">Add your Comments <span class="required">*</span></label>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <button [disabled]="disableBtn" type="submit" name="next" class='btn btn-lg next action-button'>  {{SubmitbuttonName1}} <i class="las la-arrow-circle-right"></i> 
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="overlay" [ngClass]="{show: isLoading===true}">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>

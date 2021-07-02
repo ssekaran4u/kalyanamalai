@@ -1,0 +1,32 @@
+.faqstyle
+    {
+        border-radius: 10px !important;
+        margin-bottom: -0.5rem !important;
+    }
+.card_p
+	{
+	    padding-bottom: 10px;
+	}
+.para_head_style
+{
+	border: 2px solid;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: linear-gradient(45deg , #17a2b8b3, rgb(0 123 255 / 0%));
+    color: white;
+}
+.title_clr
+{
+	color: #ff9400 !important;
+}
+.info-icon 
+{
+    margin-bottom: 10px !important;
+}
+.btn_2clr
+{
+    width: 125px;
+    background: linear-gradient(to right, #fa8b0c, #FF367E) !important;
+}
+.btn_2clr:hover

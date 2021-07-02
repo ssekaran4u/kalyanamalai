@@ -1,0 +1,9 @@
+.bg_clr
+{
+    background-color: rgba(241, 241, 241, 0.4) !important;
+}
+.newsletter-block
+{
+	border: 2px solid #c8c9ca;
+	border-radius: 10px !important;
+}

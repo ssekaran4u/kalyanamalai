@@ -1,0 +1,221 @@
+.billing-content {
+	padding: 10px 20px;
+}
+.dashboard-nav .billing-title-wrap {
+	padding: 7px 20px !important;
+	 margin-bottom: initial; 
+}
+._listButton {
+	margin-top: 0px;
+}
+.card-image .card__img 
+{
+    width: 100% !important;
+    border-radius: 4px 4px 0 0;
+}
+
+
+
+.nav-tabs .nav-link.active 
+{
+    background-color: #ff9400;
+    color: #fff;
+    border-color: #ff9400;
+}
+.theme-btn 
+{
+	color: #333f57;
+	background-color: #fff;
+	border: 1px solid rgba(128, 137, 150, 0.3);
+	    border-top-color: rgba(128, 137, 150, 0.3);
+	    border-right-color: rgba(128, 137, 150, 0.3);
+	    border-bottom-color: rgba(128, 137, 150, 0.3);
+	    border-left-color: rgba(128, 137, 150, 0.3);
+	line-height: 44px;
+	position: relative;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+.theme-btn:hover 
+{
+    background-color: #ff9400;
+    color: #fff;
+    border-color: #ff9400;
+}
+.billing-content1 
+{
+    padding: 10px 3px !important;
+}
+.padd0
+{
+	padding: 0px;
+}
+.billing-title-wrap 
+{
+    padding: 15px 0px !important;
+    border-bottom: 1px solid rgba(128, 137, 150, 0.3);
+}
+
+
+
+.card-list-item1 
+{
+	margin-bottom: 20px;
+	margin-top: 0px;
+}
+
+.card-list-item1 .billing-title-wrap {
+	/*border-bottom: 2px solid #ff9400;*/
+	border-bottom: 2px solid;
+	border-image: linear-gradient(to right, rgba(217, 219, 223, 0.8), rgba(255, 148, 0, 0.8));
+	border-image-slice: 1;
+	padding-left: 15px;
+	margin-bottom: 20px;
+}
+.card-list-item1 .widget-title {
+	font-size: 24px;
+	line-height: 33px;
+}
+.card-list-item1 .padd0px-btn {
+	border-radius:  initial;
+	padding: 4px 25px;
+}
+._remodify .contact h2{
+	font-size: 19px !important;
+}
+._remodify {
+	padding: 10px 0 10px 0;
+}
+
+.map-address-box .map-address li .map__title {
+	font-size: 19px;
+	margin-bottom: -3px;
+}
+.map-address-box .map-address li span {
+	color: #fff;
+	background-color: #ff9400;
+}
+._ngxcomm {
+	padding: 0 10px 0 10px;
+}
+._ngxcomm h3 {
+	font-size: 21px;
+	font-weight: bold;
+	margin-bottom: 15px !important;
+	border-bottom: 2px solid rgba(128,137,150,.3);
+	padding: 10px 0;
+	color: #008000;
+}
+.mg-pd-10 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.singleLayOut img {
+	border-radius: 50%;
+}
+.card-list-item2
+{
+	background: #fff;
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 0px 5px, rgba(0, 0, 0, 0.23) 0px 4px 15px;
+	margin-bottom: 15px;
+	border-radius: 3px;
+}
+
+
+.card-list-item1 .billing-title-wrap1 {
+	/*border-bottom: 2px solid #ff9400;*/
+	border-bottom: 2px solid;
+	border-image: linear-gradient(to right, rgba(217, 219, 223, 0.8), rgba(255, 148, 0, 0.8));
+	border-image-slice: 1;
+	padding-left: 15px;
+	margin-bottom: 20px;
+	padding: -1px 0px;
+}
+.billing-title-wrap1 
+{
+    padding: -1px 0px;
+}
+.card-content1 
+{
+    /*padding: 9px 20px 10px 20px;*/
+    padding: 6px 20px 6px 20px;
+}
+.mg-tp-34
+{
+	margin-top: 34px;
+}
+.mg-tp-10
+{
+	margin-top: 20px;
+}
+.nav_style
+{
+	border: 2px solid #e2e1e0;
+	border-radius: 10px;
+}
+.padd10
+{
+    padding: 10%;
+}
+.width-100
+{
+	width: 100%;
+}
+.padd_L-15
+{
+	padding-left: 15px;
+}
+.mg_B_15
+{
+	margin-bottom: 15px;
+}
+
+
+
+@media only screen and (max-width: 575px) 
+{
+	.colfullwidth
+	{
+	    flex: 0 0 100%;
+	    max-width: 100%;
+	}
+	.padd_T_10
+	{
+		margin-top: 10px;
+	}
+	.padd_10
+	{
+		padding: 10px;
+	}
+}
+@media only screen and (max-width: 1200px) and (min-width: 575px)  
+{
+	.colfullwidth
+	{
+	    flex: 0 0 100%;
+	    max-width: 100%;
+	}
+	.padd_T_10
+	{
+		margin-top: 10px;
+	}
+}
+
+.verified_btn_style_success 
+{
+    top: 0px !important;
+}
+.verified_btn_style_danger 
+{
+    top: 0px !important;
+}
+
+.quote-small-txt 
+{
+    border: 1px solid #ff9400;
+    background-color: #fff;
+    z-index: 1;
+    padding: 4px 5px 4px 0 !important;
+    color: #ff9400;
+    border-radius: 5px;
+}

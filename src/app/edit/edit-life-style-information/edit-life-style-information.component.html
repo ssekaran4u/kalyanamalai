@@ -1,0 +1,295 @@
+ <div class="container-fluid">
+    <div class="row">
+        <div id="_extend_Id" class="col-md-8 offset-lg-2 offset-sm-0">
+            <form id="msform" class="_rStep2" [formGroup]="editLifeStyleForm" (ngSubmit)="onSubmit()">
+                <fieldset>
+                    <div class="billing-form-item">
+                        <div class="progressbar"></div>
+                        <div class="billing-content">
+                            <div class="contact-form-action">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="1st _rImge">
+                                            <img src="assets/images/reg/lifestyle.png" class="img-fluid mx-auto d-none d-xl-block">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 row">
+                                        <div class="col-lg-12">
+                                            <h2 class="fs-title">Edit Lifestyle Information </h2>
+                                            <div class="form-group custom-form-group _hv_Ch">
+                                                <label class="label-text posit-init">Your Diet ? <span class="text-danger">*</span> </label>
+                                                <ul class="radiogroup Your_DietList">
+                                                    <li *ngFor="let Diet of Diet;">
+                                                        <label  #Diets 
+                                                        (click)="DietListclick(Diets)" 
+                                                        id="DietID{{Diet.id}}" 
+                                                        [attr.data-Diet-id]="Diet.id" 
+                                                        class="control control-radio" 
+                                                        for="{{Diet.name}}" 
+                                                        [ngClass]="{active: Diet.id==DietSelected}">
+                                                            <input 
+                                                            formControlName="Your_DietList" 
+                                                            type="radio" id="{{Diet.name}}" 
+                                                            name="Your_DietList" 
+                                                            [value]="Diet.id" 
+                                                            [checked]="Diet.id==DietSelected">
+                                                            <span>{{Diet.name}}</span>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div> 
+                                        <div class="col-lg-6">   
+                                            <div class="form-group">
+                                                <div class="km-form-group" [ngClass]="{kmactive: isHeight==true}">
+                                                    <label class="floatClass" [ngClass]="{showlbl: isHeight==true}">Your Height</label>
+                                                    <ng-multiselect-dropdown 
+                                                      [placeholder]="'Select Height'"
+                                                      [settings]="HeightSettings"
+                                                      [data]="Height"
+                                                      formControlName="selectHeight"
+                                                      [(ngModel)]="selectedHeightItems"
+                                                      (onSelect)="onItemSelectHeight($event)"
+                                                      (onDeSelect)="OnItemDeSelectHeight($event)"
+                                                    >
+                                                    </ng-multiselect-dropdown>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">   
+                                            <div class="form-group">
+                                                <div class="km-form-group" [ngClass]="{kmactive: isWeight==true}">
+                                                    <label class="floatClass" [ngClass]="{showlbl: isWeight==true}">Your Weight</label>
+                                                    <ng-multiselect-dropdown 
+                                                      [placeholder]="'Select Weight'"
+                                                      [settings]="WeightSettings"
+                                                      [data]="Weight"
+                                                      formControlName="selectWeight"
+                                                      [(ngModel)]="selectedWeightItems"
+                                                      (onSelect)="onItemSelectWeight($event)"
+                                                      (onDeSelect)="OnItemDeSelectWeight($event)"
+                                                    >
+                                                    </ng-multiselect-dropdown>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 mg-tp-20">   
+                                            <div class="form-group">
+                                                <div class="km-form-group" [ngClass]="{kmactive: isBloodGroup==true}">
+                                                    <label class="floatClass" [ngClass]="{showlbl: isBloodGroup==true}">Your Blood Group</label>
+                                                    <ng-multiselect-dropdown 
+                                                      [placeholder]="'Select BloodGroup'"
+                                                      [settings]="BloodGroupSettings"
+                                                      [data]="BloodGroup"
+                                                      formControlName="selectBloodGroup"
+                                                      [(ngModel)]="selectedBloodGroupItems"
+                                                      (onSelect)="onItemSelectBloodGroup($event)"
+                                                      (onDeSelect)="OnItemDeSelectBloodGroup($event)"
+                                                    >
+                                                    </ng-multiselect-dropdown>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group custom-form-group _hv_Ch">
+                                                <label class="label-text posit-init">Complexion <span class="text-danger">*</span> </label>
+                                                <ul class="radiogroup ComplexionList">
+                                                    <li *ngFor="let Complexion of Complexion;">
+                                                        <label  #Complexions 
+                                                        (click)="ComplexionListclick(Complexions)" 
+                                                        id="ComplexionID{{Complexion.id}}" 
+                                                        [attr.data-Complexion-id]="Complexion.id" 
+                                                        class="control control-radio" 
+                                                        for="{{Complexion.name}}" 
+                                                        [ngClass]="{active: Complexion.id==ComplexionSelected}">
+                                                            <input 
+                                                            formControlName="ComplexionList" 
+                                                            type="radio" id="{{Complexion.name}}" 
+                                                            name="ComplexionList" 
+                                                            [value]="Complexion.id" 
+                                                            [checked]="Complexion.id==ComplexionSelected">
+                                                            <span>{{Complexion.name}}</span>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group custom-form-group _hv_Ch">
+                                                <label class="label-text posit-init">Physique <span class="text-danger">*</span> </label>
+                                                <ul class="radiogroup PhysiqueList">
+                                                    <li *ngFor="let PhysiqueList of Physique;">
+                                                        <label  #PhysiqueLists 
+                                                        (click)="PhysiqueListclick(PhysiqueLists)" 
+                                                        id="PhysiqueListID{{PhysiqueList.id}}" 
+                                                        [attr.data-PhysiqueList-id]="PhysiqueList.id" 
+                                                        class="control control-radio" 
+                                                        for="{{PhysiqueList.name}}" 
+                                                        [ngClass]="{active: PhysiqueList.id==PhysiqueSelected}">
+                                                            <input 
+                                                            formControlName="PhysiqueList" 
+                                                            type="radio" id="{{PhysiqueList.name}}" 
+                                                            name="PhysiqueList" 
+                                                            [value]="PhysiqueList.id" 
+                                                            [checked]="PhysiqueList.id==PhysiqueSelected">
+                                                            <span>{{PhysiqueList.name}}</span>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12">
+                                            <div class="row clearfix">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group custom-form-group _hv_Ch">
+                                                        <label class="label-text posit-init">Physical disability <span class="text-danger">*</span> </label>
+                                                        <ul class="radiogroup Physical_disabilityList">
+                                                            <li *ngFor="let YesorNo of YesorNo;">
+                                                                <label  #YesorNos 
+                                                                (click)="YesorNoclick(YesorNos)" 
+                                                                id="YesorNoID{{YesorNo.id}}" 
+                                                                [attr.data-YesorNo-id]="YesorNo.id" 
+                                                                class="control control-radio" 
+                                                                for="{{YesorNo.name}}" 
+                                                                [ngClass]="{active: YesorNo.id==SpecialCategoryYesorNo}">
+                                                                    <input 
+                                                                    formControlName="Physical_disability_YesorNo" 
+                                                                    type="radio" id="{{YesorNo.name}}" 
+                                                                    name="Physical_disability_YesorNo" 
+                                                                    [value]="YesorNo.id" 
+                                                                    [checked]="YesorNo.id==SpecialCategoryYesorNo">
+                                                                    <span>{{YesorNo.name}}</span>
+                                                                </label>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="form-group custom-form-group _hv_Ch hide" id="Physical_disability" [ngClass]="{show: isSpecialCategory==true}">
+                                                        <ul class="radiogroup Physical_disabilityLists">
+                                                            <li *ngFor="let physicalDis of SpecialCategory;">
+                                                                <label  #physicalDi 
+                                                                (click)="physicalDisclick(physicalDis.id)" 
+                                                                id="physicalDisID{{physicalDis.id}}"
+                                                                class="control control-radio" 
+                                                                for="{{physicalDis.name}}" 
+                                                                [ngClass]="{active: physicalDis.id==SpecialCategorySelected}">
+                                                                    <input 
+                                                                    formControlName="Physical_disabilityList" 
+                                                                    type="radio" 
+                                                                    id="{{physicalDis.name}}" 
+                                                                    name="Physical_disabilityList" 
+                                                                    [value]="physicalDis.id" 
+                                                                    [checked]="physicalDis.id==SpecialCategorySelected">
+                                                                    <span>{{physicalDis.name}}</span>
+                                                                </label>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div id="PhysicaldisabilityData" class="hide" [ngClass]="{show: isSpecialCategoryOther===true}">
+                                                        <div class="form-group custom-form-group" id="PhysicaldisabilityData1" [ngClass]="{focused: isSpecialCategoryOther==true}">
+                                                            <label class="PhysicaldisabilityOther" for="PhysicaldisabilityOther" [ngClass]="{active: isSpecialCategoryOther===true}">Mention Physical disability</label>
+                                                            <span class="lab la-accessible-icon form-icon"></span>
+                                                            <input formControlName="PhysicaldisabilityData" name="PhysicaldisabilityData" type="text" class="form-control" id="PhysicaldisabilityOther" value="{{SpecialCategoryOther}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="row clearfix">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group custom-form-group _hv_Ch">
+                                                        <label class="label-text posit-init">Smoking Habits <span class="text-danger">*</span> </label>
+                                                        <ul class="radiogroup Smoking_Habits">
+                                                            <li *ngFor="let SmokingDrink of SmokingDrinking;">
+                                                                <label  #Smoking 
+                                                                (click)="Smokingclick(Smoking)" 
+                                                                id="SmokingID{{SmokingDrink.id}}" 
+                                                                [attr.data-Smoking-id]="SmokingDrink.id" 
+                                                                class="control control-radio" 
+                                                                for="Smoking{{SmokingDrink.name}}" 
+                                                                [ngClass]="{active: SmokingDrink.id==SmokingSelected}">
+                                                                    <input 
+                                                                    formControlName="Smoking_Habits" 
+                                                                    type="radio" 
+                                                                    id="Smoking{{SmokingDrink.name}}" 
+                                                                    name="Smoking_Habits" 
+                                                                    [value]="SmokingDrink.id" 
+                                                                    [checked]="SmokingDrink.id==SmokingSelected">
+                                                                    <span>{{SmokingDrink.name}}</span>
+                                                                </label>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group custom-form-group _hv_Ch">
+                                                        <label class="label-text posit-init">Drinking Habits <span class="text-danger">*</span> </label>
+                                                        <ul class="radiogroup Drinking_Habits">
+                                                            <li *ngFor="let SmokingDrink of SmokingDrinking;">
+                                                                <label  #Drinks 
+                                                                (click)="Drinkingclick(Drinks)" 
+                                                                id="DrinkID{{SmokingDrink.id}}" 
+                                                                [attr.data-Drink-id]="SmokingDrink.id" 
+                                                                class="control control-radio" 
+                                                                for="Drink{{SmokingDrink.name}}" 
+                                                                [ngClass]="{active: SmokingDrink.id==DrinkingSelected}">
+                                                                    <input 
+                                                                    formControlName="Drinking_Habits" 
+                                                                    type="radio" 
+                                                                    id="Drink{{SmokingDrink.name}}" 
+                                                                    name="Drinking_Habits" 
+                                                                    [value]="SmokingDrink.id" 
+                                                                    [checked]="SmokingDrink.id==DrinkingSelected">
+                                                                    <span>{{SmokingDrink.name}}</span>
+                                                                </label>
+                                                            </li>
+                                                        </ul>
+                                                        <!-- <ul class="radiogroup Drinking_Habits prl_bg">
+                                                            <li *ngFor="let SmokingDrink of SmokingDrinking">
+                                                                <label class="_Ms_drhb control control-radio" for="s{{SmokingDrink.name}}">
+                                                                    <input formControlName="Drinking_Habits" type="radio" id="s{{SmokingDrink.name}}" name="Drinking_Habits" value="{{SmokingDrink.id}}" [value]="SmokingDrink.id">
+                                                                    <span>{{SmokingDrink.name}}</span>
+                                                                </label>
+                                                            </li>
+                                                        </ul> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+
+                                      <!--   <div class="col-lg-12 _xs_center_ _s_mar">
+                                            <button [disabled]="disableBtn" type="submit" name="next" class='btn btn-lg next action-button'> 
+                                                {{SubmitbuttonName}} <i class="las la-arrow-circle-right"></i> 
+                                            </button>
+                                        </div> -->
+                                        <div class="col-lg-12 row">
+                                            <div class="col-lg-12 _xs_center_">
+                                                <button [disabled]="disableBtn" type="submit" name="next" class='btn btn-lg next action-button'> 
+                                                {{SubmitbuttonName}} <i class="las la-arrow-circle-right"></i> 
+                                                </button>
+                                            
+                                                <a class='btn btn-lg next action-button' routerLink="../../user/profile">
+                                                    Back to Profile 
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="overlay" [ngClass]="{show: isLoading===true}">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>

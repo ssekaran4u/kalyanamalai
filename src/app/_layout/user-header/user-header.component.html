@@ -1,0 +1,151 @@
+<header class="header-area header-area3 p-0">
+    <div class="header-menu-wrapper after-border after-none">
+        <div *ngIf="!isNetwork" class="alert alert-offline text-center">
+            <strong><i class="las la-frown"></i> You're in Offline</strong>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 padding-0">
+                    <div class="menu-full-width">
+                        <div class="col-md-3 padding-0">
+                            <div class="logo">
+                            <a routerLink="/"><img class="img-fluid img-70" src="assets/images/Logo.png" alt="logo"></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 hidecontent">
+                            <div class="main-menu-content" *ngIf="isUserMen==false">
+                                <nav>
+                                    <ul>
+                                        <li><a routerLink="/">home </a></li>
+                                        <li><a routerLink="/about">about us </a></li>
+                                        <li><a routerLink="/schemes">schemes</a></li>
+                                        <li><a href="//media.kmmatrimony.com/" target="_blank">media</a></li>
+                                        <li><a routerLink="/contact" >contact us</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+                            <div class="main-menu-content" *ngIf="isUserMen==true">
+                                <nav>
+                                    <ul>
+                                        <li><a routerLink="/">home </a></li>
+                                        <li><a routerLink="/about">about us </a></li>
+                                        <li><a routerLink="/schemes">schemes</a></li>
+                                        <li><a href="//media.kmmatrimony.com/" target="_blank">media</a></li>
+                                        <li><a routerLink="/search" >Search</a></li>
+                                        <li><a routerLink="/contact" >contact us</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!-- <div class="main-menu-content">
+                                <nav>
+                                    <ul>
+                                        <li><a routerLink="/">home </a></li>
+                                        <li><a routerLink="/about">about us </a></li>
+                                        <li><a routerLink="/schemes">schemes</a></li>
+                                        <li><a href="http://media.kmmatrimony.com/" target="_blank">media</a></li>
+                                        <li><a routerLink="/contact">contact us</a></li>
+                                    </ul>
+                                </nav>
+                            </div> -->
+                        </div>
+                        
+                        <div class="col-md-3 padding-0">
+                            <div class="logo-right-content">
+                                <div *ngIf="isUserMen==true" class="side-menu-open menu-btn">
+                                    <span class="menu__bar"></span>
+                                    <span class="menu__bar"></span>
+                                    <span class="menu__bar"></span>
+                                </div>
+
+                                <div class="side-user-menu-open myaccountbtn btn-2clr" *ngIf="isUserMen==false">
+                                    <ul class="_Mob_s">
+                                        <li><a routerLink="/login"><span class="las la-user-circle"></span></a></li>
+                                        <li><a routerLink="/login"><span>Login</span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="side-user-menu-open myaccountbtn1 btn-2clr" *ngIf="isUserMen==false">
+                                    <ul class="_Mob_s">
+                                        <li><a routerLink="/login"><span class="las la-user-circle"></span></a></li>
+                                        <li><a routerLink="/login"><span>Login</span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="side-user-menu-open myaccountbtn2 btn-2clr" *ngIf="isUserMen==false">
+                                    <ul class="_Mob_s">
+                                        <li><a routerLink="/login"><span>Login</span></a></li>
+                                    </ul>
+                                </div>
+
+                                <div *ngIf="isUserMen==true" class="side-user-menu-open myaccountbtn btn-2clr">
+                                    <ul class="_Mob_s fontsize">
+                                        <li><span class="las la-user-circle"></span></li>
+                                        <li><span class="fontsize">My Account</span></li>
+                                        <li><span class="las la-angle-down fontsize"></span></li>
+                                    </ul>
+                                </div>
+                                <div *ngIf="isUserMen==true" class="side-user-menu-open myaccountbtn1 btn-2clr">
+                                    <ul class="_Mob_s">
+                                        <li><span class="las la-user-circle"></span></li>
+                                        <li><span  class="fontsize">My Account</span></li>
+                                        <li><span class="las la-angle-down fontsize"></span></li>
+                                    </ul>
+                                </div>
+                                <div *ngIf="isUserMen==true" class="side-user-menu-open myaccountbtn2 btn-2clr">
+                                    <ul class="_Mob_s">
+                                        <li><span class="fontsize">My Account</span></li> 
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="side-nav-container">
+        <div class="humburger-menu">
+            <div class="humburger-menu-lines side-menu-close"></div>
+        </div>
+        <div class="side-menu-wrap">
+            <ul class="side-menu-ul">
+                <li><a routerLink="/">home </a></li>
+                <li><a routerLink="/about">about us </a></li>
+                <li><a routerLink="/schemes">schemes</a></li>
+                <li><a href="//media.kmmatrimony.com/" target="_blank">media</a></li>
+                <li><a routerLink="/contact" >contact us</a></li>
+            </ul>
+            <div class="side-nav-button"></div>
+        </div>
+    </div>
+    <div class="side-user-panel">
+        <div class="humburger-menu">
+            <div class="humburger-menu-lines side-menu-close"></div>
+        </div>
+        <div class="side-menu-wrap side-user-menu-wrap">
+            <div class="side-user-img">
+                <img src="{{isLoggedIn.profile}}" alt="{{isLoggedIn.name}}" class="img-fluid">
+                <h4 class="su__name">{{isLoggedIn.name}}</h4>
+                <!-- <span class="su__meta">Joined 3 years ago</span> -->
+                <!-- <div class="avatar-icon">
+                    <a routerLink="/user/dashboard" data-toggle="tooltip" data-placement="top" title="Change Avatar"> <i class="fa fa-plus"></i></a>
+                </div> -->
+            </div>
+            <ul class="side-menu-ul">
+                <li><a class="nav-link" routerLink="/user/dashboard"><i class="las la-archive"></i> Dashboard</a></li>
+                <li><a class="nav-link" routerLink="/user/profile"><i class="las la-user"></i> Profile</a></li>
+                <li><a class="nav-link" routerLink="/search"><i class="las la-search"></i> Search</a></li>
+                <li><a class="nav-link" routerLink="/user/account"><i class="las la-tools"></i> My Account</a></li>
+                <li><a class="nav-link" routerLink="/user/bookmarks"><i class="las la-book-reader"></i> Bookmarks</a></li>
+                <li><a class="nav-link" routerLink="/user/saved-search"><i class="las la-search-plus"></i> Saved Search</a></li>
+                <li><a routerLink="user/matching-profiles"><i class="las la-user-check"></i> Matching profiles </a></li>
+                <li><a routerLink="user/recentvisitors"><i class="las la-glasses"></i> Recent Visitors </a></li>
+                <li><div class="dropdown-divider"></div></li>
+                <li><a class="nav-link" routerLink="/user/inbox"><i class="las la-comments"></i> Inbox</a></li>
+                <li><a class="nav-link" routerLink="/user/outbox"><i class="las la-comments"></i> Outbox</a></li>
+                <li><div class="dropdown-divider"></div></li>
+                <li><a class="nav-link" routerLink="/user/settings"><i class="las la-cog"></i> Settings</a></li>
+                <li><a routerLink="/logout"><span class="la la-power-off user-icon"></span> Sign Out</a></li>
+            </ul>
+        </div>
+    </div>
+</header>

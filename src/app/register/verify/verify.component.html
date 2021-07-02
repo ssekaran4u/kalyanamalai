@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="row">
+        <div id="_extend_Id" class="col-md-8 offset-lg-2 offset-sm-0">
+            <form id="otp-screen" [formGroup]="validateOTP" (ngSubmit)="onSubmit()">
+                <fieldset>
+                    <div class="billing-form-item">
+                        <div class="progressbar"></div>
+                        <div class="billing-content">
+                            <div class="contact-form-action">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="1st _rImge">
+                                            <img src="assets/images/reg/verification.png" class="img-fluid mx-auto d-none d-xl-block">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="col-lg-12">
+                                            <div class="_verify">
+                                                <p class="text-center"><img class="img-fluid" src="assets/images/otp-icon.png" alt="verification"></p>
+                                                <p class="text-center">Enter the verification code we sent to <br>
+                                                <span class="text-dark text-4">{{ismobile}}</span></p>
+                                                <div class="col-md-8 offset-lg-2 offset-sm-0 text-center">
+                                                    <div class="form-row">
+                                                        <div class="col">
+                                                            <input (keypress)="numberOnly($event)" type="text" id="otp" formControlName="otp" name="otp" autofocus class="form-control text-center">
+                                                        </div>
+                                                    </div>
+
+                                                    <button [disabled]="disableBtn" type="submit" class="btn btn-primary shadow-none mt-3 mb-3">{{SubmitbuttonName}}</button>
+                                                </div>
+                                                <p class="text-center text-2 mb-0">Not received your code? <span (click)="sendOtp()" class="cur ttc">Resend code</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="overlay" [ngClass]="{show: isLoading===true}">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>

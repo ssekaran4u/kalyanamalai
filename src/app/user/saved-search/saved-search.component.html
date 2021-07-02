@@ -1,0 +1,54 @@
+<section class="dashboard-area padding-bottom-90px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 padd0">
+                <div class="dashboard-nav justify-content-between align-items-center mb-4">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="billing-title-wrap">
+                                <h3 class="widget-title pb-0">Saved Search</h3>
+                                <div class="title-shape margin-top-10px"></div>
+                            </div>
+                            <div class="cfa-spinner text-center" [ngClass]="newLoading==true ? 'show' : 'hide'">
+                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 hide" [ngClass]="{show: saveSearchData==true}">
+                            <table class="table table-bordered w-100">
+                                <thead>
+                                    <tr>
+                                        <th>Saved Search Name</th>
+                                        <th>Created Date</th>
+                                        <th>View Results</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of saveSearch | paginate: { itemsPerPage: itemsPerPage , currentPage: saveSearchPage, totalItems: saveSearchTotalItems }">
+                                        <td>{{item.UsersSavedSearchName ? item.UsersSavedSearchName : '--'}}</td>
+                                        <td>{{item.CreatedDate}}</td>
+                                        <td><button (click)="ResultSearch(item.UsersSavedSearchId)" class="btn btn-info"><i class="las la-search"></i> View Results</button></td>
+                                        <td><button (click)="DeleteSearch(item.UsersSavedSearchId)" class="btn btn-danger"><i class="las la-trash-alt"></i> Delete</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <pagination-controls 
+                                (pageChange)="getsaveSearch(saveSearchPage = $event)"
+                                maxSize="9"
+                                directionLinks="true"
+                                autoHide="true"
+                                responsive="true"
+                            ></pagination-controls>
+                        </div>
+
+                        <div [ngClass]="{show: saveSearchNotFound==true}" class="hide alert alert-info text-center col-lg-12">
+                            <strong>Use Saved Search option to store your Search details...!</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

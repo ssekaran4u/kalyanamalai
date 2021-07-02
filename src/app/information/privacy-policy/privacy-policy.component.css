@@ -1,0 +1,17 @@
+ .faqstyle
+    {
+        border-radius: 10px !important;
+        margin-bottom: -1rem !important;
+    }
+.card_p
+	{
+	    padding-bottom: 10px;
+	}
+.card-content 
+{
+    padding: 15px 20px 15px 20px !important;
+}
+.padding-bottom-50px
+{
+	padding-bottom: 50px;
+}

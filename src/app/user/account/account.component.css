@@ -1,0 +1,37 @@
+.progress-bar
+{
+	background: linear-gradient(to right, #fa8b0c, #FF367E) !important;
+}
+.padd_0
+{
+	padding: 0px !important;
+}
+.padd_L_15
+{
+	padding-left: 15px !important;
+}
+/*.clr_white
+{
+	color: white !important;
+}*/
+.progress-bar1
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	overflow: hidden;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	background-color: #007bff;
+	transition: width .6s ease;
+}
+
+@media only screen and (max-width: 575px) 
+{
+	.padd_10
+	{
+		padding: 10px !important;
+	}
+	
+}

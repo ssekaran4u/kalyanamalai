@@ -1,0 +1,48 @@
+ .faqstyle
+    {
+        border-radius: 10px !important;
+        margin-bottom: -1rem !important;
+    }
+.card_p
+	{
+		padding-bottom: 10px;
+	}
+.progress-bar
+	{
+		/*background-color: #ff9400 !important;*/
+	background: linear-gradient(to right, #fa8b0c, #FF367E) !important;
+	}
+.action-button1 
+	{
+		/*position: absolute;
+		top: 10px;*/
+
+		background: #ff9400;
+		font-weight: bold;
+		color: white;
+		border: 0 none;
+		border-radius: 5px;
+		cursor: pointer;
+		font-size: 16px;
+		padding: 6px 20px;
+		margin: 0px 5px;
+	}
+.td-width
+	{
+		width:15%;
+	}
+
+.card-list-item 
+	{
+		margin-top: 20px;
+	}
+.btn-warning1 
+	{
+	    color: #ffffff;
+	    background-color: #45cc4c;
+	    border-color: #ff9400;
+	}
+.mg-top-20
+	{
+		margin-top: 20px;
+	}

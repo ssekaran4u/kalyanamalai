@@ -1,0 +1,738 @@
+<section class="dashboard-area padding-bottom-90px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12" style="padding-right: 0px;">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="cfa-spinner text-center" [ngClass]="isProfileImgLoading==true ? 'show' : 'hide'">
+                            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                        </div>
+                        <div class="hide" [ngClass]="{show: isProfileImgData==true}">
+                            <div class="user-profile-action">
+                                <div class="user-pro-img mb-4">
+                                    <img src="{{activeprofiledata.profilepicture}}" alt="{{activeprofiledata.Name}}" class="img-fluid">
+                                </div>
+                                <div class="user-details">
+                                    <h2 class="user__name widget-title pb-2">{{activeprofiledata.Name}} [{{activeprofiledata.RegNumber}}]</h2>
+                                    <div class="section-heading">
+                                        <p class="sec__desc font-size-15 line-height-24" [innerHTML]="activeprofiledata.AboutMe"></p>
+                                    </div>
+                                    <ul class="list-items mt-3">
+                                        <!-- <li><span class="la la-map-marker"></span> {{activeprofiledata.CommunicationArea}}</li> -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 padd20resp">
+                        <!-- <div class="card-list-item">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card-content">
+                                        <div class="progress-status" [ngClass]="{hide: isProfileCompleteness===true}">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <p>Profile Status</p>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <p class="text-right"><a routerLink="../../profile-complete">How to get 100%</a></p>
+                                                </div>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="progress-bar" style="width:{{activeprofiledata.ProfileCompleteness}}%">{{activeprofiledata.ProfileCompleteness}}%</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <a routerLink="../../scheme-exclusive">
+                                                    <img class="banner-img" src="assets/images/banner/Dashboard.jpg">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="cfa-spinner text-center" [ngClass]="isMatchingLoading==true ? 'show' : 'hide'">
+                            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                        </div> -->
+                        <!-- <div class="hide" [ngClass]="{show: isMatchingLoadingData==true}"> -->
+                            <div class="card-list-item1">
+                                <div class="billing-title-wrap1 pd-l-0">
+                                    <div class="row">
+                                        <div class="col-md-6 div-title1">
+                                            <h3 class="widget-title pb-0 title-font-size">
+                                                Matching Profiles
+                                                (
+                                                <span *ngIf="!isMatchingLoading">{{totalMatchingItems}}</span>
+                                                <span *ngIf="isMatchingLoading"><i class="fa fa-spinner fa-pulse"></i></span>
+                                                )
+                                            </h3>
+                                        </div>
+                                        <div class="col-md-6 text-right div-title-btn">
+                                            <a class="btn btn-c1 btn-color padd0px-btn" [ngClass]="{disabledbutton: isMatchingNotFoundLoading==true}" routerLink="../matching-profiles"><i class="las la-expand"></i> View All</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="cfa-spinner text-center" [ngClass]="isMatchingLoading==true ? 'show' : 'hide'">
+                                    <div class="skeleton-loader"></div>
+                                </div>
+                                <div *ngIf="!isMatchingLoading">
+                                    <div *ngFor="let item of matchinglists" class="card-list-item2">
+                                        <div class="row">
+                                            <div class="col-md-3 text-center">
+                                                <div *ngIf="item.ProtectedImage==1 && item.Imagestatus==1" class="card-image">
+                                                    <img [defaultImage]="defaultImage" [lazyLoad]="item.profilepicture" class="card__img" alt="">
+                                                    <span [ngClass]="{'badge-toggle-pin': (bookmarkStatus || item.Bookmarkstatus==1)}" (click)="openCommonModal(content,'','bookmark',item.RegNo,'matching')" class="badge-toggle cur" data-toggle="tooltip" data-placement="bottom" title="{{(bookmarkStatus || item.Bookmarkstatus==1) ? 'Bookmarked' : 'Bookmark' }}">
+                                                        
+                                                        <i [ngClass]="{'fa-star':bookmarkStatus}" *ngIf="item.Bookmarkstatus==0" class="fa fa-star-o" aria-hidden="true"></i>
+
+                                                        <i *ngIf="item.Bookmarkstatus==1" class="fa fa-star" aria-hidden="true"></i>
+                                                    </span>
+
+                                                    <button (click)="openCommonModal(content,'','photo',item.RegNo,'matching')" class="absolute btn btn-c1">Request for Access</button>
+                                                </div>
+                                                <div *ngIf="item.ProtectedImage==0 && item.Imagestatus==0" class="card-image">
+
+                                                    <span [ngClass]="{'badge-toggle-pin': (bookmarkStatus || item.Bookmarkstatus==1)}" (click)="openCommonModal(content,'','bookmark',item.RegNo,'matching')" class="badge-toggle cur" data-toggle="tooltip" data-placement="bottom" title="{{(bookmarkStatus || item.Bookmarkstatus==1) ? 'Bookmarked' : 'Bookmark' }}">
+                                                        
+                                                        <i [ngClass]="{'fa-star':bookmarkStatus}" *ngIf="item.Bookmarkstatus==0" class="fa fa-star-o" aria-hidden="true"></i>
+
+                                                        <i *ngIf="item.Bookmarkstatus==1" class="fa fa-star" aria-hidden="true"></i>
+                                                    </span>
+
+                                                    <img [defaultImage]="defaultImage" [lazyLoad]="item.profilepicture" class="card__img" alt="">
+
+                                                    <button (click)="openCommonModal(content,'','photo',item.RegNo,'matching')" class="absolute btn btn-c1">Request for Upload</button>
+
+                                                </div>
+                                                <div *ngIf="item.ProtectedImage==1 && item.Imagestatus==0" class="card-image">
+                                                    <span [ngClass]="{'badge-toggle-pin': (bookmarkStatus || item.Bookmarkstatus==1)}" (click)="openCommonModal(content,'','bookmark',item.RegNo,'matching')" class="badge-toggle cur" data-toggle="tooltip" data-placement="bottom" title="{{(bookmarkStatus || item.Bookmarkstatus==1) ? 'Bookmarked' : 'Bookmark' }}">
+                                                        
+                                                        <i [ngClass]="{'fa-star':bookmarkStatus}" *ngIf="item.Bookmarkstatus==0" class="fa fa-star-o" aria-hidden="true"></i>
+
+                                                        <i *ngIf="item.Bookmarkstatus==1" class="fa fa-star" aria-hidden="true"></i>
+                                                    </span>
+
+                                                    <img [defaultImage]="defaultImage" [lazyLoad]="item.profilepicture" class="card__img" alt="">
+                                                    <button (click)="openCommonModal(content,'','photo',item.RegNo,'matching')" class="absolute btn btn-c1">Request for Access</button>
+                                                </div>
+                                                <div *ngIf="item.Imagestatus==1 && item.ProtectedImage==0" class="card-image">
+                                                    <img [defaultImage]="defaultImage" [lazyLoad]="item.profilepicture" class="card__img cur" alt="" routerLink="/profile/{{item.RegNo}}">
+
+                                                    <span [ngClass]="{'badge-toggle-pin': (bookmarkStatus || item.Bookmarkstatus==1)}" (click)="openCommonModal(content,'','bookmark',item.RegNo,'matching')" class="badge-toggle cur" data-toggle="tooltip" data-placement="bottom" title="{{(bookmarkStatus || item.Bookmarkstatus==1) ? 'Bookmarked' : 'Bookmark' }}">
+                                                        
+                                                        <i [ngClass]="{'fa-star':bookmarkStatus}" *ngIf="item.Bookmarkstatus==0" class="fa fa-star-o" aria-hidden="true"></i>
+
+                                                        <i *ngIf="item.Bookmarkstatus==1" class="fa fa-star" aria-hidden="true"></i>
+                                                    </span>
+
+                                                    <div *ngIf="item.Imagestatus==1 && item.ProtectedImage==0 &&  item.imagesCount>1" class="category-title">
+                                                        <ul class="lxbk">
+                                                            <li (click)="openCommonModal(content,gallery,'gallery',item.RegNo,'matching')" class="cur">{{item.imagesCount}} <i class="fa fa-camera" aria-hidden="true"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9 pd-l-0 padd20resp">
+                                                <div class="card-content1">
+                                                    <ul class="ngbook_m">
+                                                        <li><a routerLink="/profile/{{item.RegNo}}">
+                                                                <h4 class="card-title">{{item.Name}} [{{item.RegNumber}}]
+                                                                    <i *ngIf="item.Profiletype==1" class="fa fa-check-circle" data-toggle="tooltip" data-placement="top" title="Verified"></i>
+                                                                    <i *ngIf="item.Profiletype==0" class="fa fa-times-circle clr_red" data-toggle="tooltip" data-placement="top" title="Not Verified"></i>
+                                                                </h4>
+                                                                <p class="card-sub">Profile created for {{item.ProfileCreatedBy}}</p>
+                                                            </a></li>
+                                                    </ul>
+                                                    <div class="row">
+                                                        <div class="col-lg-5">
+                                                            <ul class="info-list">
+                                                                <li><span>Age:</span> {{item.Age}} <span>Height:</span> {{item.Height}} </li>
+                                                                <li><span>Marital Status:</span> {{item.MaritalStatus}}</li>
+                                                                <li><span>Religion:</span> {{item.Religion}}</li>
+                                                                <li><span>Caste:</span> {{item.Caste}}</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-lg-7">
+                                                            <ul class="info-list">
+                                                                <li><span>Location:</span> {{item.CommunicationCity}}</li>
+                                                                <li><span>Education:</span> {{item.Education}}</li>
+                                                                <li><span>Profession:</span> {{item.Profession}}</li>
+                                                                <li><span>Star:</span> {{item.Star}}</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-5 mx_with_50">
+                                                            <ul class="info-list">
+                                                                <li>
+                                                                    <ul class="_iconsLst">
+                                                                        <li><span (click)="openCommonModal(content,communication,'contact',item.RegNo,'matching')"><i title="Contact Details" class="las la-phone-volume"></i></span> </li>
+                                                                        <li><span (click)="openCommonModal(content,expressinterest,'expressinterest',item.RegNo,'matching')"><i title="Express Interest" class="lar la-heart"></i></span> </li>
+                                                                        <li><span (click)="openCommonModal(content,personalized,'message',item.RegNo,'matching')"><i title="Personlized Message" class="lar la-envelope"></i></span></li>
+                                                                        <li><span (click)="openCommonModal(content,'','album',item.RegNo,'matching')"><i title="Album Request" class="lar la-images"></i></span> </li>
+
+                                                                        <li><span (click)="openCommonModal(content,'','horoscope',item.RegNo,'matching')"><i title="Horoscope" class="las la-table"></i></span> </li>
+                                                                        <li><span (click)="openCommonModal(content,'','block',item.RegNo,'matching')"><i title="Block" class="las la-ban"></i></span> </li>
+                                                                        <li><span (click)="openCommonModal(content,'','ignore',item.RegNo,'matching')"><i title="Ignore" class="las la-comment-slash"></i></span> </li>
+                                                                        <li><span (click)="openCommonModal(content,forward,'forward',item.RegNo,'matching')"><i title="Forward Profile" class="las la-share-square"></i></span> </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-lg-6 padd_b_10">
+                                                            <div class="_listButton">
+                                                                <a routerLink="/profile/{{item.RegNo}}" class="btn btn-c1" target="_blank"><i class="las la-user-check"></i> View Profile</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div [ngClass]="{show: isMatchingNotFoundLoading==true}" class="hide alert alert-info text-center col-md-12">
+                                    <strong>Complete Your Profile details to find your matching Profiles...!</strong>
+                                </div>
+                            </div>
+                            <div class="card-list-item1">
+                                <div class="billing-title-wrap1 pd-l-0">
+                                    <div class="row">
+                                        <div class="col-md-6 div-title1">
+                                            <h3 class="widget-title pb-0 title-font-size">
+                                                Bookmarks
+                                                (
+                                                <span *ngIf="!isBookmarkLoading">{{totalbookmarkItems}}</span>
+                                                <span *ngIf="isBookmarkLoading"><i class="fa fa-spinner fa-pulse"></i></span>
+                                                )
+                                            </h3>
+                                        </div>
+                                        <div class="col-md-6 text-right div-title-btn">
+                                            <a class="btn btn-c1 btn-color padd0px-btn" [ngClass]="{disabledbutton: isbookmarklistNotFoundLoading==true}" routerLink="../bookmarks"><i class="las la-expand"></i> View All</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cfa-spinner text-center" [ngClass]="isBookmarkLoading==true ? 'show' : 'hide'">
+                                    <div class="skeleton-loader"></div>
+                                </div>
+                                <div *ngIf="!isBookmarkLoading">
+                                    <div *ngFor="let bookmarklistitem of bookmarklist" class="card-list-item2">
+                                        <div class="row">
+                                            <div class="col-md-3 text-center">
+                                                <div *ngIf="bookmarklistitem.ProtectedImage==1 && bookmarklistitem.Imagestatus==1" class="card-image">
+                                                    <img [defaultImage]="defaultImage" [lazyLoad]="bookmarklistitem.profilepicture" class="card__img" alt="">
+                                                    <span [ngClass]="{'badge-toggle-pin': (bookmarkStatus || bookmarklistitem.Bookmarkstatus==1)}" (click)="openCommonModal(content,'','bookmark',bookmarklistitem.RegNo,'matching')" class="badge-toggle cur" data-toggle="tooltip" data-placement="bottom" title="{{(bookmarkStatus || bookmarklistitem.Bookmarkstatus==1) ? 'Bookmarked' : 'Bookmark' }}">
+                                                        
+                                                        <i [ngClass]="{'fa-star':bookmarkStatus}" *ngIf="bookmarklistitem.Bookmarkstatus==0" class="fa fa-star-o" aria-hidden="true"></i>
+
+                                                        <i *ngIf="bookmarklistitem.Bookmarkstatus==1" class="fa fa-star" aria-hidden="true"></i>
+                                                    </span>
+
+                                                    <button (click)="openCommonModal(content,'','photo',bookmarklistitem.RegNo,'matching')" class="absolute btn btn-c1">Request for Access</button>
+                                                </div>
+                                                <div *ngIf="bookmarklistitem.ProtectedImage==0 && bookmarklistitem.Imagestatus==0" class="card-image">
+
+                                                    <span [ngClass]="{'badge-toggle-pin': (bookmarkStatus || bookmarklistitem.Bookmarkstatus==1)}" (click)="openCommonModal(content,'','bookmark',bookmarklistitem.RegNo,'matching')" class="badge-toggle cur" data-toggle="tooltip" data-placement="bottom" title="{{(bookmarkStatus || bookmarklistitem.Bookmarkstatus==1) ? 'Bookmarked' : 'Bookmark' }}">
+                                                        
+                                                        <i [ngClass]="{'fa-star':bookmarkStatus}" *ngIf="bookmarklistitem.Bookmarkstatus==0" class="fa fa-star-o" aria-hidden="true"></i>
+
+                                                        <i *ngIf="bookmarklistitem.Bookmarkstatus==1" class="fa fa-star" aria-hidden="true"></i>
+                                                    </span>
+
+                                                    <img [defaultImage]="defaultImage" [lazyLoad]="bookmarklistitem.profilepicture" class="card__img" alt="">
+
+                                                    <button (click)="openCommonModal(content,'','photo',bookmarklistitem.RegNo,'matching')" class="absolute btn btn-c1">Request for Upload</button>
+
+                                                </div>
+                                                <div *ngIf="bookmarklistitem.ProtectedImage==1 && bookmarklistitem.Imagestatus==0" class="card-image">
+                                                    <span [ngClass]="{'badge-toggle-pin': (bookmarkStatus || bookmarklistitem.Bookmarkstatus==1)}" (click)="openCommonModal(content,'','bookmark',bookmarklistitem.RegNo,'matching')" class="badge-toggle cur" data-toggle="tooltip" data-placement="bottom" title="{{(bookmarkStatus || bookmarklistitem.Bookmarkstatus==1) ? 'Bookmarked' : 'Bookmark' }}">
+                                                        
+                                                        <i [ngClass]="{'fa-star':bookmarkStatus}" *ngIf="bookmarklistitem.Bookmarkstatus==0" class="fa fa-star-o" aria-hidden="true"></i>
+
+                                                        <i *ngIf="bookmarklistitem.Bookmarkstatus==1" class="fa fa-star" aria-hidden="true"></i>
+                                                    </span>
+
+                                                    <img [defaultImage]="defaultImage" [lazyLoad]="bookmarklistitem.profilepicture" class="card__img" alt="">
+                                                    <button (click)="openCommonModal(content,'','photo',bookmarklistitem.RegNo,'matching')" class="absolute btn btn-c1">Request for Access</button>
+                                                </div>
+                                                <div *ngIf="bookmarklistitem.Imagestatus==1 && bookmarklistitem.ProtectedImage==0" class="card-image">
+                                                    <img [defaultImage]="defaultImage" [lazyLoad]="bookmarklistitem.profilepicture" class="card__img cur" alt="" routerLink="/profile/{{bookmarklistitem.RegNo}}">
+
+                                                    <span [ngClass]="{'badge-toggle-pin': (bookmarkStatus || bookmarklistitem.Bookmarkstatus==1)}" (click)="openCommonModal(content,'','bookmark',bookmarklistitem.RegNo,'matching')" class="badge-toggle cur" data-toggle="tooltip" data-placement="bottom" title="{{(bookmarkStatus || bookmarklistitem.Bookmarkstatus==1) ? 'Bookmarked' : 'Bookmark' }}">
+                                                        
+                                                        <i [ngClass]="{'fa-star':bookmarkStatus}" *ngIf="bookmarklistitem.Bookmarkstatus==0" class="fa fa-star-o" aria-hidden="true"></i>
+
+                                                        <i *ngIf="bookmarklistitem.Bookmarkstatus==1" class="fa fa-star" aria-hidden="true"></i>
+                                                    </span>
+
+                                                    <div *ngIf="bookmarklistitem.Imagestatus==1 && bookmarklistitem.ProtectedImage==0 &&  bookmarklistitem.imagesCount>1" class="category-title">
+                                                        <ul class="lxbk">
+                                                            <li (click)="openCommonModal(content,gallery,'gallery',bookmarklistitem.RegNo,'matching')" class="cur">{{bookmarklistitem.imagesCount}} <i class="fa fa-camera" aria-hidden="true"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="card-content1">
+                                                    <a routerLink="/profile/{{bookmarklistitem.RegNo}}">
+                                                        <h4 class="card-title">{{bookmarklistitem.Name}} [{{bookmarklistitem.RegNumber}}] 
+                                                            <i *ngIf="bookmarklistitem.Profiletype==1" class="fa fa-check-circle" data-toggle="tooltip" data-placement="top" title="Verified"></i>
+                                                            <i *ngIf="bookmarklistitem.Profiletype==0" class="fa fa-times-circle clr_red" data-toggle="tooltip" data-placement="top" title="Not Verified"></i>
+                                                        </h4>
+                                                        <p class="card-sub">Profile created for {{bookmarklistitem.ProfileCreatedBy}}</p>
+                                                    </a>
+                                                    <div class="row">
+                                                        <div class="col-lg-5">
+                                                            <ul class="info-list">
+                                                                <li><span>Age:</span> {{bookmarklistitem.Age}} <span>Height:</span> {{bookmarklistitem.Height}} </li>
+                                                                <li><span>Marital Status:</span> {{bookmarklistitem.MaritalStatus}}</li>
+                                                                <li><span>Religion:</span> {{bookmarklistitem.Religion}}</li>
+                                                                <li><span>Caste:</span> {{bookmarklistitem.Caste}}</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-lg-7">
+                                                            <ul class="info-list">
+                                                                <li><span>Location:</span> {{bookmarklistitem.CommunicationCity}}</li>
+                                                                <li><span>Education:</span> {{bookmarklistitem.Education}}</li>
+                                                                <li><span>Profession:</span> {{bookmarklistitem.Profession}}</li>
+                                                                <li><span>Star:</span> {{bookmarklistitem.Star}}</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-5">
+                                                            <ul class="info-list">
+                                                                <li>
+                                                                    <ul class="_iconsLst">
+                                                                        <li><span (click)="openCommonModal(content,communication,'contact',bookmarklistitem.RegNo,'bookmark')"><i title="Contact Details" class="las la-phone-volume"></i></span> </li>
+                                                                        <li><span (click)="openCommonModal(content,expressinterest,'expressinterest',bookmarklistitem.RegNo,'bookmark')"><i title="Express Interest" class="lar la-heart"></i></span> </li>
+                                                                        <li><span (click)="openCommonModal(content,personalized,'message',bookmarklistitem.RegNo,'bookmark')"><i title="Personlized Message" class="lar la-envelope"></i></span></li>
+                                                                        <li><span (click)="openCommonModal(content,'','album',bookmarklistitem.RegNo,'bookmark')"><i title="Album Request" class="lar la-images"></i></span> </li>
+
+                                                                        <li><span (click)="openCommonModal(content,'','horoscope',bookmarklistitem.RegNo,'bookmark')"><i title="Horoscope" class="las la-table"></i></span> </li>
+                                                                        <li><span (click)="openCommonModal(content,'','block',bookmarklistitem.RegNo,'bookmark')"><i title="Block" class="las la-ban"></i></span> </li>
+                                                                        <li><span (click)="openCommonModal(content,'','ignore',bookmarklistitem.RegNo,'bookmark')"><i title="Ignore" class="las la-comment-slash"></i></span> </li>
+                                                                        <li><span (click)="openCommonModal(content,forward,'forward',bookmarklistitem.RegNo,'bookmark')"><i title="Forward Profile" class="las la-share-square"></i></span> </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="_listButton">
+                                                                <a routerLink="/profile/{{bookmarklistitem.RegNo}}" class="btn btn-c1" target="_blank"><i class="las la-user-check"></i> View Profile</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div [ngClass]="{show: isbookmarklistNotFoundLoading==true}" class="hide alert alert-info text-center col-md-12">
+                                    <strong>Add Your favorite Profiles...!</strong>
+                                </div>
+                            </div>
+                            <div class="card-list-item1">
+                                <div class="billing-title-wrap1 pd-l-0">
+                                    <div class="row">
+                                        <div class="col-md-6 pd-l-0 div-title1">
+                                            <h3 class="widget-title pb-0 title-font-size">
+                                                Who viewed your profile
+                                                (
+                                                <span *ngIf="!isRecentVisitorsLoading">{{totalrecentvisitorsItems}}</span>
+                                                <span *ngIf="isRecentVisitorsLoading"><i class="fa fa-spinner fa-pulse"></i></span>
+                                                )
+                                            </h3>
+                                        </div>
+                                        <div class="col-md-6 text-right div-title-btn">
+                                            <a class="btn btn-c1 btn-color btn-color padd0px-btn" [ngClass]="{disabledbutton: isrecentvisitorslistNotFoundLoading==true}" routerLink="../recentvisitors"><i class="las la-expand"></i> View All</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cfa-spinner text-center" [ngClass]="isRecentVisitorsLoading==true ? 'show' : 'hide'">
+                                    <div class="skeleton-loader"></div>
+                                </div>
+                                <div *ngIf="!isRecentVisitorsLoading">
+                                    <div class="row">
+                                        <div class="col-md-2 text-center" *ngFor="let recentvisitoritem of recentvisitorslist">
+                                            <div class="singleLayOut">
+                                                <div class="_image">
+                                                    <div *ngIf="recentvisitoritem.ProtectedImage==1 && recentvisitoritem.Imagestatus==1">
+                                                        <img [defaultImage]="defaultImage" [lazyLoad]="recentvisitoritem.profilepicture" class="card__img img_cus" alt="">
+                                                        <button (click)="openCommonModal(content,communication,'photo',recentvisitoritem.RegNo)" class="absolute_per btn btn-c1">Request for Access</button>
+                                                    </div>
+                                                    <div *ngIf="recentvisitoritem.ProtectedImage==0 && recentvisitoritem.Imagestatus==0">
+                                                        <img [defaultImage]="defaultImage" [lazyLoad]="recentvisitoritem.profilepicture" class="card__img img_cus" alt="">
+                                                        <button (click)="openCommonModal(content,communication,'photo',recentvisitoritem.RegNo)" class="absolute_per btn btn-c1">Request for Upload</button>
+                                                    </div>
+                                                    <div *ngIf="recentvisitoritem.ProtectedImage==1 && recentvisitoritem.Imagestatus==0">
+                                                        <img [defaultImage]="defaultImage" [lazyLoad]="recentvisitoritem.profilepicture" class="card__img img_cus" alt="">
+                                                        <button (click)="openCommonModal(content,communication,'photo',recentvisitoritem.RegNo)" class="absolute_per btn btn-c1">Request for Access</button>
+                                                    </div>
+                                                    <a *ngIf="recentvisitoritem.Imagestatus==1 && recentvisitoritem.ProtectedImage==0" routerLink="/profile/{{recentvisitoritem.RegNo}}">
+                                                        <img [defaultImage]="defaultImage" [lazyLoad]="recentvisitoritem.profilepicture" class="card__img" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="_contents">
+                                                    <a routerLink="/profile/{{recentvisitoritem.RegNo}}">
+                                                        <h4 class="card-title">{{recentvisitoritem.Name}} <span>[{{recentvisitoritem.RegNumber}}]</span> </h4>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div [ngClass]="{show: isrecentvisitorslistNotFoundLoading==true}" class="hide alert alert-info text-center col-md-12">
+                                    <strong>View Some Profiles...!</strong>
+                                </div>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="overlay" [ngClass]="{show: isLoading===true}">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>
+
+<ng-template #expressinterest>
+    <div class="modal-body modal-delete SentExpress">
+        <h5 class="margin-bottom-10px">Choose your message</h5>
+        <ul>
+            <li *ngFor="let expressI of expressInterestMsg; let i = index" [class.active]="SentInterestMessage === i" (click)="activateClass(i)">{{expressI.name}} <i class="las la-check-double"></i> </li>
+        </ul>
+        <div class="form-group margin-top-10px text-center">
+            <button [disabled]="disableBtn" (click)="SentExpressInterest()" class="btn btn-success"><i class="las la-paper-plane"></i> {{SubmitbuttonName}}</button>
+            <button type="button" class="btn btn-danger" (click)="closeModal()"><i class="las la-times"></i> Cancel </button>
+        </div>
+    </div>
+</ng-template>
+<ng-template #communication>
+    <div class="modal-body _ngxcomm">
+        <div class="cfa-spinner text-center" [ngClass]="_ModalContactLoading==true ? 'show' : 'hide'">
+            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        </div>
+        <div *ngIf="_ModalContacteData" class="row">
+            <div class="col-md-12">
+                <h3 class="text-center">Congratulations and best wishes for your wedding...!</h3>
+            </div>
+            <div class="col-md-3">
+                <img src="{{getContactInfo.profilepicture}}" class="img-fluid rounded mx-auto d-block">
+            </div>
+            <div class="col-md-9">
+                <div class="map-address-box">
+                    <ul class="map-address">
+                        <li>
+                            <span class="las la-user-circle"></span>
+                            <h5 class="map__title">name</h5>
+                            <p class="map__desc">{{getContactInfo.name}}</p>
+                        </li>
+                        <li>
+                            <span class="la la-mobile"></span>
+                            <h5 class="map__title">Mobile</h5>
+                            <p class="map__desc">{{getContactInfo.mobile}}</p>
+                        </li>
+                        <li><span class="la la-envelope"></span>
+                            <h5 class="map__title">email</h5>
+                            <p class="map__desc">{{getContactInfo.email}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-12 text-center mg-pd-10">
+                <button (click)="closeModal()" class="btn btn-c1"><i class="las la-times-circle"></i> Close</button>
+            </div>
+        </div>
+        <div *ngIf="!_ModalContacteData" class="row mg-pd-10">
+            <div class="contact">
+                <h2 [innerHtml]="activeMessage" class="text-danger"></h2>
+            </div>
+            <button *ngIf="actionButtonFalse" type="button" class="btn btn-danger" (click)="closeModal()"><i class="las la-times"></i> {{actionButtonFalse}}</button>
+        </div>
+    </div>
+</ng-template>
+<ng-template #personalized>
+    <div class="modal-body modal-delete SentExpress">
+        <div class="col-md-7 offset-lg-2 offset-sm-0 text-center">
+            <h5><strong>Now send personalized message to your loved person.</strong></h5>
+            <form [formGroup]="personalizedMessageForm" (ngSubmit)="onMessageSubmit()">
+                <div class="form-group margin-top-10px text-center">
+                    <textarea formControlName="message" class="form-control" placeholder="Enter your message"></textarea>
+                </div>
+                <div class="form-group margin-top-10px text-center">
+                    <button type="submit" [disabled]="MsgdisableBtn" class="btn btn-success"><i class="las la-paper-plane"></i> {{MsgSubmitbuttonName}}</button>
+                    <button type="button" class="btn btn-danger" (click)="closeModal()"><i class="las la-times"></i> Cancel </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>
+<ng-template #content>
+    <div class="modal-body modal-delete _remodify text-center">
+        <div class="cfa-spinner text-center" [ngClass]="_ModalResponseLoading==true ? 'show' : 'hide'">
+            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        </div>
+        <div *ngIf="_ModalResponseData">
+            <div class="contact">
+                <h2 [innerHtml]="activeMessage"></h2>
+            </div>
+            <button *ngIf="actionButtonTrue" type="button" class="btn btn-success" (click)="customPopUp()"><i class="las la-check"></i> {{actionButtonTrue}}</button>
+            <button *ngIf="actionButtonFalse" type="button" class="btn btn-danger" (click)="closeModal()"><i class="las la-times"></i> {{actionButtonFalse}}</button>
+        </div>
+        <div *ngIf="!_ModalResponseData">
+            <div class="contact">
+                <h2 [innerHtml]="activeMessage" class="text-danger"></h2>
+            </div>
+            <button *ngIf="actionButtonFalse" type="button" class="btn btn-danger" (click)="closeModal()"><i class="las la-times"></i> {{actionButtonFalse}}</button>
+        </div>
+    </div>
+</ng-template>
+<ng-template #forward>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Forward Profile</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body modal-delete SentExpress">
+        <form [formGroup]="FwdMessageForm" (ngSubmit)="onFwdMessageSubmit()">
+            <div class="form-group">
+                <label for="fwdEmail">Email Id of your friend or relative: <span class="text-danger">*</span> </label>
+                <input type="email" class="form-control" id="fwdEmail" placeholder="Email Id of your friend or relative" formControlName="fwdEmail">
+            </div>
+            <div *ngIf="FwrdProfileMessage.subject" class="form-group">
+                <label for="pwd">Subject:</label><br>
+                {{FwrdProfileMessage.subject}}
+            </div>
+            <div *ngIf="FwrdProfileMessage.message" class="form-group">
+                <label for="pwd">Message:</label><br>
+                {{FwrdProfileMessage.message}}
+            </div>
+            <div class="form-group">
+                <button type="submit" [disabled]="MsgFwddisableBtn" class="btn btn-success"><i class="las la-paper-plane"></i> {{FwdSubmitbuttonName}}</button>
+                <button type="button" class="btn btn-danger" (click)="closeModal()"><i class="las la-times"></i> Cancel </button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+
+<ng-template #gallery>
+    <div class="modal-body modal-delete">
+        <button type="button" class="close pull-right color_fff" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="row">
+            <div class="col-lg-4">
+                <carousel [interval]="0" [noPause]="true" [(activeSlide)]="activeSlide" [showIndicators]="false" [noWrap]="true">
+                    <slide *ngFor="let gallery of galleryItems" class="text-center">
+                        <img [defaultImage]="defaultImage" [lazyLoad]="gallery.image_url" class="card__img mdl_img_style" alt="">
+                    </slide>
+                </carousel>
+                <div class="block-dis">
+                    <ol class="indicators">
+                        <li *ngFor="let gallery of galleryItems; let i = index" [class.active]="i === activeSlide" [attr.aria-pressed]="i === activeSlide" (click)="switchSlide(i)">
+                            <img [defaultImage]="defaultImage" [lazyLoad]="gallery.image_url" class="card__img" alt="">
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="col-lg-8 card_icon">
+                
+                <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3>{{galleryItemsdata.Name}}</h3>
+                <div class="title-shape margin-top-10px"></div>
+                <hr>
+                
+                <div class="col-md-12 row margin-top-10px font_size_17">
+
+                    <div class="col-md-12 row">
+                        <div class="col-md-2">
+                            <span class="span_style">DOB: </span>
+                        </div>
+                        <div class="col-md-10">
+                            <span>{{galleryItemsdata.DateOfBirth}}({{galleryItemsdata.Age}} Years)</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 row padd_B">
+                        <div class="col-md-2">
+                            <span class="span_style">Height: </span>
+                        </div>
+                        <div class="col-md-4">
+                            <span>{{galleryItemsdata.Height=='' ? '---' : galleryItemsdata.Height }}</span>
+                        </div>
+                        <div class="col-md-2">
+                            <span class="span_style">Weight: </span>
+                        </div>
+                        <div class="col-md-4">
+                            <span>{{galleryItemsdata.Weight=='' ? '---' : galleryItemsdata.Weight }}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 row padd_B">
+                        <div class="col-md-2">
+                            <span class="span_style">Raasi: </span>
+                        </div>
+                        <div class="col-md-4">
+                            <span>{{galleryItemsdata.Raasi=='' ? '---' : galleryItemsdata.Raasi }}</span>
+                        </div>
+                        <div class="col-md-2">
+                            <span class="span_style">Star: </span>
+                        </div>
+                        <div class="col-md-4">
+                            <span>{{galleryItemsdata.Star=='' ? '---' : galleryItemsdata.Star }}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 row padd_B">
+                        <div class="col-md-2">
+                            <span class="span_style">Dosam: </span>
+                        </div>
+                        <div class="col-md-10">
+                            <span>{{galleryItemsdata.Dosham=='' ? '---' : galleryItemsdata.Dosham }}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 row padd_B">
+                        <div class="col-md-2">
+                            <span class="span_style">Education: </span>
+                        </div>
+                        <div class="col-md-10">
+                            <span>{{galleryItemsdata.Education=='' ? '---' : galleryItemsdata.Education }}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 row padd_B">
+                        <div class="col-md-2">
+                            <span class="span_style">Location: </span>
+                        </div>
+                        <div class="col-md-10">
+                            <span>{{galleryItemsdata.CommunicationCity=='' ? '---' : galleryItemsdata.CommunicationCity }}</span>
+                        </div>
+                    </div>
+                   
+                </div>
+
+                <div class="col-lg-12 mrg_T_15">
+                    <ul class="info-list text-center">
+                        <li>
+                           <ul class="_iconsLst">
+                                <li>
+                                    <button (click)="openCommonModal(content,expressinterest,'expressinterest',galleryItemsdata.RegNo)" class="gallery_btn btn btn-c1">
+                                    <i class="font_size_13px color_fff_im las la-heart"></i> Sent Express Intrest</button>
+                                </li>
+                                <li>
+                                    <button (click)="openCommonModal(content,personalized,'message',galleryItemsdata.RegNo,'recentvisitors')" class="gallery_btn btn btn-c1">
+                                    <i class="font_size_13px color_fff_im lab la-telegram-plane"></i> Personalized Message</button>
+                                </li>
+                               <!--  <li><span (click)="openCommonModal(content,communication,'contact',item.RegNumber)"><i title="Contact Details" class="las la-phone-volume"></i></span> </li>
+                                <li><span (click)="openCommonModal(content,expressinterest,'expressinterest',item.RegNumber)"><i title="Express Interest" class="lar la-heart"></i></span> </li>
+                                <li><span (click)="openCommonModal(content,personalized,'message',item.RegNumber)"><i  title="Personlized Message" class="lar la-envelope"></i></span></li>
+                                <li><span (click)="openCommonModal(content,'','bookmark',item.RegNumber)"><i title="Bookmark" class="lar la-bookmark"></i></span> </li>
+                                <li><span (click)="openCommonModal(content,'','horoscope',item.RegNumber)"><i title="Horoscope" class="las la-table"></i></span> </li>
+                                <li><span (click)="openCommonModal(content,'','block',item.RegNumber)"><i title="Block" class="las la-ban"></i></span> </li>
+                                <li><span (click)="openCommonModal(content,'','ignore',item.RegNumber)"><i title="Ignore" class="las la-comment-slash"></i></span> </li>
+                                <li><span (click)="openCommonModal(content,forward,'forward',item.RegNumber)"><i title="Forward Profile" class="las la-share-square"></i></span> </li> -->
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</ng-template>
+
+
+<!-- <ng-template #gallery>
+    <div class="modal-body modal-delete">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="row">
+            <div class="col-lg-4">
+                <carousel [interval]="0" [noPause]="true" [(activeSlide)]="activeSlide" [showIndicators]="false" [noWrap]="true">
+                    <slide *ngFor="let gallery of galleryItems" class="text-center">
+                        <img [defaultImage]="defaultImage" [lazyLoad]="gallery.image_url" class="card__img mdl_img_style" alt="">
+                    </slide>
+                </carousel>
+                <div class="block-dis">
+                    <ol class="indicators">
+                        <li *ngFor="let gallery of galleryItems; let i = index" [class.active]="i === activeSlide" [attr.aria-pressed]="i === activeSlide" (click)="switchSlide(i)">
+                            <img [defaultImage]="defaultImage" [lazyLoad]="gallery.image_url" class="card__img" alt="">
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <h3>{{galleryItemsdata.Name}}</h3>
+                <hr>
+                <div class="col-md-12 row margin-top-10px font_size_17">
+                    
+                    <div class="col-md-12 mg_b_5"><span class="span_style">DOB: </span><span>{{galleryItemsdata.DateOfBirth}}({{galleryItemsdata.Age}} Years)</span></div>
+                    
+                    <div class="col-md-12 mg_b_5">
+                        <span *ngIf="galleryItemsdata.Height!='' && galleryItemsdata.Weight!=''" class="span_style">Height & Weight:</span>
+                        <span *ngIf="galleryItemsdata.Height!='' && galleryItemsdata.Weight==''" class="span_style">Height:</span>
+                        <span *ngIf="galleryItemsdata.Height=='' && galleryItemsdata.Weight!=''" class="span_style">Weight:</span>
+
+                        <span *ngIf="galleryItemsdata.Height!='' && galleryItemsdata.Weight!=''">{{galleryItemsdata.Height}} <b> & </b> {{galleryItemsdata.Weight}}</span>
+                        <span *ngIf="galleryItemsdata.Height!='' && galleryItemsdata.Weight==''">{{galleryItemsdata.Height}}</span>
+                        <span *ngIf="galleryItemsdata.Height=='' && galleryItemsdata.Weight!=''">{{galleryItemsdata.Weight}}</span>
+
+                    </div>
+                    <div class="col-md-12 mg_b_5">
+                        <span *ngIf="galleryItemsdata.Raasi!='' && galleryItemsdata.Star!=''" class="span_style">Raasi & Star:</span>
+                        <span *ngIf="galleryItemsdata.Raasi!='' && galleryItemsdata.Star==''" class="span_style">Raasi:</span>
+                        <span class="span_style">Raasi & Star:</span>
+
+                        <span *ngIf="galleryItemsdata.Raasi!='' && galleryItemsdata.Star!=''">{{galleryItemsdata.Raasi}}</span>&nbsp;<span>{{galleryItemsdata.Star}}</span>
+                        <span>{{galleryItemsdata.Raasi}}</span>&nbsp;<span>{{galleryItemsdata.Star}}</span>
+                        <span>{{galleryItemsdata.Raasi}}</span>&nbsp;<span>{{galleryItemsdata.Star}}</span>
+                    </div>
+                    <div class="col-md-12 mg_b_5">
+                        <span class="span_style">Dosam:</span>
+                        <span>{{galleryItemsdata.Dosham}}</span>
+                    </div>
+                   
+                    <div class="col-md-12 mg_b_5">
+                        <span class="span_style">Education:</span>
+                        <span>{{galleryItemsdata.Education}}</span>
+                    </div>
+                    <div class="col-md-12 mg_b_5">
+                        <span class="span_style">Location:</span>
+                        <span>{{galleryItemsdata.CommunicationCity}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-12 card_icon mrg_T_15">
+                    <ul class="info-list text-center">
+                        <li>
+                           <ul class="_iconsLst">
+                                <li><span (click)="openCommonModal(content,communication,'contact',item.RegNumber)"><i title="Contact Details" class="las la-phone-volume"></i></span> </li>
+                                <li><span (click)="openCommonModal(content,expressinterest,'expressinterest',item.RegNumber)"><i title="Express Interest" class="lar la-heart"></i></span> </li>
+                                <li><span (click)="openCommonModal(content,personalized,'message',item.RegNumber)"><i  title="Personlized Message" class="lar la-envelope"></i></span></li>
+                                <li><span (click)="openCommonModal(content,'','bookmark',item.RegNumber)"><i title="Bookmark" class="lar la-bookmark"></i></span> </li>
+                                <li><span (click)="openCommonModal(content,'','horoscope',item.RegNumber)"><i title="Horoscope" class="las la-table"></i></span> </li>
+                                <li><span (click)="openCommonModal(content,'','block',item.RegNumber)"><i title="Block" class="las la-ban"></i></span> </li>
+                                <li><span (click)="openCommonModal(content,'','ignore',item.RegNumber)"><i title="Ignore" class="las la-comment-slash"></i></span> </li>
+                                <li><span (click)="openCommonModal(content,forward,'forward',item.RegNumber)"><i title="Forward Profile" class="las la-share-square"></i></span> </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>   
+    </div>
+</ng-template> -->
+

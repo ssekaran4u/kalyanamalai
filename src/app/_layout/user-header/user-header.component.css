@@ -1,0 +1,434 @@
+.img-fluid 
+{
+    max-width: 70% !important;
+    height: auto;
+}
+
+@media only screen and (max-width: 400px) 
+{
+  img { max-width: 150px;}
+  ._Mob_s li:nth-child(1) 
+  {
+    font-size: 10px !important;
+  }
+  .myaccountbtn2
+  {
+    margin-top: 10px;
+    display: block;
+    width: 60px;
+  }
+  .myaccountbtn1
+  {
+    display: none;
+  }
+  .myaccountbtn
+  {
+    display: none;
+  } 
+  .menu-btn
+  {
+    width: 35px  !important;
+    height: 33px !important;
+  }
+  .hidecontent
+  {
+    display: none;
+  }
+  .img-70
+  {
+      max-width: 170% !important;
+      height: auto;
+  }
+
+}
+
+@media only screen and (max-width: 767px) and (min-width: 401px)  
+{
+  img { max-width: 215px;}
+  
+   ._Mob_s li:nth-child(1) 
+  {
+    font-size: 18px !important;
+  }
+  ._Mob_s li:nth-child(2) 
+  {
+    font-size: 15px !important;
+  }
+  ._Mob_s li:nth-child(3) 
+  {
+    font-size: 15px !important;
+  }
+   .myaccountbtn
+  {
+    display: none;
+  } 
+  .menu-btn
+  {
+    width: 40px  !important;
+  }
+  .myaccountbtn1
+  {
+    display: none;
+  }
+  .myaccountbtn1
+  {
+    margin-top: 10px;
+    display: block;
+    width: 110px;
+  }
+  .myaccountbtn2
+  {
+    display: none;
+  }
+   .hidecontent
+  {
+    display: none;
+  }
+  .img-70
+  {
+      max-width: 140% !important;
+      height: auto;
+  }
+}
+@media only screen and (max-width: 991px) and (min-width: 768px)  
+{
+  img { max-width: 215px;}
+  
+   ._Mob_s li:nth-child(1) 
+  {
+    font-size: 18px !important;
+  }
+  ._Mob_s li:nth-child(2) 
+  {
+    font-size: 15px !important;
+  }
+  ._Mob_s li:nth-child(3) 
+  {
+    font-size: 15px !important;
+  }
+   .myaccountbtn
+  {
+    display: none;
+  } 
+  .menu-btn
+  {
+    width: 40px  !important;
+  }
+  .myaccountbtn1
+  {
+    display: none;
+  }
+  .myaccountbtn1
+  {
+    margin-top: 10px;
+    display: block;
+    width: 110px;
+  }
+  .myaccountbtn2
+  {
+    display: none;
+  }
+   .hidecontent
+  {
+    display: block;
+  }
+  .col-md-3 {
+    flex: 0 0 30%;
+    max-width: 28%;
+  }
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .img-70
+  {
+      max-width: 200% !important;
+      height: auto;
+  }
+
+}
+@media only screen and (max-width: 1199px) and (min-width: 992px)  
+{
+  img { max-width: 215px;}
+  
+   ._Mob_s li:nth-child(1) 
+  {
+    font-size: 18px !important;
+  }
+  ._Mob_s li:nth-child(2) 
+  {
+    font-size: 15px !important;
+  }
+  ._Mob_s li:nth-child(3) 
+  {
+    font-size: 15px !important;
+  }
+   .myaccountbtn
+  {
+    display: none;
+  } 
+  .menu-btn
+  {
+    width: 40px  !important;
+  }
+  .myaccountbtn1
+  {
+    display: none;
+  }
+  .myaccountbtn1
+  {
+    margin-top: 10px;
+    display: block;
+    width: 110px;
+  }
+  .myaccountbtn2
+  {
+    display: none;
+  }
+   .hidecontent
+  {
+    display: block;
+  }
+  .col-md-3 {
+    flex: 0 0 30%;
+    max-width: 25%;
+  }
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .padding-0
+  {
+    padding: 0px !important;
+  }
+  .img-70
+  {
+      max-width: 190% !important;
+      height: auto;
+  }
+  .logo-right-content .side-user-menu-open 
+  {
+    width: 153px;
+    background-color: #ff9400;
+    line-height: 33px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+  }
+
+}
+
+@media only screen and (min-width: 1200px) 
+{
+  .hidecontent
+  {
+    display: block;
+  }
+  .myaccountbtn1
+  {
+    display: none;
+  }
+  .myaccountbtn2
+  {
+    display: none;
+  }
+  .padding-0
+  {
+    padding: 0px !important;
+  }
+  .img-70
+  {
+      max-width: 100% !important;
+      height: auto;
+  }
+  .logo-right-content .side-user-menu-open 
+  {
+    width: 153px;
+    background-color: #ff9400;
+    line-height: 33px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 30px !important;
+  }
+}
+
+/*
+@media only screen and (max-width: 600px) and (min-width: 400px)  {...}
+@media only screen and (max-width: 479px) 
+{
+  img { max-width: 215px;}
+  ._Mob_s li:nth-child(1) 
+  {
+    font-size: 18px !important;
+  }
+  ._Mob_s li:nth-child(2) 
+  {
+    font-size: 15px !important;
+  }
+  ._Mob_s li:nth-child(3) 
+  {
+    font-size: 15px !important;
+  }
+  .myaccountbtn
+  {
+    display: none;
+  } 
+  .menu-btn
+  {
+    width: 40px  !important;
+  }
+  .myaccountbtn1
+  {
+    margin-top: 10px;
+    display: block;
+    width: 110px;
+  }
+  .myaccountbtn2
+  {
+    display: none;
+  }
+  .hidecontent
+  {
+    display: none;
+  }
+}
+@media only screen and (max-width: 700px) 
+{
+
+  img { max-width: 215px;}
+ .hidecontent
+  {
+    display: none;
+  }
+  .myaccountbtn
+  {
+    margin-top: 10px;
+    display: block;
+  } 
+  .menu-btn
+  {
+    width: 40px  !important;
+  }
+  .myaccountbtn1
+  {
+    display: none;
+  }
+  .myaccountbtn2
+  {
+    display: none;
+  }
+  .fontsize
+  {
+    font-size: 15px !important;
+  }
+}
+
+@media only screen and (min-width: 701px) 
+{
+  img { max-width: 215px;}
+ .col-md-3 {
+    flex: 0 0 35% !important;
+    max-width: 50% !important;
+  }
+   ._Mob_s li:nth-child(1) 
+  {
+    font-size: 18px !important;
+  }
+  ._Mob_s li:nth-child(2) 
+  {
+    font-size: 15px !important;
+  }
+  ._Mob_s li:nth-child(3) 
+  {
+    font-size: 15px !important;
+  }
+   .myaccountbtn
+  {
+    display: none;
+  } 
+  .menu-btn
+  {
+    width: 40px  !important;
+  }
+  .myaccountbtn1
+  {
+    display: none;
+  }
+  .myaccountbtn1
+  {
+    margin-top: 10px;
+    display: block;
+    width: 110px;
+  }
+  .myaccountbtn2
+  {
+    display: none;
+  }
+}
+
+
+@media only screen and (min-width: 1200px) 
+{
+  .hidecontent
+  {
+    display: block;
+  }
+  .myaccountbtn1
+  {
+    display: none;
+  }
+  .myaccountbtn2
+  {
+    display: none;
+  }
+ 
+}
+*/
+.btn-2clr
+{
+    background: linear-gradient(to right, #fa8b0c, #FF367E) !important;
+}
+.btn-2clr:hover
+{
+    background: linear-gradient(to right, #FF367E, #fa8b0c) !important;
+}
+.main-menu-content nav ul li a 
+{
+    font-size: 18px !important;
+}
+.main-menu-content 
+{
+    padding-top: 24px !important;
+    margin-left: auto;
+    text-align: right;
+    padding-right: 28px;
+}
+
+/*.logo-right-content .side-user-menu-open {
+    width: 153px;
+    background-color: #ff9400;
+    line-height: 33px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 28px !important;
+}*/
+
+/*.img-70
+{
+    max-width: 100% !important;
+    height: auto;
+}*/

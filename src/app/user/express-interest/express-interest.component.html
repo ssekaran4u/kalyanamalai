@@ -1,0 +1,600 @@
+<section class="dashboard-area padding-bottom-90px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- <div class="dashboard-nav justify-content-between align-items-center mb-4"> -->
+                <div class="justify-content-between align-items-center mb-4">
+                    <div class="row">
+                        <div class="col-lg-12 padd0">
+                            <nav>
+                                <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link theme-btn pt-0 pb-0 mr-1 mg-bm-10 active" id="navTab1" data-toggle="tab" href="#navTabListing1" role="tab" aria-controls="navTabListing1" aria-selected="true">
+                                        <span class="la la-list-alt"></span> Received
+                                    </a>
+                                    <a class="nav-item nav-link theme-btn pt-0 pb-0 mr-1 mg-bm-10" id="navTab2" data-toggle="tab" href="#navTabListing2" role="tab" aria-controls="navTabListing2" aria-selected="false">
+                                        <span class="la la-user"></span>  Sent
+                                    </a>
+                                    <a class="nav-item nav-link theme-btn pt-0 pb-0 mr-1 mg-bm-10" id="navTab3" data-toggle="tab" href="#navTabListing3" role="tab" aria-controls="navTabListing3" aria-selected="false">
+                                        <span class="la la-user"></span> Decline 
+                                    </a>
+                                </div>
+                            </nav>
+                        </div>
+                       <!--  <div class="col-lg-12 padd0 mg-tp-34">
+                            <nav class="nav_style">
+                                <div class="nav nav-tabs border-0 padd10" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link theme-btn pt-0 pb-0 mr-1 mg-bm-10 width-100 active" id="navTab1" data-toggle="tab" href="#navTabListing1" role="tab" aria-controls="navTabListing1" aria-selected="true">
+                                        <span class="la la-list-alt"></span> Received
+                                    </a>
+                                    <a class="nav-item nav-link theme-btn pt-0 pb-0 mr-1 mg-bm-10 width-100" id="navTab2" data-toggle="tab" href="#navTabListing2" role="tab" aria-controls="navTabListing2" aria-selected="false">
+                                        <span class="la la-user"></span>  Sent
+                                    </a>
+                                    <a class="nav-item nav-link theme-btn pt-0 pb-0 mr-1 mg-bm-10 width-100" id="navTab3" data-toggle="tab" href="#navTabListing3" role="tab" aria-controls="navTabListing3" aria-selected="false">
+                                        <span class="la la-user"></span> Decline 
+                                    </a>
+                                </div>
+                            </nav>
+                        </div> -->
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 padd0">
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="navTabListing1" role="tabpanel" aria-labelledby="navTab1">
+                                    <div class="row">
+
+                                        <div class="col-lg-12 card-list-item1">
+                                            <div class="billing-title-wrap1">
+                                                <div class="row">
+                                                    <div class="col-md-12 text-right div-title-btn">
+                                                        <span  class="btn btn-c1 btn-color padd0px-btn">
+                                                            <i class="las la-arrow-circle-right"></i> Received Express Interest
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="cfa-spinner text-center" [ngClass]="recivedLoading==true ? 'show' : 'hide'">
+                                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                            </div> -->
+                                            <div class="cfa-spinner text-center" [ngClass]="recivedLoading==true ? 'show' : 'hide'">
+                                                <div class="skeleton-loader"></div>
+                                            </div>
+                                            <div class="cfa-spinner text-center" [ngClass]="recivedLoading==true ? 'show' : 'hide'">
+                                                <div class="skeleton-loader"></div>
+                                            </div>
+                                            <div class="cfa-spinner text-center" [ngClass]="recivedLoading==true ? 'show' : 'hide'">
+                                                <div class="skeleton-loader"></div>
+                                            </div>
+
+                                            <div class="billing-content1 hide" [ngClass]="{show: recivedExpressInterestData==true}">
+                                                <div *ngFor="let recivedExpressInt of recivedExpressInterest | paginate: {id: 'recivedExpressInterest', itemsPerPage: itemsPerPage , currentPage: recivedExpressInterestPage, totalItems: recivedExpressInterestTotalItems }" class="card-list-item2 padd0">
+                                                    <div class="row">
+                                                        <div class="col-md-3 text-center">
+                                                            <div *ngIf="recivedExpressInt.ProtectedImage==1 && recivedExpressInt.Imagestatus==1" class="card-image">
+                                                                <img [defaultImage]="defaultImage" [lazyLoad]="recivedExpressInt.profilepicture" class="card__img" alt="">
+                                                                <button (click)="openCommonModal(content,communication,'photo',recivedExpressInt.regnumber)" class="absolute btn btn-c1">Request for Access</button>
+                                                            </div>
+
+                                                            <div *ngIf="recivedExpressInt.ProtectedImage==0 && recivedExpressInt.Imagestatus==0" class="card-image">
+                                                                <img [defaultImage]="defaultImage" [lazyLoad]="recivedExpressInt.profilePicture" class="card__img" alt="">
+                                                                <button (click)="openCommonModal(content,communication,'photo',recivedExpressInt.regnumber)" class="absolute btn btn-c1">Request for Upload</button>
+                                                            </div>
+
+                                                            <div *ngIf="recivedExpressInt.ProtectedImage==1 && recivedExpressInt.Imagestatus==0" class="card-image">
+                                                                <img [defaultImage]="defaultImage" [lazyLoad]="recivedExpressInt.profilepicture" class="card__img" alt="">
+                                                                <button (click)="openCommonModal(content,communication,'photo',recivedExpressInt.regnumber)" class="absolute btn btn-c1">Request for Access</button>
+                                                            </div>
+
+                                                            <a *ngIf="recivedExpressInt.Imagestatus==1 && recivedExpressInt.ProtectedImage==0" routerLink="/profile/{{recivedExpressInt.regnumber}}" class="card-image-wrap" target="_blank">
+                                                                <div class="card-image">
+                                                                    <img [defaultImage]="defaultImage" [lazyLoad]="recivedExpressInt.profilePicture" class="card__img" alt="">
+                                                                </div>
+                                                            </a>
+                                                        </div>
+
+                                                       
+                                                        <div class="col-md-9">
+                                                            <div class="card-content1 padd_20 padd_20">
+                                                                <div class="row clearfix">
+                                                                    <div class="col-lg-6">
+                                                                        <a routerLink="/profile/{{recivedExpressInt.regnumber}}" target="_blank">
+                                                                            <h4 class="card-title">{{recivedExpressInt.name}} [{{recivedExpressInt.userrequestid}}]
+                                                                                <i class="fa fa-check-circle" data-toggle="tooltip" data-placement="top" title="Claimed"></i>
+                                                                            </h4>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="list-time">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <p class="card-sub">Profile created for {{recivedExpressInt.profilecreatedby}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-lg-5">
+                                                                        <ul class="info-list">
+                                                                            <li><span>Marital status:</span> {{recivedExpressInt.maritalstatus}} </li>
+                                                                            <li><span>Age:</span> {{recivedExpressInt.age}}  <span>Height:</span> {{recivedExpressInt.height}}  </li>
+                                                                            <li><span>Religion:</span> {{recivedExpressInt.religion}} </li>
+                                                                            <li><span>Caste:</span> {{recivedExpressInt.caste}} </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-lg-7">
+                                                                        <ul class="info-list">
+                                                                            <li><span>Location:</span> {{recivedExpressInt.communicationarea}} </li>
+                                                                            <li><span>Education:</span> {{recivedExpressInt.education}} </li>
+                                                                            <li><span>Profession:</span> {{recivedExpressInt.profession}} </li>
+                                                                            <li><span>Star:</span> {{recivedExpressInt.star}} </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <div *ngIf="recivedExpressInt.type=='Replied'" class="row no-gutters mt-2">
+                                                                            <div class="ml-4 quote-small-txt">
+                                                                                <span class="quote-bg">
+                                                                                    <i class="las la-arrow-circle-right"></i>
+                                                                                </span>
+                                                                                <span class="mx-1"> Interest Replied On</span> | 
+                                                                                <span class="ml-1 text-muted">{{recivedExpressInt.repliedTime}}</span>
+                                                                            </div>
+                                                                            <div class="row col-md-12 col-sm-12 col-12 border mt-3 p-3 quote-box">
+                                                                                <div class="col-lg-10">
+                                                                                    <div class="font-weight"> 
+                                                                                        {{recivedExpressInt.repliedMessage ? recivedExpressInt.repliedMessage : '---'}}
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-2">
+                                                                                    <div  class="_listButton text-right">
+                                                                                       <button (click)="replyExpressInterest(personalized,'recivedExpressInt',recivedExpressInt.regnumber)" class="btn btn-success"><i class="las la-reply"></i> Reply</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!-- <div class="col-lg-2">
+                                                                                    <div  class="_listButton text-right">
+                                                                                        <button (click)="declineExpressInterestModal(decline,recivedExpressInt.regnumber, recivedExpressInt.userrequestid,'recivedExpressInt')" class="btn btn-danger"><i class="las la-times"></i> Decline</button>
+                                                                                    </div>
+                                                                                </div> -->
+                                                                            </div>
+                                                                        </div>
+                                                                        <div *ngIf="recivedExpressInt.type=='New'" class="row no-gutters mt-2">
+                                                                            <div class="ml-4 quote-small-txt">
+                                                                                <span class="quote-bg">
+                                                                                    <i class="las la-arrow-circle-right"></i>
+                                                                                </span>
+                                                                                <span class="mx-1"> Interest Received On</span> | 
+                                                                                <span class="ml-1 text-muted">{{recivedExpressInt.interestSentTime}}</span>
+                                                                            </div>
+                                                                            <div class="row col-md-12 col-sm-12 col-12 border mt-3 p-3 quote-box">
+                                                                                <div class="col-lg-8">
+                                                                                    <div class="font-weight"> 
+                                                                                        {{recivedExpressInt.receiveMessage ? recivedExpressInt.receiveMessage : '---'}}
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-4">
+                                                                                    <div  class="_listButton text-right">
+                                                                                        <button (click)="replyExpressInterest(personalized,'recivedExpressInt',recivedExpressInt.regnumber)" class="btn btn-success"><i class="las la-reply"></i> Reply</button>
+                                                                                       <!--  <button (click)="declineExpressInterestModal(decline,recivedExpressInt.regnumber, recivedExpressInt.userrequestid,'recivedExpressInt')" class="btn btn-danger"><i class="las la-times"></i> Decline</button> -->
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <pagination-controls
+                                                    id="recivedExpressInterest" 
+                                                    (pageChange)="getrecivedExpressInterest(recivedExpressInterestPage = $event)"
+                                                    maxSize="9"
+                                                    directionLinks="true"
+                                                    autoHide="true"
+                                                    responsive="true"
+                                                ></pagination-controls>
+                                            </div>
+                                            <div [ngClass]="{show: recivedExpressInterestNotFound==true}" class="hide alert alert-danger text-center">
+                                                <strong>No data found...!</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="navTabListing2" role="tabpanel" aria-labelledby="navTab2">
+                                    <div class="row">
+
+                                        <div class="col-lg-12 card-list-item1">
+                                            <div class="billing-title-wrap1">
+                                                <div class="row">
+                                                    <div class="col-md-12 text-right div-title-btn">
+                                                        <span  class="btn btn-c1 btn-color padd0px-btn">
+                                                            <i class="las la-arrow-circle-left"></i> Sent Express Interest
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="cfa-spinner text-center" [ngClass]="newLoading==true ? 'show' : 'hide'">
+                                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                            </div> -->
+                                             <div class="cfa-spinner text-center" [ngClass]="newLoading==true ? 'show' : 'hide'">
+                                                <div class="skeleton-loader"></div>
+                                            </div>
+                                            <div class="cfa-spinner text-center" [ngClass]="newLoading==true ? 'show' : 'hide'">
+                                                <div class="skeleton-loader"></div>
+                                            </div>
+                                            <div class="cfa-spinner text-center" [ngClass]="newLoading==true ? 'show' : 'hide'">
+                                                <div class="skeleton-loader"></div>
+                                            </div>
+
+                                            <div class="billing-content1 hide" [ngClass]="{show: newExpressInterestData==true}">
+                                                <div *ngFor="let newExpressInt of newExpressInterest | paginate: {id: 'newExpressInterest', itemsPerPage: itemsPerPage , currentPage: newExpressInterestPage, totalItems: newExpressInterestTotalItems }" class="card-list-item2 padd0">
+                                                    <div class="row">
+                                                        <div class="col-md-3 text-center">
+                                                            <div *ngIf="newExpressInt.ProtectedImage==1 && newExpressInt.Imagestatus==1" class="card-image">
+                                                                <img [defaultImage]="defaultImage" [lazyLoad]="newExpressInt.profilePicture" class="card__img" alt="">
+                                                                <button (click)="requestForUploadPhoto(newExpressInt.regnumber)" class="absolute btn btn-c1">Request for Access</button>
+                                                            </div>
+
+                                                            <div *ngIf="newExpressInt.ProtectedImage==0 && newExpressInt.Imagestatus==0" class="card-image">
+                                                                <img [defaultImage]="defaultImage" [lazyLoad]="newExpressInt.profilePicture" class="card__img" alt="">
+                                                                <button (click)="requestForUploadPhoto(newExpressInt.regnumber)" class="absolute btn btn-c1">Request for Upload</button>
+                                                            </div>
+
+                                                            <div *ngIf="newExpressInt.ProtectedImage==1 && newExpressInt.Imagestatus==0" class="card-image">
+                                                                <img [defaultImage]="defaultImage" [lazyLoad]="newExpressInt.profilePicture" class="card__img" alt="">
+                                                                <button (click)="requestForUploadPhoto(newExpressInt.regnumber)" class="absolute btn btn-c1">Request for Access</button>
+                                                            </div>
+
+                                                            <a *ngIf="newExpressInt.Imagestatus==1 && newExpressInt.ProtectedImage==0" routerLink="/profile/{{newExpressInt.regnumber}}" class="card-image-wrap" target="_blank">
+                                                                <div class="card-image">
+                                                                    <img [defaultImage]="defaultImage" [lazyLoad]="newExpressInt.profilePicture" class="card__img" alt="">
+                                                                </div>
+                                                            </a>
+
+                                                            <span *ngIf="newExpressInt.Imagestatus==1 && newExpressInt.ProtectedImage==0 &&  newExpressInt.images.length>1" class="cbadge-toggle" title="View Images" (click)="openCommonModal(content,gallery,'gallery',newExpressInt.RegNumber)"> {{newExpressInt.images.length}} </span>
+
+                                                        </div>
+
+                                                       
+                                                        <div class="col-md-9">
+                                                            <div class="card-content1 padd_20">
+                                                                <div class="row clearfix">
+                                                                    <div class="col-lg-6">
+                                                                        <a routerLink="/profile/{{newExpressInt.regnumber}}" target="_blank">
+                                                                            <h4 class="card-title">{{newExpressInt.name}} [{{newExpressInt.userrequestid}}]
+                                                                                <i class="fa fa-check-circle" data-toggle="tooltip" data-placement="top" title="Claimed"></i>
+                                                                            </h4>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="list-time">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <p class="card-sub">Profile created for {{newExpressInt.profilecreatedby}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-lg-5">
+                                                                        <ul class="info-list">
+                                                                            <li><span>Marital status:</span> {{newExpressInt.maritalstatus}} </li>
+                                                                            <li><span>Age:</span> {{newExpressInt.age}}  <span>Height:</span> {{newExpressInt.height}}  </li>
+                                                                            <li><span>Religion:</span> {{newExpressInt.religion}} </li>
+                                                                            <li><span>Caste:</span> {{newExpressInt.caste}} </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-lg-7">
+                                                                        <ul class="info-list">
+                                                                            <li><span>Location:</span> {{newExpressInt.communicationarea}} </li>
+                                                                            <li><span>Education:</span> {{newExpressInt.education}} </li>
+                                                                            <li><span>Profession:</span> {{newExpressInt.profession}} </li>
+                                                                            <li><span>Star:</span> {{newExpressInt.star}} </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <div *ngIf="newExpressInt.type=='Replied'" class="row no-gutters mt-2">
+                                                                            <div class="ml-4 quote-small-txt">
+                                                                                <span class="quote-bg">
+                                                                                    <i class="las la-arrow-circle-right"></i>
+                                                                                </span>
+                                                                                <span class="mx-1"> Interest Replied On</span> | 
+                                                                                <span class="ml-1 text-muted">{{newExpressInt.repliedTime}}</span>
+                                                                            </div>
+                                                                            <div class="row col-md-12 col-sm-12 col-12 border mt-3 p-3 quote-box">
+                                                                                <div class="col-lg-10">
+                                                                                    <div class="font-weight"> 
+                                                                                        {{newExpressInt.repliedMessage ? newExpressInt.repliedMessage : '---'}}
+                                                                                    </div>
+                                                                                </div>
+                                                                              
+                                                                            </div>
+                                                                        </div>
+                                                                        <div *ngIf="newExpressInt.type=='New'" class="row no-gutters mt-1_5">
+                                                                            <div class="ml-4 quote-small-txt">
+                                                                                <span class="quote-bg">
+                                                                                    <i class="las la-arrow-circle-right"></i>
+                                                                                </span>
+                                                                                <span class="mx-1"> Interest Sent On</span> | 
+                                                                                <span class="ml-1 text-muted">{{newExpressInt.interestSentTime}}</span>
+                                                                            </div>
+                                                                            <div class="row col-md-12 col-sm-12 col-12 border mt-3 p-3 quote-box">
+                                                                                <div class="col-lg-10">
+                                                                                    <div class="font-weight"> 
+                                                                                        {{newExpressInt.receiveMessage ? newExpressInt.receiveMessage : '---'}}
+                                                                                    </div>
+                                                                                </div>
+                                                                               
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <pagination-controls
+                                                    id="newExpressInterest" 
+                                                    (pageChange)="getnewExpressInterest(newExpressInterestPage = $event)"
+                                                    maxSize="9"
+                                                    directionLinks="true"
+                                                    autoHide="true"
+                                                    responsive="true"
+                                                ></pagination-controls>
+                                            </div>
+                                             <div [ngClass]="{show: newExpressInterestNotFound==true}" class="hide alert alert-danger text-center">
+                                                <strong>No data found...!</strong>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="navTabListing3" role="tabpanel" aria-labelledby="navTab3">
+                                    <div class="row">
+
+                                        <div class="col-lg-12 card-list-item1">
+                                            <div class="billing-title-wrap1">
+                                                <div class="row">
+                                                    <div class="col-md-12 text-right div-title-btn">
+                                                        <span  class="btn btn-c1 btn-color padd0px-btn">
+                                                            <i class="las la-times-circle"></i> Decline Express Interest
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="cfa-spinner text-center" [ngClass]="declineLoading==true ? 'show' : 'hide'">
+                                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                            </div> -->
+
+                                             <div class="cfa-spinner text-center" [ngClass]="declineLoading==true ? 'show' : 'hide'">
+                                                <div class="skeleton-loader"></div>
+                                            </div>
+                                            <div class="cfa-spinner text-center" [ngClass]="declineLoading==true ? 'show' : 'hide'">
+                                                <div class="skeleton-loader"></div>
+                                            </div>
+                                            <div class="cfa-spinner text-center" [ngClass]="declineLoading==true ? 'show' : 'hide'">
+                                                <div class="skeleton-loader"></div>
+                                            </div>
+
+                                            <div class="billing-content1 hide" [ngClass]="{show: declineExpressInterestData==true}">
+                                                <div *ngFor="let declineExpressInt of declineExpressInterest | paginate: {id: 'declineExpressInterest', itemsPerPage: itemsPerPage , currentPage: declineExpressInterestPage, totalItems: declineExpressInterestTotalItems }" class="card-list-item2 padd0">
+                                                    <div class="row">
+                                                        <div class="col-md-3 text-center">
+                                                            <div *ngIf="declineExpressInt.ProtectedImage==1 && declineExpressInt.Imagestatus==1" class="card-image">
+                                                                <img [defaultImage]="defaultImage" [lazyLoad]="declineExpressInt.profilePicture" class="card__img" alt="">
+                                                                <button (click)="requestForUploadPhoto(declineExpressInt.regnumber)" class="absolute btn btn-c1">Request for Access</button>
+                                                            </div>
+
+                                                            <div *ngIf="declineExpressInt.ProtectedImage==0 && declineExpressInt.Imagestatus==0" class="card-image">
+                                                                <img [defaultImage]="defaultImage" [lazyLoad]="declineExpressInt.profilePicture" class="card__img" alt="">
+                                                                <button (click)="requestForUploadPhoto(declineExpressInt.regnumber)" class="absolute btn btn-c1">Request for Upload</button>
+                                                            </div>
+
+                                                            <div *ngIf="declineExpressInt.ProtectedImage==1 && declineExpressInt.Imagestatus==0" class="card-image">
+                                                                <img [defaultImage]="defaultImage" [lazyLoad]="declineExpressInt.profilePicture" class="card__img" alt="">
+                                                                <button (click)="requestForUploadPhoto(declineExpressInt.regnumber)" class="absolute btn btn-c1">Request for Access</button>
+                                                            </div>
+
+                                                            <a *ngIf="declineExpressInt.Imagestatus==1 && declineExpressInt.ProtectedImage==0" routerLink="/profile/{{declineExpressInt.regnumber}}" class="card-image-wrap" target="_blank">
+                                                                <div class="card-image">
+                                                                    <img [defaultImage]="defaultImage" [lazyLoad]="declineExpressInt.profilePicture" class="card__img" alt="">
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="card-content1 padd_20">
+                                                                <div class="row clearfix">
+                                                                    <div class="col-lg-6">
+                                                                        <a routerLink="/profile/{{declineExpressInt.regnumber}}" target="_blank">
+                                                                            <h4 class="card-title">{{declineExpressInt.name}} [{{declineExpressInt.userrequestid}}]
+                                                                                <i class="fa fa-check-circle" data-toggle="tooltip" data-placement="top" title="Claimed"></i>
+                                                                            </h4>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="list-time">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <p class="card-sub">Profile created for {{declineExpressInt.profilecreatedby}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-lg-5">
+                                                                        <ul class="info-list">
+                                                                            <li><span>Marital status:</span> {{declineExpressInt.maritalstatus}} </li>
+                                                                            <li><span>Age:</span> {{declineExpressInt.age}}  <span>Height:</span> {{declineExpressInt.height}}  </li>
+                                                                            <li><span>Religion:</span> {{declineExpressInt.religion}} </li>
+                                                                            <li><span>Caste:</span> {{declineExpressInt.caste}} </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-lg-7">
+                                                                        <ul class="info-list">
+                                                                            <li><span>Location:</span> {{declineExpressInt.communicationarea}} </li>
+                                                                            <li><span>Education:</span> {{declineExpressInt.education}} </li>
+                                                                            <li><span>Profession:</span> {{declineExpressInt.profession}} </li>
+                                                                            <li><span>Star:</span> {{declineExpressInt.star}} </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <div class="row no-gutters mt-2">
+                                                                            <div class="ml-4 quote-small-txt">
+                                                                                <span class="quote-bg">
+                                                                                    <i class="las la-arrow-circle-left"></i>
+                                                                                </span>
+                                                                                <span class="mx-1"> Interest Declined On</span> | 
+                                                                                <span class="ml-1 text-muted">{{declineExpressInt.deletedTime ? declineExpressInt.deletedTime : '---'}}</span>
+                                                                            </div>
+                                                                            <div class="row col-md-12 col-sm-12 col-12 border mt-3 p-3 quote-box">
+                                                                                <div class="col-lg-12">
+                                                                                    <div class="font-weight"> 
+                                                                                        {{declineExpressInt.receiveMessage ? declineExpressInt.receiveMessage : '---'}}
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>                          
+                                                    </div>
+                                                </div>
+                                                <pagination-controls
+                                                    id="declineExpressInterest" 
+                                                    (pageChange)="getdeclineExpressInterest(declineExpressInterestPage = $event)"
+                                                    maxSize="9"
+                                                    directionLinks="true"
+                                                    autoHide="true"
+                                                    responsive="true"
+                                                ></pagination-controls>
+                                            </div>
+                                            <div [ngClass]="{show: declineExpressInterestNotFound==true}" class="hide alert alert-danger text-center">
+                                                <strong>No data found...!</strong>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end dashboard-nav -->
+            </div><!-- end col-lg-12 -->
+            
+        </div>
+    </div>
+</section>
+
+<div id="overlay" [ngClass]="{show: isLoading===true}">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>
+
+<ng-template #personalized>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Reply Message</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body SentExpress">
+        <div class="col-md-12">
+            <h4 class="margin-bottom-10px">Choose your message</h4>
+            <ul>
+                <li *ngFor="let expressI of expressInterestMsg; let i = index" [class.active]="SentInterestMessage === i" (click)="activateClass(i)">{{expressI.name}} <i class="las la-check-double"></i> </li>
+            </ul>
+            <div class="form-group margin-top-10px text-center">
+                <button [disabled]="MsgdisableBtn" (click)="SentExpressInterest()" type="submit" class="btn btn-c1"><i class="las la-paper-plane"></i> {{MsgSubmitbuttonName}}</button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<div id="overlay" [ngClass]="{show: isLoading===true}">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>
+
+<ng-template #decline>
+    <div class="modal-header">
+        <h4 class="modal-title">Action</h4>
+    </div>
+    <div class="modal-body modal-delete text-center">
+        <h2><strong>Are you sure..?</strong></h2>
+        <button type="button" class="btn btn-danger" (click)="deleteMessage()"><i class="las la-check"></i> Yes</button>
+        <button type="button" class="btn btn-success" (click)="closeModal()"><i class="las la-times"></i> No</button>
+    </div>
+</ng-template>
+
+<ng-template #content>
+    <div class="modal-header">
+        <h4 class="modal-title">Action</h4>
+    </div>
+    <div class="modal-body modal-delete text-center">
+        <div class="contact">
+            <h2 [innerHtml]="activeMessage"></h2>
+            <ul *ngIf="activeProcess=='horoscope' && isBecome==0">
+                <li>1. Send / Recieve unlimited personalised messages</li>
+                <li>2. View the contact address of members.</li>
+            </ul>
+        </div>
+        <button *ngIf="actionButtonTrue" type="button" class="btn btn-success" (click)="customPopUp()"><i class="las la-check"></i>  {{actionButtonTrue}}</button>
+        <button *ngIf="actionButtonFalse" type="button" class="btn btn-danger" (click)="closeModal()"><i class="las la-times"></i> {{actionButtonFalse}}</button>
+    </div>
+</ng-template>
+
+<ng-template #profile>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Upload Profile</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body SentExpress">
+        <div class="col-md-7 offset-lg-2 offset-sm-0">
+            <form [formGroup]="profileImageUpload" (ngSubmit)="onProfileUploadSubmit()">
+                <div class="form-group margin-top-10px text-center">
+                    <div class="drag-and-drop-wrap">
+                        <div class="bode">
+                            <div class="upload cur">
+                                <input type="hidden" name="fileSource" formControlName="fileSource" value="fileSource">
+                                <input class="cur" (change)="onSelectFile($event)" type="file" required id="files" name="files[]" multiple/>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div *ngFor='let url of urls' class="col-lg-3">
+                                <img [src]="url" class="img-fluid-c">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group margin-top-10px text-center">
+                    <button [disabled]="UploaddisableBtn" type="submit" class="btn btn-c1"><i class="las la-paper-plane"></i> {{UplodSubmitbuttonName}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #gallery>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">View Images</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body modal-delete">
+        <carousel [interval]="0" [noPause]="true" [(activeSlide)]="activeSlide" [showIndicators]="false" [noWrap]="true">
+            <slide *ngFor="let gallery of galleryItems" class="text-center">
+                <img [defaultImage]="defaultImage" [lazyLoad]="gallery.image_url" class="card__img" alt="">
+            </slide>
+        </carousel>
+        <div class="block-dis">
+            <ol class="indicators">
+                <li *ngFor="let gallery of galleryItems; let i = index" [class.active]="i === activeSlide" [attr.aria-pressed]="i === activeSlide" (click)="switchSlide(i)">
+                    <img [defaultImage]="defaultImage" [lazyLoad]="gallery.image_url" class="card__img" alt="">
+                </li>
+            </ol>
+        </div>
+    </div>
+</ng-template>

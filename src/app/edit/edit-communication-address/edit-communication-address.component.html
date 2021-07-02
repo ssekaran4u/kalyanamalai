@@ -1,0 +1,351 @@
+<div class="container-fluid">
+    <div class="row">
+        <div id="_extend_Id" class="col-md-8 offset-lg-2 offset-sm-0">
+            <form id="msform" class="_rStep2" [formGroup]="editCommunicationAddressForm" (ngSubmit)="onSubmit()">
+                <fieldset>
+                    <div class="billing-form-item">
+                        <div class="progressbar"></div>
+                        <div class="billing-content">
+                            <div class="contact-form-action">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="1st _rImge">
+                                            <img src="assets/images/reg/address.png" class="img-fluid mx-auto d-none d-xl-block">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="col-lg-12">
+                                            <h2 class="fs-title">Edit Your communication address</h2>
+                                            <div class="row mg-tp-10">
+                                                <div class="col-lg-6">
+                                                    <div class="km-form-group" [ngClass]="{kmactive: isNationality===true}">
+                                                        <label class="floatClass" [ngClass]="{showlbl: isNationality===true}">Nationality</label>
+                                                        <ng-multiselect-dropdown 
+                                                          [placeholder]="'Select Nationality'"
+                                                          [settings]="NationalitySettings"
+                                                          [data]="Nationality"
+                                                          formControlName="selectCNationality"
+                                                          [(ngModel)]="selectedNationalityItems"
+                                                          (onSelect)="onItemSelectNationality($event)"
+                                                          (onDeSelect)="OnItemDeSelectNationality($event)"
+                                                        >
+                                                        </ng-multiselect-dropdown>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group custom-form-group mg-tp-4" [ngClass]="{'focused' : isCStreet==true}">
+                                                        <label for="cStreet" [ngClass]="{'active' : isCStreet==true}">Street</label>
+                                                        <i class="las la-street-view form-icon"></i>
+                                                        <input formControlName="cStreet" name="cStreet" type="text" class="form-control" id="cStreet" value="{{isEdit.CommunicationStreet}}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="form-group mg-tp-20" [ngClass]="{'focused' : isCAddress==true}">
+                                                        <span class="has-float-label">
+                                                            <textarea formControlName="Address" name="Address" cols="50" class="form-control" id="Address" placeholder="Address" value="{{isEdit.CommunicationArea}}"></textarea>
+                                                            <label for="Address">Address <span class="required">*</span></label>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="row mg-tp-10">
+                                                <div class="col-lg-6">
+                                                    <div class="km-form-group" [ngClass]="{kmactive: isCountry===true}">
+                                                        <label class="floatClass" [ngClass]="{showlbl: isCountry===true}">Country</label>
+                                                        <ng-multiselect-dropdown 
+                                                          [placeholder]="'Select Country'"
+                                                          [settings]="CountrySettings"
+                                                          [data]="Country"
+                                                          formControlName="selectCountry"
+                                                          [(ngModel)]="selectedCountryItems"
+                                                          (onSelect)="onItemSelectCountry($event)"
+                                                          (onDeSelect)="OnItemDeSelectCountry($event)"
+                                                        >
+                                                        </ng-multiselect-dropdown>
+                                                    </div>
+                                                   
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="km-form-group" [ngClass]="{kmactive: isState===true}">
+                                                        <label class="floatClass" [ngClass]="{showlbl: isState===true}">State</label>
+                                                        <ng-multiselect-dropdown 
+                                                          [placeholder]="'Select State'"
+                                                          [settings]="StateSettings"
+                                                          [data]="State"
+                                                          formControlName="selectCState"
+                                                          [(ngModel)]="selectedStateItems"
+                                                          (onSelect)="onItemSelectState($event)"
+                                                          (onDeSelect)="OnItemDeSelectState($event)"
+                                                        >
+                                                        </ng-multiselect-dropdown>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mg-tp-20">
+                                                <div class="col-lg-6">
+                                                    <div class="km-form-group" [ngClass]="{kmactive: isCity===true}">
+                                                        <label class="floatClass" [ngClass]="{showlbl: isCity===true}">City</label>
+                                                        <ng-multiselect-dropdown 
+                                                          [placeholder]="'Select City'"
+                                                          [settings]="CitySettings"
+                                                          [data]="City"
+                                                          formControlName="selectCCity"
+                                                          [(ngModel)]="selectedCityItems"
+                                                          (onSelect)="onItemSelectCity($event)"
+                                                          (onDeSelect)="OnItemDeSelectCity($event)"
+                                                        >
+                                                        </ng-multiselect-dropdown>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group custom-form-group mg-tp-4 selectCPincode" [ngClass]="{'focused' : isCPincode==true}">
+                                                        <label for="selectCPincode" [ngClass]="{'active' : isCPincode==true}">Pincode</label>
+                                                        <span class="las la-truck form-icon"></span>
+                                                        <input formControlName="selectCPincode" name="selectCPincode" type="text" class="form-control" id="selectCPincode" (keypress)="numberOnly($event)" value="{{isEdit.CommunicationPincode}}" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="row clearfix">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group custom-form-group _hv_Ch">
+                                                        <label class="label-text posit-init">Working Address same as communication <span class="text-danger">*</span> </label>
+                                                        <ul class="radiogroup AskWorkingAdd">
+                                                          <li *ngFor="let YesorNo of YesorNo;">
+                                                              <label  #AskWorkYN
+                                                              (click)="AskWorkingAddclick(AskWorkYN)"  
+                                                              id="AskWorkingAddID{{YesorNo.id}}" 
+                                                              [attr.data-AskYNYesorNo-id]="YesorNo.id" 
+                                                              class="control control-radio" 
+                                                              for="AskWorkingAdd_{{YesorNo.name}}" 
+                                                              [ngClass]="{active: YesorNo.id==ResidingYesorNo}">
+                                                                  <input 
+                                                                  formControlName="AskWorkingAdd" 
+                                                                  type="radio" 
+                                                                  id="AskWorkingAdd_{{YesorNo.name}}" 
+                                                                  [value]="YesorNo.id" 
+                                                                  [checked]="YesorNo.id==ResidingYesorNo" 
+                                                                  >
+                                                                  <span>{{YesorNo.name}}</span>
+                                                              </label>
+                                                          </li>
+                                                        </ul>
+                                                       
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 hide" id="AskWorkingAdd" [ngClass]="{show: isResidingYesorNo==true}">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="row mg-tp-10">
+                                                                <div class="col-lg-6">
+                                                                    <div class="km-form-group" [ngClass]="{kmactive: iswCountry===true}">
+                                                                        <label class="floatClass" [ngClass]="{showlbl: iswCountry===true}">Country</label>
+                                                                        <ng-multiselect-dropdown 
+                                                                          [placeholder]="'Select Country'"
+                                                                          [settings]="wCountrySettings"
+                                                                          [data]="wCountry"
+                                                                          formControlName="wCountry"
+                                                                          [(ngModel)]="selectedwCountryItems"
+                                                                          (onSelect)="onItemSelectwCountry($event)"
+                                                                          (onDeSelect)="OnItemDeSelectwCountry($event)"
+                                                                        >
+                                                                        </ng-multiselect-dropdown>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="km-form-group" [ngClass]="{kmactive: iswState===true}">
+                                                                        <label class="floatClass" [ngClass]="{showlbl: iswState===true}">State</label>
+                                                                        <ng-multiselect-dropdown 
+                                                                          [placeholder]="'Select State'"
+                                                                          [settings]="wStateSettings"
+                                                                          [data]="wState"
+                                                                          formControlName="wState"
+                                                                          [(ngModel)]="selectedwStateItems"
+                                                                          (onSelect)="onItemSelectwState($event)"
+                                                                          (onDeSelect)="OnItemDeSelectwState($event)"
+                                                                        >
+                                                                        </ng-multiselect-dropdown>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mg-tp-20">
+                                                                <div class="col-lg-6">
+                                                                    <div class="km-form-group" [ngClass]="{kmactive: iswCity===true}">
+                                                                        <label class="floatClass" [ngClass]="{showlbl: iswCity===true}">City</label>
+                                                                        <ng-multiselect-dropdown 
+                                                                          [placeholder]="'Select City'"
+                                                                          [settings]="wCitySettings"
+                                                                          [data]="wCity"
+                                                                          formControlName="wCity"
+                                                                          [(ngModel)]="selectedwCityItems"
+                                                                          (onSelect)="onItemSelectwCity($event)"
+                                                                          (onDeSelect)="OnItemDeSelectwCity($event)"
+                                                                        >
+                                                                        </ng-multiselect-dropdown>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                  <div class="km-form-group" [ngClass]="{kmactive: isResiding_Status===true}">
+                                                                      <label class="floatClass" [ngClass]="{showlbl: isResiding_Status===true}">Residing Status</label>
+                                                                      <ng-multiselect-dropdown 
+                                                                        [placeholder]="'Select Residing Status'"
+                                                                        [settings]="Residing_StatusSettings"
+                                                                        [data]="Residing_Status"
+                                                                        formControlName="Residing_Status"
+                                                                        [(ngModel)]="selectedResiding_StatusItems"
+                                                                        (onSelect)="onItemSelectResiding_Status($event)"
+                                                                        (onDeSelect)="OnItemDeSelectResiding_Status($event)"
+                                                                      >
+                                                                      </ng-multiselect-dropdown>
+                                                                  </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="row clearfix">
+                                                <div class="col-lg-12 mg-tp-10">
+                                                    <div class="form-group custom-form-group _hv_Ch">
+                                                        <label class="label-text posit-init">Permanent Address same as communication <span class="text-danger">*</span> </label>
+                                                        <ul class="radiogroup AskPermanentAdd">
+                                                          <li *ngFor="let YesorNo of YesorNo;">
+                                                              <label  #AskAskPermanentYN
+                                                              (click)="AskPermanentAddclick(AskAskPermanentYN)"  
+                                                              id="AskPermanentAddID{{YesorNo.id}}" 
+                                                              [attr.data-AskPYNYesorNo-id]="YesorNo.id" 
+                                                              class="control control-radio" 
+                                                              for="AskPermanentAdd_{{YesorNo.name}}" 
+                                                              [ngClass]="{active: YesorNo.id==PermenantYesorNo}">
+                                                                  <input 
+                                                                  formControlName="AskPermanentAdd" 
+                                                                  type="radio" 
+                                                                  id="AskPermanentAdd_{{YesorNo.name}}" 
+                                                                  [value]="YesorNo.id" 
+                                                                  [checked]="YesorNo.id==PermenantYesorNo" 
+                                                                  >
+                                                                  <span>{{YesorNo.name}}</span>
+                                                              </label>
+                                                          </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 hide" id="AskPermanentAdd" [ngClass]="{show: isPermenantYesorNo==true}">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group custom-form-group mg-tp-4" [ngClass]="{'focused' : isPstreet==true}">
+                                                                <label for="cStreet" [ngClass]="{'active' : isPstreet==true}">Street</label>
+                                                                <i class="las la-street-view form-icon"></i>
+                                                                <input formControlName="pStreet" name="pStreet" type="text" class="form-control" id="pStreet" value="{{isEdit.PermanentStreet}}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group pAddress mg-tp-20" [ngClass]="{'focused' : isPAddress==true}">
+                                                                <span class="has-float-label">
+                                                                    <textarea formControlName="pAddress" name="pAddress" cols="50" rows="3" class="form-control" id="pAddress" placeholder="Permanent Address" value="{{isEdit.PermanentArea}}"></textarea>
+                                                                    <label for="pAddress">Permanent Address <span class="required">*</span></label>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12">
+                                                            <div class="row mg-tp-20">
+                                                                <div class="col-lg-6">
+                                                                    <div class="km-form-group" [ngClass]="{kmactive: ispCountry===true}">
+                                                                        <label class="floatClass" [ngClass]="{showlbl: ispCountry===true}">Country</label>
+                                                                        <ng-multiselect-dropdown 
+                                                                          [placeholder]="'Select Country'"
+                                                                          [settings]="pCountrySettings"
+                                                                          [data]="pCountry"
+                                                                          formControlName="pCountry"
+                                                                          [(ngModel)]="selectedpCountryItems"
+                                                                          (onSelect)="onItemSelectpCountry($event)"
+                                                                          (onDeSelect)="OnItemDeSelectpCountry($event)"
+                                                                        >
+                                                                        </ng-multiselect-dropdown>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="km-form-group" [ngClass]="{kmactive: ispState===true}">
+                                                                        <label class="floatClass" [ngClass]="{showlbl: ispState===true}">State</label>
+                                                                        <ng-multiselect-dropdown 
+                                                                          [placeholder]="'Select State'"
+                                                                          [settings]="pStateSettings"
+                                                                          [data]="pState"
+                                                                          formControlName="pState"
+                                                                          [(ngModel)]="selectedpStateItems"
+                                                                          (onSelect)="onItemSelectpState($event)"
+                                                                          (onDeSelect)="OnItemDeSelectpState($event)"
+                                                                        >
+                                                                        </ng-multiselect-dropdown>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mg-tp-20">
+                                                                <div class="col-lg-6">
+                                                                    <div class="km-form-group" [ngClass]="{kmactive: ispCity===true}">
+                                                                        <label class="floatClass" [ngClass]="{showlbl: ispCity===true}">City</label>
+                                                                        <ng-multiselect-dropdown 
+                                                                          [placeholder]="'Select City'"
+                                                                          [settings]="pCitySettings"
+                                                                          [data]="pCity"
+                                                                          formControlName="pCity"
+                                                                          [(ngModel)]="selectedpCityItems"
+                                                                          (onSelect)="onItemSelectpCity($event)"
+                                                                          (onDeSelect)="OnItemDeSelectpCity($event)"
+                                                                        >
+                                                                        </ng-multiselect-dropdown>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group custom-form-group mg-tp-4 pPincode" [ngClass]="{'focused' : isPPincode==true}">
+                                                                        <label for="pPincode" [ngClass]="{'active' : isPPincode==true}">Pincode</label>
+                                                                        <span class="las la-truck form-icon"></span>
+                                                                        <input formControlName="pPincode" name="pPincode" type="text" class="form-control" id="pPincode" (keypress)="numberOnly($event)" value="{{isEdit.PermanentPincode}}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+
+                                         <!-- <div class="col-lg-12 _xs_center_ _s_mar">
+                                            <button [disabled]="disableBtn" type="submit" name="next" class='btn btn-lg next action-button'> 
+                                                {{SubmitbuttonName}} <i class="las la-arrow-circle-right"></i> 
+                                            </button>
+                                        </div> -->
+                                        <div class="col-lg-12 row">
+                                            <div class="col-lg-12 _xs_center_">
+                                                <button [disabled]="disableBtn" type="submit" name="next" class='btn btn-lg next action-button'> 
+                                                {{SubmitbuttonName}} <i class="las la-arrow-circle-right"></i> 
+                                                </button>
+                                                <a class='btn btn-lg next action-button' routerLink="../../user/profile">
+                                                    Back to Profile 
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="overlay" [ngClass]="{show: isLoading===true}">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>

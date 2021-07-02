@@ -1,0 +1,292 @@
+._stripInfo span {
+	color: #333f57;
+}
+.modal-lg li {
+	margin-bottom: 10px;
+	border-bottom: 1px solid #eee;
+}
+.SentExpress li {
+	border: 1px solid #eee;
+	padding: 5px 8px;
+	cursor: pointer;
+	margin-bottom: 6px;
+	border-radius: 5px;
+}
+.SentExpress li.active {
+	background: #ff9600;
+	color: #fff;
+	border: 1px solid #ff9600;
+}
+.SentExpress li i {
+	color: #fff;
+}
+.SentExpress li i {
+	opacity: 0;
+}
+.SentExpress li.active i {
+	opacity: 1;
+}
+.btn-c1 
+{
+	padding: 4px 10px;
+	border-radius: 5px;
+}
+.indicators li img {
+	width: 40px;
+	height: 40px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.indicators li {
+	display: inline-block;
+	border: 2px solid #ff9400;
+	margin: 0 2px;
+	border-radius: 5px;
+}
+.indicators li.active {
+	border: 2px solid #000;
+}
+.indicators {
+	/*position: absolute;*/
+	bottom: 5px;
+	z-index: 1;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+.mt-20
+{
+	margin-top: 20px;
+}
+.dark_bold_clk
+{
+	color: #333f57;
+	font-weight: bold;
+}
+.border_style
+{
+	border: 3px solid rgba(128, 137, 150, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.border_curve_style
+{
+	border-top-right-radius: 65px;
+    border-bottom-left-radius: 65px;
+}
+
+.div_border_curve_style
+{
+	background-color: #ff9400;
+    border-bottom-right-radius: 13px;
+    border-top-left-radius: 13px;
+    width: 230px;
+    border: 2px solid #ff9400;
+}
+
+.author-bio img 
+{
+    height: 200px !important;
+    /*width: 60%;*/
+    border-radius: 5% !important;
+    /*border: 5px solid #ff9400 !important;*/
+    box-shadow: 0 0 40px rgb(82 85 90 / 20%);
+    margin-right: 0px !important;
+}
+.margin-top-10
+{
+	margin-top: 10px;
+}
+._strip {
+	padding: 15px 10px 15px 20px;
+}
+@media only screen and (max-width: 450px) 
+{
+	.height_auto
+	{
+		/*height: 135px !important;
+		border: 2px solid white;*/
+
+		height: 214px !important;
+	    width: 253px;
+	    border: 2px solid white;
+	}
+	.custom-3 
+	{
+    	/* flex: 0 0 25%; */
+    	max-width: 100%;
+	}
+	.custom-9
+	{
+	    /* flex: 0 0 75%; */
+	    max-width: 100%;
+	    padding: 10px;
+	}
+}
+@media only screen and (max-width: 767px) and (min-width: 451px)  
+{
+	.height_auto
+	{
+		height: 214px !important;
+	    width: 253px;
+	    border: 2px solid white;
+
+		/*height: 160px !important;
+		border: 2px solid white;*/
+	}
+	.custom-3 
+	{
+    	max-width: 100%;
+    	padding-left: 27%;
+	}
+	.custom-9 
+	{
+	    /* flex: 0 0 75%; */
+	    max-width: 100%;
+	    padding: 10px;
+	}
+	.text_aligin_center_res
+	{
+		text-align: center;
+	}
+	.width_40
+	{
+		width:40%;
+	}
+	.width_60
+	{
+		width:60%;
+	}
+}
+@media only screen and (min-width: 768px)  
+{
+	.height_auto
+	{
+		height: 230px !important;
+	    width: 230px;
+	    border: 2px solid white;
+	}
+	.custom-3 
+	{
+    	/* flex: 0 0 25%; */
+    	max-width: 34%;
+    	padding-left: 2%;
+	}
+	.custom-9 
+	{
+	    /* flex: 0 0 75%; */
+	    max-width: 66%;
+    	padding-left: 25px;
+	}
+	.width_40
+	{
+		width:40%;
+	}
+	.width_60
+	{
+		width:60%;
+	}
+}
+
+.btn-c1 {
+	background:linear-gradient(to right, #fa8b0c, #FF367E);
+}
+.ads-dyna {
+	padding-top: 20px;
+}
+.ads-dyna ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.ads-dyna li {
+	display: block;
+	margin-bottom: 10px;
+}
+.padd_r_0
+{
+	padding-right: 0px;
+}
+.details_header
+{
+    color: #333333;
+    font-weight: 600;
+}
+
+
+.category-title 
+{
+    border-radius: 10px;
+}
+.card-image img 
+{
+    max-height: 250px !important;
+    min-height: 250px !important;
+}
+
+.verified_btn_style_success 
+{
+    top: 0px !important;
+}
+.verified_btn_style_danger 
+{
+    top: 0px !important;
+}
+.pp_H_style
+{
+	color: black !important;
+    font-size: 20px !important;
+}
+.pp_img_style
+{
+	border-radius: 50%!important;
+}
+.pp_header
+{
+	color: #615353;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 45px;
+}
+.pp_name
+{
+	color:black !important;
+}
+.clr_red
+{
+	color: red !important;
+}
+
+
+/*new*/
+.width60 
+{
+	width: 60% !important;
+}
+.width80 
+{
+	width: 80% !important;
+}
+.width20 
+{
+	width: 20% !important;
+}
+.width40 
+{
+	width: 40% !important;
+}
+.width30
+{
+	width: 30% !important;
+}
+.width100
+{
+	width: 85% !important;
+	margin: 0 auto;
+}
+.img-loader 
+{
+	height: 200px;
+	border-radius: 5%;
+}

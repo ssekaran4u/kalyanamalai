@@ -1,0 +1,88 @@
+/* .sidebarscroll
+{
+    height: 640px;
+    overflow: auto;
+}
+.titleh1
+{
+    color: black;
+    font-size: 30px;
+    padding-bottom: 20px;
+}
+.b_radious
+{
+    border-radius: 10px !important;
+}*/
+.title-shape 
+{
+    width: 45px;
+    height: 4px;
+    border-radius: 30px;
+    background-color: #ff9400;
+    position: relative;
+    margin-bottom: 10px !important;
+}
+.sidebarscroll
+{
+    height: 640px;
+    overflow: auto;
+}
+ .sidebarscroll
+{
+    height: 640px;
+    overflow: auto;
+}
+.titleh1
+{
+    color: black;
+    font-size: 30px;
+    padding-bottom: 20px;
+}
+.padd0
+{
+    padding: 0px;
+}
+.card__img
+{
+    height: 202px;  
+}
+.card__img_leftborder
+{
+    height: 202px;
+    width: 100%;  
+    border-top-left-radius: 15px;  
+    border-bottom-left-radius: 15px;
+}
+.card__img_rightborder
+{
+    height: 202px;
+    width: 100%;   
+    border-top-right-radius: 15px;  
+    border-bottom-right-radius: 15px;
+}
+.card__img_right_top_border
+{
+    height: 202px;  
+    width: 100%; 
+    border-top-right-radius: 15px;  
+}
+.card__img_left_bottom_border
+{
+    height: 202px; 
+    width: 100%; 
+    border-bottom-left-radius: 15px;  
+}
+
+.sidebarscroll .active {
+    background: #ff9600;
+    border-radius: 5px;
+}
+.sidebarscroll .active label {
+    color: #fff;
+}
+.custom-checkbox 
+{
+    display: block;
+    margin-bottom: 5px;
+    padding: 0px 15px !important;
+}

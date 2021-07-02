@@ -1,0 +1,117 @@
+<section class="card-area padding-top-40px padding-bottom-100px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 padding-top-10px padding-bottom-10px">
+                <div class="col-lg-12 para_head_style">
+                    <h1 class="headingfont">Success Story</h1>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    
+                    <p class="sec__desc ">Kalyanamalai Private Limited as an ideal matrimonial service provider feels proud and happy to regularly publish the ‘Successful Marriage Fixing’ stories of its members. More than 3 lakhs registered users have found their right life partner through Kalyanamalai Private Limited. Parents, with all the faith in our services, used the Various promotional platforms of such as SUN TV, web, magazine and events to fix up the marriage of their son or daughter. Thousands of individuals have found the service offerings of Kalyanamalai Private Limited convenient to find their ideal life partner and get married.</p>
+                    <br>
+                    <p class="sec__desc">
+                        A good number of happy parents and others shared their successful experience in using the services of Kalyanamalai Private Limited. We take pride in publishing such stories under the banner "successful marriage fixing stories". The published success stories, amply describe the positive feelings of our members towards the services offered by Kalyanamalai Private Limited. We sincerely feel that publishing of such stories will encourage more parents to register for our services and get benefitted.
+                    </p>
+                    <br>
+                    <p class="sec__desc">
+                        We request the happy parents and the married couples, who have used our services, to share their success story of marriage. Please send your successful stories accompanied by a marriage photo for publication in the web and in the Kalyanamalai magazine. Published stories will win an exclusive gift from us.
+                    </p>
+                    <hr>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="generic-header margin-bottom-30px">
+                    <p class="showing__text text-left">Showing {{showdata_list_start}} to {{showdata_list_end}} of {{totalsuccessstoriesItems}} entries</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-12" *ngFor="let successstorie of successstoriesInfo | paginate: { itemsPerPage: itemsPerPage , currentPage: successstoriespage, totalItems: totalsuccessstoriesItems }">
+                <div class="card-list-item">
+                    <div class="row">
+                        <div class="col-lg-2 text-center display_img">
+                            <img class="suss_img" src="{{successstorie.GroomProfilePicture}}">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-content">
+                                <span  *ngIf="successstorie.BrideName==''">
+                                    <h4 class="card-title reviewtitle h4-style">{{successstorie.GroomName}} [ {{successstorie.GroomRegNo}} ] 
+                                        
+                                    </h4>
+                                </span>
+                                <span  *ngIf="successstorie.GroomName==''">
+                                    <h4 class="card-title reviewtitle h4-style"> {{successstorie.BrideName}}  [ {{successstorie.BrideRegNo}} ]
+                                        
+                                    </h4>
+                                </span>
+                                <span  *ngIf="successstorie.BrideName!='' && successstorie.BrideRegNo!=0 && successstorie.GroomName!='' && successstorie.GroomRegNo!=0">
+                                    <h4 class="card-title reviewtitle h4-style">{{successstorie.GroomName}} [ {{successstorie.GroomRegNo}} ] - {{successstorie.BrideName}}  [ {{successstorie.BrideRegNo}} ]
+                                        
+                                    </h4>
+                                </span>
+                                <div class="title-shape"></div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="card_read" [ngClass]="{'limitTextHeight': isReadMore}"  id="StoryId{{successstorie.SuccessStoryId}}" [innerHtml]='successstorie.KalyanamalaiExperience'>
+                                          <!--   [ngClass]="{'limitTextHeight': isReadMore}" {{successstorie.KalyanamalaiExperience}} -->
+
+                                            <!-- THis is long text replaced w ith read more/less link example in Angular application paragraph text shown here continue continue THis is long text replaced w ith read more/less link example in Angular application paragraph text shown here continue continue
+                                            THis is long text replaced w ith read more/less link example in Angular application paragraph text shown here continue continue THis is long text replaced w ith read more/less link example in Angular application paragraph text shown here continue
+                                            continue THis is long text replaced w ith read more/less link example in Angular application paragraph text shown here continue continue THis is long text replaced w ith read more/less link example in Angular application paragraph text shown here
+                                            continue continue -->
+                                        </div>
+                                        <a type="button" (click)="showText(successstorie.SuccessStoryId)" id="ReadMore{{successstorie.SuccessStoryId}}" class="myBtn show">
+                                            <span style="color: #ff9400">Read More</span>
+                                        </a>
+                                        <a type="button" (click)="showText(successstorie.SuccessStoryId)" id="ReadLess{{successstorie.SuccessStoryId}}" class="myBtn hide">
+                                            <span style="color: #ff9400">Read Less</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 text-center display_img">
+                            <img class="suss_img" src="{{successstorie.BrideProfilePicture}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row"> -->
+            <div class="col-lg-12">
+                <pagination-controls 
+                    (pageChange)="getPage(successstoriespage = $event)"
+                    maxSize="9"
+                    directionLinks="true"
+                    autoHide="true"
+                    responsive="true">
+                </pagination-controls>
+            </div>
+            <!-- </div> -->
+            <!-- <div class="col-lg-12">
+                <pagination-controls 
+                        (pageChange)="getPage(successstoriespage = $event)"
+                        maxSize="9"
+                        directionLinks="true"
+                        autoHide="true"
+                        responsive="true">
+                </pagination-controls>
+            </div> -->
+            <!-- <div class="text-center">
+                
+            </div> -->
+            <div [ngClass]="{show: isStoriesNotFoundLoading==true}" class="col-lg-12 hide alert alert-danger text-center">
+                <strong>No data found...!</strong>
+            </div>
+        </div>
+    </div>
+</section>

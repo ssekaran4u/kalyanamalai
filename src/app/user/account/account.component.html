@@ -1,0 +1,258 @@
+<section class="dashboard-area padding-bottom-90px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 padd_0 padd_10">
+                <div class="progress-status" [ngClass]="{hide: isProfileCompleteness===true}">
+                    <div class="row">
+                        <div class="col-lg-6 padd_L_15">
+                            <p>Profile Status</p>
+                        </div>
+                        <div class="col-lg-6">
+                            <p class="text-right"><a routerLink="../../profile-complete">How to get 100%</a></p>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width:{{accountdetails.ProfileCompleteness}}%">{{accountdetails.ProfileCompleteness}}%</div>
+                    </div>
+                </div>
+                <!-- <div class="progress-status">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p>Profile Status</p>
+                        </div>
+                        <div class="col-lg-6">
+                            <p class="text-right"><a href="">How to get 100%</a></p>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width:70%">70%</div>
+                    </div>
+                </div> -->
+                <div class="dashboard-nav justify-content-between align-items-center mb-4">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <nav>
+                                <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link theme-btn pt-0 pb-0 mr-1 active" id="navTab1" data-toggle="tab" href="#navTabListing1" role="tab" aria-controls="navTabListing1" aria-selected="true">
+                                        <span class="la la-list-alt"></span> Account Details
+                                    </a>
+                                    <a class="nav-item nav-link theme-btn pt-0 pb-0 mr-1" id="navTab2" data-toggle="tab" href="#navTabListing2" role="tab" aria-controls="navTabListing2" aria-selected="false">
+                                        <span class="la la-user"></span> Payment Details
+                                    </a>
+                                    <a class="nav-item nav-link theme-btn pt-0 pb-0 mr-1" id="navTab3" data-toggle="tab" href="#navTabListing3" role="tab" aria-controls="navTabListing3" aria-selected="false">
+                                        <span class="la la-user"></span> Contact Details
+                                    </a>
+                                    <a class="nav-item nav-link theme-btn pt-0 pb-0 mr-1" id="navTab4" data-toggle="tab" href="#navTabListing4" role="tab" aria-controls="navTabListing4" aria-selected="false">
+                                        <span class="la la-user"></span> Advertisement Details
+                                    </a>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="padding-top-50px padding-bottom-50px tab-pane fade show active" id="navTabListing1" role="tabpanel" aria-labelledby="navTab1">
+                                    <div class="row">
+                                        <div class="col col1">
+                                            <div class="location-item">
+                                                <div class="loc-img">
+                                                    <i class="las la-address-book"></i>
+                                                </div>
+                                                <p>Registration No</p>
+                                                <div class="cfa-spinner text-center" [ngClass]="accountdetailsLoading==true ? 'show' : 'hide'">
+                                                    <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>
+                                                </div>
+                                                <div [ngClass]="accountdetailsLoading==false ? 'show' : 'hide'">
+                                                    <h5>{{accountdetails.RegNo}}</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col col2">
+                                            <div class="location-item">
+                                                <div class="loc-img">
+                                                    <i class="las la-user-circle"></i>
+                                                </div>
+                                                <p>User Id</p>
+                                                <div class="cfa-spinner text-center" [ngClass]="accountdetailsLoading==true ? 'show' : 'hide'">
+                                                    <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>
+                                                </div>
+                                                <div [ngClass]="accountdetailsLoading==false ? 'show' : 'hide'">
+                                                    <h5>{{accountdetails.UserId}}</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col col3">
+                                            <div class="location-item">
+                                                <div class="loc-img">
+                                                    <i class="las la-briefcase"></i>
+                                                </div>
+                                                <p>User Name</p>
+                                                <div class="cfa-spinner text-center" [ngClass]="accountdetailsLoading==true ? 'show' : 'hide'">
+                                                    <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>
+                                                </div>
+                                                <div [ngClass]="accountdetailsLoading==false ? 'show' : 'hide'">
+                                                    <h5>{{accountdetails.UserName}}</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col col4">
+                                            <div class="location-item">
+                                                <div class="loc-img">
+                                                    <i class="las la-calendar-alt"></i>
+                                                </div>
+                                                <p>Registration Date</p>
+                                                <div class="cfa-spinner text-center" [ngClass]="accountdetailsLoading==true ? 'show' : 'hide'">
+                                                    <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>
+                                                </div>
+                                                <div [ngClass]="accountdetailsLoading==false ? 'show' : 'hide'">
+                                                    <h5>{{accountdetails.RegisteredDate}}</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col col5">
+                                            <div class="location-item">
+                                                <div class="loc-img">
+                                                    <i class="las la-tachometer-alt"></i>
+                                                </div>
+                                                <p>Current status</p>
+                                                <div class="cfa-spinner text-center" [ngClass]="accountdetailsLoading==true ? 'show' : 'hide'">
+                                                    <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>
+                                                </div>
+                                                <div [ngClass]="accountdetailsLoading==false ? 'show' : 'hide'">
+                                                    <h5>{{accountdetails.CurrentStatus}}</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="navTabListing2" role="tabpanel" aria-labelledby="navTab2">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="cfa-spinner text-center" [ngClass]="paymentLoding==true ? 'show' : 'hide'">
+                                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                            </div>
+                                            <div class="hide" [ngClass]="{show: paymentData==true}">
+                                                <table class="table table-bordered w-100">
+                                                    <tr>
+                                                        <td>Receipt Id</td>
+                                                        <td>Package</td>
+                                                        <td>Valid From</td>
+                                                        <td>Valid To</td>
+                                                        <td>Receipt Status</td>
+                                                        <td>Remaining Days</td>
+                                                    </tr>
+                                                    <tr *ngFor="let paymentItem of paymentItems | paginate: {id:'paymentPaginate', itemsPerPage: itemsPerPage , currentPage: paymentpage, totalItems: paymentTotalItems }">
+                                                        <td>{{paymentItem.ReceiptId}}</td>
+                                                        <td>{{paymentItem.PackageName}}</td>
+                                                        <td>{{paymentItem.ValidFrom}}</td>
+                                                        <td>{{paymentItem.ValidTo}}</td>
+                                                        <td>{{paymentItem.ReceiptStatus}}</td>
+                                                        <td>{{paymentItem.RemainingDays}}</td>
+                                                    </tr>
+                                                </table>
+
+                                                <pagination-controls id="paymentPaginate"  (pageChange)="getPaymentPage(paymentpage = $event)"  directionLinks="true" maxSize="9" autoHide="true" responsive="true"></pagination-controls>
+
+                                            </div>
+                                            <div [ngClass]="{show: paymentNotFound==true}" class="hide alert alert-danger text-center">
+                                                <strong>No data found...!</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="navTabListing3" role="tabpanel" aria-labelledby="navTab3">
+                                    <div class="row clearfix padding-bottom-20px">
+                                        <div class="col col1">
+                                            <p>Maximum No. of Contacts</p>
+                                            <div class="progress">
+                                                <div class="progress-bar" [ngClass]="totalmaximumcontacts==0 ? 'bg-warning' : 'bg-success'"   style="width:100%">{{totalmaximumcontacts}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col col1">
+                                            <p>Total Contacts Viewed</p>
+                                            <div class="progress">
+                                                <div class="progress-bar1 bg-danger" style="width:{{viewedPercentage}}%">
+                                                    <!-- {{viewedPercentage}}% -->{{remainViews}}
+                                                </div>
+                                                <div class="progress-bar1 bg-success" style="width:{{remainingPercentage}}%">
+                                                    <!-- {{remainingPercentage}}% -->{{totalcontactsviewed}}
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="cfa-spinner text-center" [ngClass]="contactLoding==true ? 'show' : 'hide'">
+                                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                            </div>
+                                            <div class="hide" [ngClass]="{show: contactData==true}">
+                                                <table class="table table-bordered w-100">
+                                                    <tr>
+                                                        <td>Profile Name</td>
+                                                        <td>No.Of View</td>
+                                                        <td>Date</td>
+                                                    </tr>
+                                                    <tr *ngFor="let contactItem of contactItems | paginate: {id:'contactPaginate', itemsPerPage: itemsPerPage , currentPage: contactpage, totalItems: contactTotalItems }">
+                                                        <td>
+                                                            <a target="_blank" routerLink="/profile/{{contactItem.visitregno}}" title="View Profile">{{contactItem.profilename}} 
+                                                                [{{contactItem.visitregno}}]
+                                                            </a>
+                                                        </td>
+                                                        <td>{{contactItem.viewedcount}}</td>
+                                                        <td><span>{{contactItem.lastviewdate}}</span></td>
+                                                    </tr>
+                                                </table>
+                                                <pagination-controls id="contactPaginate"  (pageChange)="getContactPage(contactpage = $event)"  directionLinks="true" autoHide="true" responsive="true"></pagination-controls>
+                                                <!-- maxSize="9"  -->
+                                            </div>
+                                            <div [ngClass]="{show: contactNotFound==true}" class="hide alert alert-danger text-center">
+                                                <strong>No data found...!</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="navTabListing4" role="tabpanel" aria-labelledby="navTab4">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="cfa-spinner text-center" [ngClass]="advertisementLoding==true ? 'show' : 'hide'">
+                                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                            </div>
+
+                                            <div class="hide" [ngClass]="{show: advertisementData==true}">
+                                                <table class="table table-bordered w-100">
+                                                    <tr>
+                                                        <td>Package</td>
+                                                        <td>Product</td>
+                                                        <td>Valid From</td>
+                                                        <td>Valid To</td>
+                                                        <td>Receipt Status</td>
+                                                        <td>Payment Mode</td>
+                                                        <td>Remaining Days</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Online 3</td>
+                                                        <td>--</td>
+                                                        <td> 15/06/2019 </td>
+                                                        <td>15/09/2019</td>
+                                                        <td> Closed </td>
+                                                        <td> </td>
+                                                        <td> 0</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div [ngClass]="{show: advertisementNotFound==true}" class="hide alert alert-danger text-center">
+                                                <strong>No data found...!</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end dashboard-nav -->
+            </div><!-- end col-lg-12 -->
+        </div>
+    </div>
+</section>

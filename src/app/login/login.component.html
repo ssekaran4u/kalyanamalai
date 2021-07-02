@@ -1,0 +1,111 @@
+<!-- mobil/email = multile m -->
+<!-- username= km 1  83-->
+<section class="form-shared padding-top-40px padding-bottom-100px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="billing-form-item mb-0">
+                    <div class="billing-title-wrap border-bottom-0 pr-0 pl-0 pb-0 text-center">
+                        <h3 class="widget-title font-size-28 pb-0">Login to your account</h3>
+                    </div>
+                    <div class="billing-content">
+                        <div class="contact-form-action">
+                            <form class="_rStep1" [formGroup]="initialLogin" (ngSubmit)="onSubmit()">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="input-box">
+                                            <label class="label-text">Username / Mobile No. / E-mail <span class="text-danger">*</span> </label>
+                                            <div class="form-group">
+                                                <span class="la la-user form-icon"></span>
+                                                <input (keyup)="detectUserId($event)" formControlName="username" class="form-control" type="email" name="text" placeholder="Username / Mobile No. / E-mail">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12" [ngClass]="{hide: isPasswordOn===true}">
+                                        <div class="input-box">
+                                            <label class="label-text">Password <span class="text-danger">*</span> </label>
+                                            <div class="form-group">
+                                                <span class="la la-lock form-icon"></span>
+                                                <input class="form-control" formControlName="password"  type="password" name="password" placeholder="Password">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12" style="display: none;" [ngClass]="{show: isOTP===true}">
+                                        <div class="input-box">
+                                            <label class="label-text">OTP <span class="text-danger">*</span> </label>
+                                            <div class="form-group">
+                                                <span class="la la-lock form-icon"></span>
+                                                <input class="form-control" formControlName="otp"  type="text" name="otp" placeholder="OTP">
+                                                <button class="btn btn-warning resentotp-btn" type="button" id="btnContinue" (click)="onResendOtP()">Resend OTP</button>
+                                                <!-- <button class="btn btn-warning resentotp-btn hide-count-btn" type="button" id="btnContinueROTP">Resend OTP</button> -->
+                                            </div>
+                                            <!-- <div class="form-group input-group mb-3">
+                                                <span class="la la-lock form-icon"></span>
+                                                <input class="form-control" formControlName="otp"  type="text" name="otp" placeholder="OTP">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-warning" type="button">Resend OTP</button>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                       
+                                    </div>
+
+                                    <div class="col-lg-12" style="display: none;" [ngClass]="{show: isMultipleAccount===true}">
+                                        <div class="form-group custom-form-group _hv_Ch">
+                                            <label class="label-text posit-init ">Which Profile Do you want to Choose.?</label>
+                                            <ul class="radiogroup MaritalStatus">
+
+                                                 <li *ngFor="let account of accounts">
+                                                    <label class="_Ms_s control-radio" for="{{account.id}}">
+                                                        <input formControlName="currentAccount" type="radio" id="{{account.id}}" name="currentAccount" [value]="account.id">
+                                                        <span><img src="{{account.profile}}" class="img-fluid"></span>
+                                                        <span>{{account.name}}</span>
+                                                        <span class="pull-right"><i class="las la-check"></i> Select</span>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="btn-box margin-bottom-20px">
+                                            <button type="submit" class="btn btn-c1" [disabled]="disableBtn">{{SubmitbuttonName}}</button>
+                                        </div>
+                                    </div>
+                                    <div class="row clearfix col-md-12">
+                                        <div class="col-md-6">
+                                            <p class="font-weight-medium">Not a member? <a routerLink="/" class="color-text"> Register</a></p>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            <a routerLink="/recover" class="color-text font-weight-medium">Forgot password?</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                       <div class="account-assist mt-2 mb-4 text-center">
+                                           <p class="account__desc">or</p>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group text-center">
+                                            <ul class="sc-ic">
+                                                <li>
+                                                    <i class="fa fa-google" #loginRef></i> 
+                                                </li>
+                                                <li><i class="fa fa-facebook-f"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="overlay" [ngClass]="{show: isLoading===true}">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>

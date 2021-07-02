@@ -1,0 +1,223 @@
+<div class="container-fluid">
+    <div class="row">
+        <div id="_extend_Id" class="col-md-8 offset-lg-2 offset-sm-0">
+            <form id="msform" class="_rStep2" [formGroup]="editFamilyInformationForm" (ngSubmit)="onSubmit()">
+                <fieldset>
+                    <div class="billing-form-item">
+                        <div class="progressbar"></div>
+                        <div class="billing-content">
+                            <div class="contact-form-action">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="1st _rImge">
+                                            <img src="assets/images/reg/family-information.png" class="img-fluid mx-auto d-none d-xl-block">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="col-lg-12">
+                                            <h2 class="fs-title">Family Information </h2>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group custom-form-group mr-bt-20" [ngClass]="{'focused' : isfathername==true}">
+                                                        <label for="fana" [ngClass]="{'active' : isfathername==true}">Father Name</label>
+                                                        <span class="las la-male form-icon"></span>
+                                                        <input 
+                                                        formControlName="father_name" 
+                                                        type="text" class="form-control" 
+                                                        id="fana" 
+                                                        name="father_name" 
+                                                        value="{{isEdit.FatherName}}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group custom-form-group mr-bt-20" [ngClass]="{'focused' : isfatherProf==true}">
+                                                        <label for="fapro" [ngClass]="{'active' : isfatherProf==true}">Father Profession</label>
+                                                        <span class="las la-briefcase form-icon"></span>
+                                                        <input 
+                                                        formControlName="father_profession" 
+                                                        type="text" 
+                                                        class="form-control" 
+                                                        id="fapro" 
+                                                        name="father_profession" 
+                                                        value="{{isEdit.FatherProfession}}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group custom-form-group" [ngClass]="{'focused' : ismotherrname==true}">
+                                                        <label for="mona" [ngClass]="{'active' : ismotherrname==true}">Mother Name</label>
+                                                        <span class="las la-female form-icon"></span>
+                                                        <input 
+                                                        formControlName="mother_name" 
+                                                        type="text" 
+                                                        class="form-control" 
+                                                        id="mona" 
+                                                        name="mother_name" 
+                                                        value="{{isEdit.MotherName}}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group custom-form-group" [ngClass]="{'focused' : ismotherrProf==true}">
+                                                        <label for="mopro" [ngClass]="{'active' : ismotherrProf==true}">Mother Profession</label>
+                                                        <span class="las la-briefcase form-icon"></span>
+                                                        <input 
+                                                        formControlName="mother_profession" 
+                                                        type="text" 
+                                                        class="form-control" 
+                                                        id="mopro" 
+                                                        formControlName="mother_profession" 
+                                                        value="{{isEdit.MotherProfession}}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12">
+                                            <div class="mg-tp-10 siblings">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <label class="label-text">No of Brother </label>
+                                                        <div class="row">
+                                                            <div class="col-lg-6 padding-right-5px">
+                                                                <div class="form-group custom-form-group" [ngClass]="{'focused' : isBroUnmarried==true}">
+                                                                    <label for="siunmafe" [ngClass]="{'active' : isBroUnmarried==true}">Single</label>
+                                                                    <i class="las la-user form-icon"></i>
+                                                                    <input 
+                                                                    (keypress)="numberOnly($event)" 
+                                                                    formControlName="single_brother" 
+                                                                    type="text" 
+                                                                    class="form-control"
+                                                                     id="siunmafe" 
+                                                                     name="single_brother" 
+                                                                     value="{{isEdit.BrothersUnmarried}}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 padding-right-5px padding-left-5px">
+                                                                <div class="form-group custom-form-group" [ngClass]="{'focused' : isBroMarried==true}">
+                                                                    <label for="simafe" [ngClass]="{'active' : isBroMarried==true}">Married</label>
+                                                                    <i class="las la-user-friends form-icon"></i>
+                                                                    <input 
+                                                                    (keypress)="numberOnly($event)" 
+                                                                    formControlName="married_brother" 
+                                                                    type="text" 
+                                                                    class="form-control" 
+                                                                    id="simafe" 
+                                                                    name="married_brother" 
+                                                                    value="{{isEdit.BrothersMarried}}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <label class="label-text">No of Sister </label>
+                                                        <div class="row">
+                                                            <div class="col-lg-6 padding-right-5px">
+                                                                <div class="form-group custom-form-group" [ngClass]="{'focused' : isSisUnmarried==true}">
+                                                                    <label for="siunmame" [ngClass]="{'active' : isSisUnmarried==true}">Single</label>
+                                                                    <i class="las la-user form-icon"></i>
+                                                                    <input 
+                                                                    (keypress)="numberOnly($event)" 
+                                                                    formControlName="single_sister" 
+                                                                    name="single_sister" type="text" 
+                                                                    class="form-control" 
+                                                                    id="siunmame" 
+                                                                    value="{{isEdit.SistersUnmarried}}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 padding-right-5px padding-left-5px" >
+                                                                <div class="form-group custom-form-group" [ngClass]="{'focused' : isSisMarried==true}">
+                                                                    <label for="simama" [ngClass]="{'active' : isSisMarried==true}">Married</label>
+                                                                    <i class="las la-user-friends form-icon"></i>
+                                                                    <input 
+                                                                    (keypress)="numberOnly($event)" 
+                                                                    formControlName="married_sister" 
+                                                                    name="married_sister"  
+                                                                    type="text" 
+                                                                    class="form-control" 
+                                                                    id="simama" 
+                                                                    value="{{isEdit.SistersMarried}}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group custom-form-group _hv_Ch">
+                                                <label class="label-text posit-init">Family Value? <span class="text-danger">*</span> </label>
+                                                <ul class="radiogroup Family_ValueList">
+                                                    <li *ngFor="let familyValue of familyValues">
+                                                        <!-- [checked]="familyValue.id==MaritalSelected" -->
+                                                        <label 
+                                                        class="_Ms_fv control control-radio" 
+                                                        for="{{familyValue.name}}" 
+                                                        [class.active]="SelectedfamilyValue == familyValue.id">
+                                                            <input 
+                                                            formControlName="Family_ValueList" 
+                                                            type="radio" id="{{familyValue.name}}" 
+                                                            name="Family_ValueList" 
+                                                            [checked]="familyValue.id== SelectedfamilyValue" 
+                                                            [value]="familyValue.id">
+                                                            <span>{{familyValue.name}}</span>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group custom-form-group _hv_Ch">
+                                                <label class="label-text posit-init">Family Status? <span class="text-danger">*</span> </label>
+                                                <ul class="radiogroup Family_StatusList">
+                                                    <li *ngFor="let familySt of familyStatus">
+                                                        <label 
+                                                        class="_Ms_fst control control-radio" 
+                                                        for="{{familySt.name}}" 
+                                                        [class.active]="SelectedfamilyStatus == familySt.id">
+                                                            <input 
+                                                            formControlName="Family_StatusList" 
+                                                            type="radio" id="{{familySt.name}}" 
+                                                            name="Family_StatusList" 
+                                                            [checked]="familySt.id== SelectedfamilyStatus" 
+                                                            [value]="familySt.id">
+                                                            <span>{{familySt.name}}</span>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                       <!--  <div class="col-lg-12 _xs_center_ _s_mar">
+                                            
+                                        </div> -->
+                                        <div class="col-lg-12 row">
+                                            <div class="col-lg-12 _xs_center_">
+                                                <!-- (click)="goToNextPage()" -->
+                                               <!--  <button [disabled]="disableBtn" type="submit" name="next" class='btn btn-lg next action-button'> 
+                                                    {{SubmitbuttonName}} <i class="las la-arrow-circle-right"></i> 
+                                                </button> -->
+                                                <button [disabled]="disableBtn" type="submit" name="next" class='btn btn-lg next action-button'> 
+                                                {{SubmitbuttonName}} <i class="las la-arrow-circle-right"></i> 
+                                                </button>
+                                            
+                                                <a class='btn btn-lg next action-button' routerLink="../../user/profile">
+                                                    Back to Profile 
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="overlay" [ngClass]="{show: isLoading===true}">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="container-fluid">
+    <div class="row">
+        <div id="_extend_Id" class="col-md-8 offset-lg-2 offset-sm-0">
+            <form id="otp-screen" [formGroup]="profileImageUpload" (ngSubmit)="onSubmit()">
+                <fieldset>
+                    <div class="billing-form-item">
+                        <div class="progressbar"></div>
+                        <div class="billing-content">
+                        	<button (click)="gotoNextPage()" class="btn btn-lg skip-button"><i class="las la-forward"></i> Skip </button>
+                            <div class="contact-form-action">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="1st _rImge">
+                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAhEK0nHmYil-y_U2VdSNHluYo8Bqs8C2B2A&usqp=CAU" class="img-fluid mx-auto d-none d-xl-block">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="col-lg-12">
+                                        	<div class="col-lg-12">
+                                        		<h2 class="fs-title">Upload Profile Photo</h2>
+                                        	</div>
+                                        	<div class="col-lg-12">
+	                                            <div class="drag-and-drop-wrap">
+	                                            	<div class="bode text-center">
+		                                                <div class="upload cur">
+		                                                	<input type="hidden" name="fileSource" formControlName="fileSource" value="fileSource">
+		                                                    <input class="cur" (change)="onSelectFile($event)" type="file" required id="files" name="files[]" multiple/>
+		                                                </div>
+                                                        <b>Upload Photo</b>
+		                                            </div>
+	                                                <div class="row clearfix">
+	                                                    <div *ngFor='let url of urls' class="col-lg-3">
+	                                                        <img [src]="url" class="img-fluid-c">
+	                                                    </div>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                        <div class="col-lg-12 _xs_center_ _s_mar">
+				                                <button [disabled]="disableBtn" type="submit" name="next" class='btn btn-lg next action-button'> 
+				                                    {{SubmitbuttonName}}  <i class="las la-arrow-circle-right"></i> 
+				                                </button>
+                                                 <a class='btn btn-lg next action-button' routerLink="../../user/profile">
+                                                    Back to Profile 
+                                                </a>
+				                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="overlay" [ngClass]="{show: isLoading===true}">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>

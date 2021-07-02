@@ -1,0 +1,212 @@
+.billing-title-wrap {
+	padding: 15px 0px;
+}
+.cfa-spinner {
+	margin: 0 auto;
+}
+.absolute {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 5px;
+	margin: 0 auto;
+	z-index: 1;
+}
+.alert-info
+{
+	margin: 10px;
+}
+
+
+
+
+.nav-tabs .nav-link.active 
+{
+    background-color: #ff9400 !important;
+    color: #fff !important;
+    border-color: #ff9400 !important;
+}
+.theme-btn 
+{
+    color: #333f57 !important;
+    background-color: #fff !important;
+    border: 1px solid rgba(128, 137, 150, 0.3) !important;
+        border-top-color: rgba(128, 137, 150, 0.3) !important;
+        border-right-color: rgba(128, 137, 150, 0.3) !important;
+        border-bottom-color: rgba(128, 137, 150, 0.3) !important;
+        border-left-color: rgba(128, 137, 150, 0.3) !important;
+    line-height: 44px !important;
+    position: relative !important;
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+}
+.theme-btn:hover 
+{
+    background-color: #ff9400 !important;
+    color: #fff !important;
+    border-color: #ff9400 !important;
+}
+.billing-content1 
+{
+    padding: 10px 3px !important;
+}
+.padd0
+{
+    padding: 0px;
+}
+.billing-title-wrap 
+{
+    /*padding: 15px 0px !important;
+    border-bottom: 1px solid rgba(128, 137, 150, 0.3);*/
+    padding: 15px 0px !important;
+    border-bottom: 1px solid rgb(251 252 255 / 30%);
+}
+.card-list-item1 
+{
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+.card-list-item1 .billing-title-wrap {
+    /*border-bottom: 2px solid #ff9400;*/
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, rgba(217, 219, 223, 0.8), rgba(255, 148, 0, 0.8));
+    border-image-slice: 1;
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+.card-list-item1 .widget-title {
+    font-size: 24px;
+    line-height: 33px;
+}
+.card-list-item1 .padd0px-btn {
+    border-radius:  initial;
+    padding: 4px 25px;
+}
+._remodify .contact h2{
+    font-size: 19px !important;
+}
+._remodify {
+    padding: 10px 0 10px 0;
+}
+
+.map-address-box .map-address li .map__title {
+    font-size: 19px;
+    margin-bottom: -3px;
+}
+.map-address-box .map-address li span {
+    color: #fff;
+    background-color: #ff9400;
+}
+._ngxcomm {
+    padding: 0 10px 0 10px;
+}
+._ngxcomm h3 {
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 15px !important;
+    border-bottom: 2px solid rgba(128,137,150,.3);
+    padding: 10px 0;
+    color: #008000;
+}
+.mg-pd-10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.singleLayOut img {
+    border-radius: 50%;
+}
+.card-list-item2
+{
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 0px 5px, rgba(0, 0, 0, 0.23) 0px 4px 15px;
+    margin-bottom: 15px;
+    border-radius: 3px;
+}
+
+.card-content1 
+{
+    /*padding: 20px 20px 10px 20px;*/
+    padding: 10px 20px 10px 20px;
+}
+
+/*.card-list-item1 .billing-title-wrap1 {
+*/    /*border-bottom: 2px solid #ff9400;*/
+   /* border-bottom: 2px solid;
+    border-image: linear-gradient(to right, rgba(217, 219, 223, 0.8), rgba(255, 148, 0, 0.8));
+    border-image-slice: 1;
+    padding-left: 15px;
+    margin-bottom: 20px;
+    padding: -1px 0px;*/
+/*}*/
+.billing-title-wrap1 
+{
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, rgba(217, 219, 223, 0.8), rgba(255, 148, 0, 0.8));
+    border-image-slice: 1;
+    padding-left: 15px;
+    margin-bottom: 20px;
+    padding: -1px 0px;
+}
+
+.mdl_img_style
+{
+    height: 300px;
+    border-radius: 10px;
+    border: 5px solid #ff9600;
+}
+.span_style
+{
+    color: #544949d1;
+    font-weight: bolder;
+}
+/*.indicators 
+{
+    text-align: left !important;
+}*/
+.mg_t_10
+{
+    margin-top:10px;
+}
+.font_size_17
+{
+    font-size: 17px;
+}
+.mg_b_5
+{
+    margin-bottom: 5px;
+}
+.card_icon
+{
+    /*background: #f5f5f5;
+    box-shadow: rgb(0 0 0 / 19%) 0px 0px 5px, rgb(0 0 0 / 23%) 0px 4px 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    margin-left: 0px;
+    padding: 10px;*/
+        background: #f5f5f5;
+    box-shadow: rgb(0 0 0 / 0%) 0px 0px 5px, rgb(0 0 0 / 20%) 0px 4px 6px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    margin-left: 0px;
+}
+/*.info-list li {
+    display: block;
+    color: #808996;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 5px !important;
+}*/
+.mrg_T_15
+{
+    margin-top: 15px;
+}
+.color_fff
+{
+    color: #f3f3f3;
+}
+.card-image img {
+    max-height: 220px !important;
+    min-height: 220px !important;
+}

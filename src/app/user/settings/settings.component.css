@@ -1,0 +1,673 @@
+.billing-content {
+	padding: 10px 20px;
+}
+.dashboard-nav .billing-title-wrap {
+	padding: 7px 20px !important;
+	 margin-bottom: initial; 
+}
+.hide {
+	display: none !important;
+}
+.show {
+	display: block !important;
+}
+
+.navbar-header .navbar {
+    background: initial;
+}
+ 
+
+.content-table h2 {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.content-table ul li {
+    padding-left: 10px;
+    line-height: 25px;
+    margin-bottom: 3px;
+}
+
+.content-table ul li::before {
+    width: 14px;
+    left: -6px;
+    top: 5px;
+}
+
+.content-table p {
+    line-height: 10px;
+}
+
+.content-table .price {
+    display: inline-block;
+}
+
+.content-table .price .num,
+.content-table .price .per {
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.content-table ul {
+    margin-top: 5px;
+}
+
+.content-table .additional h3 {
+    font-size: 13px;
+}
+
+.content-table .additional {
+    margin: 8px 0;
+    background: initial;
+    color: inherit;
+    border-radius: initial;
+    padding: 1px 0;
+    border-radius: 5px;
+}
+
+.content-table img {
+    max-height: 380px;
+    min-height: 380px;
+}
+
+/*form styles*/
+.contact-form-action .form-control {
+    padding: 5px 25px 5px 10px;
+}
+
+.contact-form-action label {
+    margin-bottom: 0;
+}
+
+.billing-form-item {
+    margin-bottom: 0px;
+}
+
+/*Hide all except first fieldset*/
+.contact-form-action .label-text {
+    text-align: left;
+    color: #82858b;
+    margin-bottom: 3px;
+}
+
+.billing-content {
+    padding: 13px;
+}
+
+.input-box {
+    text-align: left;
+}
+
+.contact-form-action .form-group {
+    margin-bottom: 5px;
+}
+
+.contact-form-action .form-group .form-icon {
+    top: 8px;
+    right: 7px;
+    left: initial;
+    font-size: 23px;
+}
+
+/*buttons*/
+#msform .action-button {
+    background: #ff9400;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 6px 40px;
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #ff9400;
+}
+
+
+/*headings*/
+.fs-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+hr {
+    margin: 7px 0;
+}
+.fs-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+.form-control {
+    border: 2px solid #C0C0C0 !important
+}
+.focused .form-control {
+    border: 2px solid #f5c120 !important
+}
+.form-control:focus {
+    color: initial;
+    background-color: #fff;
+    border-color: initial;
+    outline: 0;
+    box-shadow: initial;
+}
+/*.delete-info-content .focused {
+    border: 2px solid #f5c120 !important;
+}*/
+/* Not relevant to this form */
+.dme_link {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.dme_link a {
+    background: #FFF;
+    font-weight: bold;
+    color: #ff9400;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 5px 25px;
+    font-size: 12px;
+}
+
+.dme_link a:hover,
+.dme_link a:focus {
+    background: #C5C5F1;
+    text-decoration: none;
+}
+
+.select2-container.select2-container--default .select2-results .select2-results__options {
+    min-height: 200px !important;
+}
+
+.custom-control-input:checked~.custom-control-label:before {
+    border-color: #ff9400;
+    background-color: #ff9400;
+}
+
+.custom-radio .custom-control-input:checked~.custom-control-label:after {
+    background-image: initial;
+}
+
+.custom-control-input:not(:disabled):active~.custom-control-label:before {
+    border-color: #ff9400;
+    background-color: #ff9400;
+}
+
+.custom-control-label::before {
+    border: #ff9400 solid 1px
+}
+
+.custom-control-input:focus~.custom-control-label::before {
+    box-shadow: initial;
+}
+
+.billing-content .custom-checkbox {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.custom-control-inline {
+    margin-right: 10px;
+}
+
+.commAddress {
+    border: 1px solid rgba(128, 137, 150, 0.3);
+    padding: 5px;
+    margin-top: 15px;
+}
+
+.commAddress h2 {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 0px;
+}
+
+._reSend_ a,
+._reSend_ a:hover {
+    color: #ff9400;
+}
+
+.Siblings ul {
+    list-style: none;
+}
+
+.Siblings ul li {
+    display: inline-block;
+}
+
+.Siblings .form-control {
+    text-align: center;
+    width: 80px;
+    padding: 6px 4px 6px 5px;
+}
+
+.Siblings i {
+    font-size: 30px;
+    background: #0a8011;
+    border-radius: 50%;
+    padding: 6px;
+    color: #fff;
+    line-height: 33px;
+    margin: 0 10px;
+}
+
+.Siblings .la-male {
+    background: #ce1525;
+}
+
+._exclusive_img {
+    max-height: 593px;
+}
+
+.red .pricing-item-box {
+    border: 2px solid #ff0000;
+}
+
+.red .plan-name,
+.red .pricing-additional {
+    background: #ff0000;
+}
+
+.plan-price-content h3 span {
+    background: #ff9400;
+}
+
+.green .pricing-item-box {
+    border: 2px solid #074925;
+}
+
+.green .plan-name,
+.green .pricing-additional {
+    background: #074925;
+}
+
+.form-group>label {
+    top: 11px;
+    left:10px;
+    position: relative;
+    background-color: white;
+    padding: 0px 5px 0px 5px;
+    font-size: 0.9em;
+}
+
+.custom-form-group label {
+    position: absolute;
+    top: 0;
+    margin: 8px;
+    background-color: #fff;
+    -webkit-transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
+    transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
+}
+
+.custom-form-group .active {
+    top: -20px;
+    border-radius: 5px;
+}
+
+.custom-form-group input[type=text], .custom-form-group textarea {
+    width: 100%;
+    border: 2px solid #C0C0C0;
+}
+
+.custom-form-group input[type=text]:focus,
+.custom-form-group input[type=text]:hover,
+.custom-form-group textarea:focus,
+.custom-form-group textarea:hover {
+    outline: none;
+    border: 2px solid rgba(0, 0, 0, .87);
+}
+
+.custom-form-group ul {
+    list-style: none;
+}
+
+.custom-form-group ul li {
+    display: inline-block;
+    padding: 1px 5px;
+    border: 2px solid #c0c0c0;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 13px;
+    margin-bottom: 10px;
+    margin-right: 4px;
+}
+
+.custom-form-group ul li:hover {
+    border: 2px solid rgba(0, 0, 0, .87);
+    color: rgba(0, 0, 0, .87);
+}
+.prl_bg li {
+    padding: 3px 10px !important;
+}
+
+._hv_Ch label {
+    margin: 0;
+    padding-left: 0;
+}
+
+
+.floating-label {
+    position: relative;
+    border: 2px solid #c0c0c0;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.floating-input,
+.floating-select {
+    font-size: 14px;
+    padding: 10px 14px;
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+}
+
+.floating-input:focus,
+.floating-select:focus {
+    outline: none;
+}
+
+.floating-label label {
+    background: #fff;
+    color: #999;
+    font-size: 14px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 15px;
+    top: 5px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.floating-input:focus~label,
+.floating-input:not(:placeholder-shown)~label {
+    top: -15px;
+    font-size: 14px;
+    color: #999;
+    background: #fff;
+    left: 12px;
+    padding: 0 3px;
+}
+
+.floating-select:focus~label,
+.floating-select:not([value=""]):valid~label {
+    top: -15px;
+    font-size: 14px;
+    color: #999;
+    background: #fff;
+    left: 12px;
+    padding: 0 3px;
+}
+
+
+/* active state */
+
+.floating-input:focus~.bar:before,
+.floating-input:focus~.bar:after,
+.floating-select:focus~.bar:before,
+.floating-select:focus~.bar:after {
+    width: 50%;
+}
+
+.floating-textarea {
+    min-height: 30px;
+    max-height: 260px;
+    overflow: hidden;
+    overflow-x: hidden;
+}
+
+/* highlighter */
+.highlight {
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    top: 15%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* active state */
+.floating-input:focus~.highlight,
+.floating-select:focus~.highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+
+
+/* animation */
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@-moz-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+.mr-bt-10 {
+    margin-bottom: 10px;
+}
+
+.mr-tp-10 {
+    margin-top: 10px;
+}
+
+.mr-bt-20 {
+    margin-bottom: 20px !important;
+}
+
+.control-label {
+    font-size: 16px;
+    font-weight: 400;
+    pointer-events: none;
+    position: absolute;
+    transform: translate3d(0, 22px, 0) scale(1);
+    transform-origin: left top;
+    transition: 240ms;
+    line-height: 29px;
+}
+
+.form-group.focused .control-label {
+    transform: scale(0.75);
+    color: #82858b;
+    top:11px;
+    left: 5px;
+}
+
+select,
+select.form-control {
+    border: 2px solid #C0C0C0;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-left: 0;
+    padding-right: 0\9;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEVmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaP/QSjAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=);
+    -webkit-background-size: 13px 13px;
+    background-size: 22px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+/*TEXTAREA*/
+.has-float-label{
+    display:block;
+    position:relative
+}
+.has-float-label label,.has-float-label>span{
+    position:absolute;
+    cursor:text;
+    font-size:75%;
+    opacity:1;
+    -webkit-transition:all .2s;
+    transition:all .2s;
+    top:-.5em;
+    left:.75rem;
+    z-index:3;
+    line-height:1;
+    padding:0 1px;
+    background: white;
+}
+.has-float-label label::after,.has-float-label>span::after{
+    content:" ";
+    display:block;
+    position:absolute;
+    background:#fff;
+    height:2px;
+    top:50%;
+    left:-.2em;
+    right:-.2em;
+    z-index:-1
+}
+.has-float-label .form-control::-webkit-input-placeholder{
+    opacity:1;
+    -webkit-transition:all .2s;
+    transition:all .2s
+}
+.has-float-label .form-control::-moz-placeholder{
+    opacity:1;
+    transition:all .2s
+}
+.has-float-label .form-control:-ms-input-placeholder{
+    opacity:1;
+    transition:all .2s
+}
+.has-float-label .form-control::placeholder{
+    opacity:1;
+    -webkit-transition:all .2s;
+    transition:all .2s
+}
+.has-float-label .form-control:placeholder-shown:not(:focus)::-webkit-input-placeholder{
+    opacity:0
+}
+.has-float-label .form-control:placeholder-shown:not(:focus)::-moz-placeholder{
+    opacity:0
+}
+.has-float-label .form-control:placeholder-shown:not(:focus):-ms-input-placeholder{
+    opacity:0
+}
+.has-float-label .form-control:placeholder-shown:not(:focus)::placeholder{
+    opacity:0
+}
+.has-float-label .form-control:placeholder-shown:not(:focus)+*{
+    font-size:100%;
+    color: #6c757d;
+    opacity: 1;
+    top:.3em
+}
+.input-group .has-float-label{
+    -webkit-box-flex:1;
+    -webkit-flex-grow:1;
+    -ms-flex-positive:1;
+    flex-grow:1;
+    margin-bottom:0;
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-orient:vertical;
+    -webkit-box-direction:normal;
+    -webkit-flex-direction:column;
+    -ms-flex-direction:column;
+    flex-direction:column;
+    -webkit-box-pack:center;
+    -webkit-justify-content:center;
+    -ms-flex-pack:center;
+    justify-content:center
+}
+.has-float-label .form-control:placeholder-shown:not(:focus) + * {
+    margin-top: 6px;
+}
+
+
+/*Active */
+.billing-content .focused .form-control{
+    border: 2px solid #f5c120;
+}
+
+
+/*28-01-2021
+radio button hide */
+.radiogroup li {
+  display: inline-block;
+}
+.radiogroup li input {
+  display: none;
+}
+.radiogroup li label {
+    cursor: pointer;
+    border: 2px solid #c0c0c0 !important;
+    padding: 1px 10px;
+    border-radius: 4px;
+}
+.radiogroup li label:hover {
+    border: 2px solid #000 !important;
+}
+.radiogroup li label.active  {
+  border: 2px solid #f5c120 !important;
+  color: #696969;
+
+}
+
+.radiogroup label{
+    position: initial !important;
+    margin: 0px !important;
+}
+.radiogroup li {
+    padding: 1px 5px;
+    border: none !important;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 13px;
+    margin-bottom: 10px;
+    margin-right: 4px;
+}
+.tbl_mg_2
+{
+    margin-bottom: 2px;
+}
+

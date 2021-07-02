@@ -1,0 +1,62 @@
+<div class="cfa-spinner text-center" [ngClass]="isPageLoading==true ? 'show' : 'hide'">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+</div>
+<div class="hide" [ngClass]="{show: isData==true}">
+    <div class="container db-padding-btm db-attached">
+        <!-- <button (click)="goToNextPage()" class="btn btn-lg skip-button"><i class="las la-forward"></i> Skip</button> -->
+        <div class="col-md-12 row padd0" style="margin-left: 0px;">
+            <div *ngFor='let package of isPackages; let iX = index' class="plr col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
+                <div class="db-wrapper">
+                    <div class="db-pricing-eleven border_style" [ngClass]="{'db-bk-color-one': iX === 0, 'db-bk-color-two':iX === 1 }" >
+                        <div class="price raletp">
+                            {{package.PackageName}}
+                        </div>
+                        <div class="type">
+                            <ul>
+                                <li><s>&#8377; {{package.PackageCost | number : '1.0-0'}}</s> </li>
+                                <li>&#8377; {{package.PackageCost | number : '1.0-0'}}</li>
+                            </ul>
+                            <p>Validity {{package.ValidMonths | number : '1.0-0'}} Months</p>
+                        </div>
+                        <div class="contacts">
+                            <p>No of Contacts : {{package.NoOfContacts | number : '1.0-0'}}</p>
+                        </div>
+
+                        <div class="description" [innerHtml]='package.PackageDetailContent'>
+                        </div>
+                        <div class="addtype">
+                            <p>Additional Benefits for 6 Months <br> Rs.6000 worth benefits are free</p>
+                        </div>
+                        <div class="description">
+                            <ul>
+                                <li>Participation charges for Digital community meet-Free</li>    
+                                <li>Getting matches * in community meet-Free</li>    
+                                <li>Participation in Vivaha Pratana Pooja-Free</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <button (click)="goPaymentPage(package.PackageId, package.PackageName)" class="btn db-button-color-square btn-lg">Pay Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="plr col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="db-wrapper _exclu_">
+                    <div class="db-pricing-eleven db-bk-color-three">
+                        <!-- <div class="price rarttp">
+                            Exclusive
+                        </div> -->
+                        <div class="border_style">
+                             <a  routerLink="../scheme-exclusive"><img src="assets/images/exe-site-add.png" class="img-fluid"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="overlay" [ngClass]="{show: isLoading===true}">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>

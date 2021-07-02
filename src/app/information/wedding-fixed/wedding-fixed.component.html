@@ -1,0 +1,69 @@
+<section class="team-area padding-top-10px padding-bottom-20px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 padding-top-30px">
+                <div class="col-lg-12 para_head_style">
+                    <h1 class="headingfont">Wedding Fixed today</h1>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="section-heading text-center">
+                    <h2 class="sec__title subheadingfont">Wedding</h2>
+                    <p class="sec__desc contentfont">Fixing of wedding is of the most beautiful and memorable experience relished by every couple and remembered all through their life. Kalyanamalai Private Limited happily announces the Fixing of Wedding for the following members registered with it.</p>
+                    <hr>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="team-area padding-top-10px padding-bottom-20px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 cfa-spinner text-center" [ngClass]="isLoading==true ? 'show' : 'hide'">
+                    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                </div>
+
+                <div class="col-lg-12 text-center" style="padding-bottom: 30px;" *ngFor="let weddingfixtoday of weddingfixtodayInfo | paginate: { itemsPerPage: itemsPerPage , currentPage: weddingspage, totalItems: totalweddingItems }">
+                   
+                    <div class="invoice-table table-responsive">
+                        <table class="table-bordered w-100" >
+                            <thead>
+                                 <tr>
+                                    <th  colspan="2" class="tablebackgroundclr tablebordercolor"><b>DATE:</b> {{weddingfixtoday.WeddingDate}}</th>
+                                </tr>
+                                <tr>
+                                    <th class="tablebordercolor tbwidth">Marriage Id</th>
+                                    <th class="tablebordercolor">Name & Registration Number</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let Marriages of weddingfixtoday.Marriages;">
+                                    <td class="column1 tablebordercolor"> {{Marriages.MarriageId}}</td>
+                                    <td class="column2 tablebordercolor"> {{Marriages.FirstName}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><!-- end table-responsive -->
+
+                </div><!-- end col-lg-12 -->
+
+                <div class="col-lg-12">
+                    <pagination-controls 
+                        (pageChange)="getPage(weddingspage = $event)"
+                        maxSize="9"
+                        directionLinks="true"
+                        autoHide="true"
+                        responsive="true">
+                    </pagination-controls>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+</section>
+<!-- 
+<div id="overlay" [ngClass]="{show: isLoading===true}">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div> -->

@@ -1,0 +1,18 @@
+.card_p
+    {
+        padding-bottom: 10px;
+    }
+.billcnt
+    {
+        /*padding-top: 5px;
+        padding-bottom: 5px;*/
+        padding: 0px;
+    }
+.billcntdiv
+    {
+        border: 0px;
+    }
+.imgheightlength
+    {
+        height: -webkit-fill-available;
+    }
