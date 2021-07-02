@@ -37,7 +37,7 @@ function initMap(dom_el_id, lat, lng, marker_icon) {
     }
     let map = new google.maps.Map(
         element_to_mount_map, {
-            zoom: 13,
+            zoom: 10,
             scrollwheel: false,
             center: lat_lng,
             styles: [
